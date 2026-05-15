@@ -20,7 +20,7 @@ function GeometryPage() {
     "operatingSystem": "All",
     "applicationCategory": "EducationalApplication",
     "browserRequirements": "Requires JavaScript. Requires HTML5.",
-    "url": "https://calc.raotahir.online/geometry",
+    "url": "https://thecalcpro.com/geometry",
     "description": "Calculate area, perimeter, volume, and surface area for standard shapes with step-by-step KaTeX explanations and responsive 3D visual models.",
     "softwareVersion": "2.1.0",
     "offers": {

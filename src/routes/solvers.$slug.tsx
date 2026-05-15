@@ -35,7 +35,7 @@ function SolverPageComponent() {
     "name": solver.schema.name,
     "operatingSystem": "All",
     "applicationCategory": solver.schema.category,
-    "url": `https://calc.raotahir.online/solvers/${solver.slug}`,
+    "url": `https://thecalcpro.com/solvers/${solver.slug}`,
     "description": solver.schema.description,
     "offers": {
       "@type": "Offer",

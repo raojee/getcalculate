@@ -34,11 +34,11 @@ export default function LandingNav() {
       <div className="landing-nav-inner">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm bg-amber text-black transition-transform group-hover:scale-105">
-            CP
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
+            <img src="/logo.png" alt="CalcPro Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-bold text-base" style={{ color: 'var(--text-primary)' }}>
-            Calc<span className="text-amber">Pro</span>
+            TheCalc<span className="text-amber">Pro</span>
           </span>
         </Link>
 

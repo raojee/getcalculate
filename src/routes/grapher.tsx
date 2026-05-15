@@ -19,7 +19,7 @@ function GrapherPage() {
     "name": "CalcPro Graphing Visualizer",
     "operatingSystem": "All",
     "applicationCategory": "MathApplication",
-    "url": "https://calc.raotahir.online/grapher",
+    "url": "https://thecalcpro.com/grapher",
     "description": "High-performance interactive graphing tool for visualizing mathematical functions with asymptote detection and multi-equation support.",
     "softwareVersion": "1.4.2",
     "offers": {

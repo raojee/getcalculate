@@ -19,7 +19,7 @@ function StatisticsPage() {
     "name": "CalcPro Statistics Engine",
     "operatingSystem": "All",
     "applicationCategory": "StatisticsApplication",
-    "url": "https://calc.raotahir.online/statistics",
+    "url": "https://thecalcpro.com/statistics",
     "description": "Professional-grade statistical analysis tool for processing datasets and visualizing frequency distributions.",
     "softwareVersion": "1.0.5",
     "offers": {

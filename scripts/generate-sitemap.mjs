@@ -8,7 +8,7 @@ import path from 'path';
 const configPath = path.resolve('src/config/solversData.ts');
 const sitemapPath = path.resolve('public/sitemap.xml');
 
-const BASE_URL = 'https://calc.raotahir.online';
+const BASE_URL = 'https://thecalcpro.com';
 
 try {
   const content = fs.readFileSync(configPath, 'utf-8');

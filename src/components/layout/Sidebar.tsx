@@ -112,11 +112,11 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         {/* Logo */}
         <div className="sidebar-logo">
           <Link to="/" onClick={onClose} className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-xl flex items-center justify-center font-black text-xs bg-amber text-black transition-transform group-hover:scale-105">
-              CP
+            <div className="w-8 h-8 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-cover" />
             </div>
             <span className="font-bold text-sm" style={{ color: 'var(--text-primary)' }}>
-              Calc<span className="text-amber">Pro</span>
+              TheCalc<span className="text-amber">Pro</span>
             </span>
           </Link>
         </div>

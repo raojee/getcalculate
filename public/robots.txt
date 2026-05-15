@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calc.raotahir.online/sitemap.xml
+Sitemap: https://thecalcpro.com/sitemap.xml
+Sitemap: https://thecalcpro.com/sitemap-solvers.xml
