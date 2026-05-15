@@ -35,7 +35,7 @@ export default function LandingNav() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
-            <img src="/logo.png" alt="CalcPro Logo" className="w-full h-full object-cover" />
+            <img src="/Logo.png" alt="CalcPro Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-bold text-base" style={{ color: 'var(--text-primary)' }}>
             TheCalc<span className="text-amber">Pro</span>
