@@ -32,15 +32,23 @@ export default function LandingFooter() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           {/* Brand Column */}
-          <div className="col-span-2 md:col-span-1 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs bg-amber text-black">
-                CP
+          <div className="col-span-2 md:col-span-1 space-y-6">
+            <Link to="/" className="inline-block group transition-transform hover:scale-105">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden border border-amber/20 bg-gradient-to-br from-amber/10 to-transparent shadow-[0_0_15px_rgba(255,107,0,0.15)] transition-all group-hover:border-amber/40 group-hover:shadow-[0_0_25px_rgba(255,107,0,0.25)]">
+                <img 
+                  src="/logo.png" 
+                  alt="TheCalcPro Logo" 
+                  width="44" 
+                  height="44" 
+                  className="w-11 h-11 object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <span className="hidden font-black text-xs text-amber">CP</span>
               </div>
-              <span className="font-bold text-sm" style={{ color: 'var(--text-primary)' }}>
-                Calc<span className="text-amber">Pro</span>
-              </span>
-            </div>
+            </Link>
             <p className="text-xs leading-relaxed max-w-[200px]" style={{ color: 'var(--text-muted)' }}>
               The world-class math platform for students, engineers, and professionals.
             </p>
