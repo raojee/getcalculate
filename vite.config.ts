@@ -4,6 +4,7 @@ import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
 import netlify from '@netlify/vite-plugin-tanstack-start'
+import { VitePWA } from 'vite-plugin-pwa'
 
 const config = defineConfig({
   plugins: [
@@ -14,6 +15,10 @@ const config = defineConfig({
     netlify(),
     tanstackStart(),
     viteReact(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: false, // already using public/manifest.webmanifest
+    }),
   ],
 })
 
