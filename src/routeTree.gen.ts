@@ -25,6 +25,7 @@ import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as AlgebraRouteImport } from './routes/algebra'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolversSlugRouteImport } from './routes/solvers.$slug'
 
 const TrigonometryRoute = TrigonometryRouteImport.update({
   id: '/trigonometry',
@@ -106,6 +107,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolversSlugRoute = SolversSlugRouteImport.update({
+  id: '/solvers/$slug',
+  path: '/solvers/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -124,6 +130,7 @@ export interface FileRoutesByFullPath {
   '/scientific': typeof ScientificRoute
   '/statistics': typeof StatisticsRoute
   '/trigonometry': typeof TrigonometryRoute
+  '/solvers/$slug': typeof SolversSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/scientific': typeof ScientificRoute
   '/statistics': typeof StatisticsRoute
   '/trigonometry': typeof TrigonometryRoute
+  '/solvers/$slug': typeof SolversSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -161,6 +169,7 @@ export interface FileRoutesById {
   '/scientific': typeof ScientificRoute
   '/statistics': typeof StatisticsRoute
   '/trigonometry': typeof TrigonometryRoute
+  '/solvers/$slug': typeof SolversSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -181,6 +190,7 @@ export interface FileRouteTypes {
     | '/scientific'
     | '/statistics'
     | '/trigonometry'
+    | '/solvers/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -199,6 +209,7 @@ export interface FileRouteTypes {
     | '/scientific'
     | '/statistics'
     | '/trigonometry'
+    | '/solvers/$slug'
   id:
     | '__root__'
     | '/'
@@ -217,6 +228,7 @@ export interface FileRouteTypes {
     | '/scientific'
     | '/statistics'
     | '/trigonometry'
+    | '/solvers/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -236,6 +248,7 @@ export interface RootRouteChildren {
   ScientificRoute: typeof ScientificRoute
   StatisticsRoute: typeof StatisticsRoute
   TrigonometryRoute: typeof TrigonometryRoute
+  SolversSlugRoute: typeof SolversSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -352,6 +365,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solvers/$slug': {
+      id: '/solvers/$slug'
+      path: '/solvers/$slug'
+      fullPath: '/solvers/$slug'
+      preLoaderRoute: typeof SolversSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -372,6 +392,7 @@ const rootRouteChildren: RootRouteChildren = {
   ScientificRoute: ScientificRoute,
   StatisticsRoute: StatisticsRoute,
   TrigonometryRoute: TrigonometryRoute,
+  SolversSlugRoute: SolversSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
