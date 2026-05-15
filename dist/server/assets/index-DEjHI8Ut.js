@@ -1,0 +1,84 @@
+import { jsxs, jsx } from "react/jsx-runtime";
+import { Link } from "@tanstack/react-router";
+import { G as GlassCard } from "./GlassCard-BneF3lW9.js";
+const CATEGORIES = [{
+  name: "Advanced Math",
+  tools: [{
+    to: "/algebra",
+    label: "Algebra Solver",
+    desc: "Linear & quadratic equations"
+  }, {
+    to: "/calculus",
+    label: "Calculus",
+    desc: "Derivatives & limits"
+  }, {
+    to: "/trigonometry",
+    label: "Trigonometry",
+    desc: "Sin, cos, tan & more"
+  }]
+}, {
+  name: "Data & Analysis",
+  tools: [{
+    to: "/grapher",
+    label: "Graph Plotter",
+    desc: "Interactive visualization"
+  }, {
+    to: "/statistics",
+    label: "Statistics",
+    desc: "Data set analysis"
+  }, {
+    to: "/matrix",
+    label: "Matrix Calc",
+    desc: "Matrix operations"
+  }]
+}, {
+  name: "Practical",
+  tools: [{
+    to: "/geometry",
+    label: "Geometry",
+    desc: "Area, volume & shapes"
+  }, {
+    to: "/percentage",
+    label: "Percentage",
+    desc: "Quick % calculations"
+  }, {
+    to: "/converter",
+    label: "Converter",
+    desc: "Unit conversions"
+  }]
+}];
+function HomePage() {
+  return /* @__PURE__ */ jsxs("div", { className: "max-w-6xl mx-auto space-y-24 py-12 px-4", children: [
+    /* @__PURE__ */ jsxs("section", { className: "text-center space-y-8 py-12", children: [
+      /* @__PURE__ */ jsx("div", { className: "inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-amber text-[10px] font-bold uppercase tracking-widest text-amber", children: "The Future of Math is Here" }),
+      /* @__PURE__ */ jsxs("h1", { className: "text-5xl md:text-7xl font-black tracking-tight", style: {
+        color: "var(--text-primary)"
+      }, children: [
+        "Master Math with ",
+        /* @__PURE__ */ jsx("br", {}),
+        /* @__PURE__ */ jsx("span", { className: "text-amber", children: "Intelligence." })
+      ] }),
+      /* @__PURE__ */ jsx("p", { className: "max-w-2xl mx-auto text-lg", style: {
+        color: "var(--text-secondary)"
+      }, children: "CalcPro is the world-class math platform providing instant step-by-step solutions, interactive graphing, and AI-powered insights." }),
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap justify-center gap-4", children: [
+        /* @__PURE__ */ jsx(Link, { to: "/scientific", className: "amber-btn px-8 py-4 text-sm font-bold", children: "Launch Scientific Calc" }),
+        /* @__PURE__ */ jsx(Link, { to: "/algebra", className: "glass px-8 py-4 text-sm font-bold hover:bg-[rgba(255,157,46,0.05)] transition-all", children: "Try Algebra Solver" })
+      ] })
+    ] }),
+    CATEGORIES.map((cat) => /* @__PURE__ */ jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4", children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-bold uppercase tracking-widest", children: cat.name }),
+        /* @__PURE__ */ jsx("div", { className: "h-[1px] flex-1 glass" })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: cat.tools.map((tool) => /* @__PURE__ */ jsx(Link, { to: tool.to, children: /* @__PURE__ */ jsxs(GlassCard, { className: "h-full group hover:border-[rgba(255,157,46,0.2)]", children: [
+        /* @__PURE__ */ jsx("h3", { className: "text-lg font-bold mb-2", children: tool.label }),
+        /* @__PURE__ */ jsx("p", { className: "text-xs text-muted leading-relaxed", children: tool.desc })
+      ] }) }, tool.to)) })
+    ] }, cat.name)),
+    /* @__PURE__ */ jsx("footer", { className: "pt-12 pb-8 border-t border-[var(--border)] text-center", children: /* @__PURE__ */ jsx("p", { className: "text-[10px] font-mono text-faint", children: "© 2024 CalcPro Premium. All rights reserved." }) })
+  ] });
+}
+export {
+  HomePage as component
+};

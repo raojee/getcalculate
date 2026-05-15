@@ -1,12 +1,14 @@
+import { lazy, Suspense } from 'react'
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { solversData } from '../config/solversData'
-import GeometrySolver from '../components/GeometrySolver'
-import StatisticsCalculator from '../components/StatisticsCalculator'
-import GraphPlotter from '../components/GraphPlotter'
 import GlassCard from '../components/ui/GlassCard'
 import ResultActions from '../components/ui/ResultActions'
-import MathRenderer from '../components/ui/MathRenderer'
-import { BookOpen, HelpCircle, ArrowRight, LayoutGrid, CheckCircle2 } from 'lucide-react'
+import { BookOpen, HelpCircle, ArrowRight, LayoutGrid, Loader2 } from 'lucide-react'
+
+// Lazy load heavy engine modules for optimal tree-shaking
+const GeometrySolver = lazy(() => import('../components/GeometrySolver'))
+const StatisticsCalculator = lazy(() => import('../components/StatisticsCalculator'))
+const GraphPlotter = lazy(() => import('../components/GraphPlotter'))
 
 export const Route = createFileRoute('/solvers/$slug')({
   loader: ({ params }) => {
@@ -55,18 +57,29 @@ function SolverPageComponent() {
     }))
   }
 
-  // Map solver types to components
+  // Map solver types to lazy-loaded components
   const renderSolver = () => {
-    switch (solver.type) {
-      case 'geometry': return <GeometrySolver />
-      case 'statistics': return <StatisticsCalculator />
-      case 'grapher': return <GraphPlotter />
-      default: return (
-        <div className="py-20 text-center glass rounded-[2.5rem]">
-           <p className="text-muted text-sm font-bold uppercase tracking-widest">Base Module Template for {solver.type}</p>
+    return (
+      <Suspense fallback={
+        <div className="h-[500px] flex flex-col items-center justify-center glass rounded-[2.5rem] border-dashed border-white/5 bg-white/[0.01]">
+          <Loader2 className="w-10 h-10 text-amber animate-spin opacity-40 mb-4" />
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted opacity-40">Initializing Engine...</p>
         </div>
-      )
-    }
+      }>
+        {(() => {
+          switch (solver.type) {
+            case 'geometry': return <GeometrySolver />
+            case 'statistics': return <StatisticsCalculator />
+            case 'grapher': return <GraphPlotter />
+            default: return (
+              <div className="py-20 text-center glass rounded-[2.5rem]">
+                 <p className="text-muted text-sm font-bold uppercase tracking-widest">Base Module Template for {solver.type}</p>
+              </div>
+            )
+          }
+        })()}
+      </Suspense>
+    )
   }
 
   return (
@@ -101,7 +114,7 @@ function SolverPageComponent() {
         </GlassCard>
       </div>
 
-      {/* Main Solver Engine */}
+      {/* Main Solver Engine with Suspense Boundary */}
       <div className="mb-20">
          {renderSolver()}
       </div>
@@ -164,3 +177,4 @@ function SolverPageComponent() {
     </div>
   )
 }
+
