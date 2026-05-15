@@ -290,3 +290,229 @@ body {
   padding-top: 2rem;
 }
 
+
+/* ═══════════════════════════════════════════════════════
+   INNER WORKSPACE STYLES
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Sidebar Panel ──────────────────────────────────── */
+.sidebar-panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 50;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(22, 22, 22, 0.65);
+  backdrop-filter: saturate(150%) blur(24px);
+  -webkit-backdrop-filter: saturate(150%) blur(24px);
+  border-right: 1px solid var(--border);
+}
+
+[data-theme="light"] .sidebar-panel {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+@media (min-width: 1024px) {
+  .sidebar-panel {
+    position: relative;
+    flex-shrink: 0;
+  }
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.25rem;
+  height: 64px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-scroll::-webkit-scrollbar { width: 0; }
+
+/* ── Nav Link Styles ────────────────────────────────── */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="light"] .sidebar-link:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-link-active {
+  color: var(--amber) !important;
+  background: rgba(255, 157, 46, 0.08) !important;
+}
+
+.sidebar-link-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="light"] .sidebar-link-icon {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-link:hover .sidebar-link-icon {
+  color: var(--text-primary);
+}
+
+.sidebar-link-icon-active {
+  color: var(--amber) !important;
+  background: rgba(255, 157, 46, 0.12) !important;
+  border: 1px solid rgba(255, 157, 46, 0.15);
+}
+
+/* ── Top Bar ────────────────────────────────────────── */
+.topbar {
+  height: 64px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(14, 14, 14, 0.5);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="light"] .topbar {
+  background: rgba(250, 249, 246, 0.6);
+}
+
+.topbar-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  background: var(--bg-surface-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.topbar-toggle:hover {
+  transform: scale(1.05);
+  border-color: var(--border-strong);
+}
+
+/* ── Workspace Background ───────────────────────────── */
+.workspace-main {
+  position: relative;
+  background: var(--bg-page);
+}
+
+.workspace-glow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse at 80% 20%,
+    rgba(255, 157, 46, 0.04) 0%,
+    rgba(255, 107, 46, 0.015) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] .workspace-glow {
+  background: radial-gradient(
+    ellipse at 80% 20%,
+    rgba(255, 157, 46, 0.07) 0%,
+    rgba(255, 107, 46, 0.02) 40%,
+    transparent 70%
+  );
+}
+
+.workspace-dots {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+[data-theme="light"] .workspace-dots {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.035) 1px, transparent 1px);
+}
+
+/* ── Premium Example Pills ──────────────────────────── */
+.example-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 2rem;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-surface-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.example-pill:hover {
+  transform: scale(1.04);
+  background: rgba(255, 157, 46, 0.06);
+  border-color: rgba(255, 157, 46, 0.2);
+  color: var(--amber);
+  box-shadow: 0 4px 16px rgba(255, 157, 46, 0.06);
+}
+
+/* ── Premium Info Cards (Rules/Steps) ───────────────── */
+.info-card {
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: rgba(255, 157, 46, 0.15);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 157, 46, 0.05);
+}
+
+[data-theme="light"] .info-card:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 157, 46, 0.12);
+}
