@@ -1,1 +1,0 @@
-import{j as t}from"./index-Bezp6AAL.js";function d({children:a,className:s="",onClick:r,hover:o=!0}){return t.jsx("div",{onClick:r,className:`rounded-3xl glass p-6 transition-all duration-300 ${r?"cursor-pointer":""} ${s} ${o?"hover:-translate-y-1 hover:shadow-lg":""}`,style:{boxShadow:"var(--shadow-card)"},children:a})}export{d as G};

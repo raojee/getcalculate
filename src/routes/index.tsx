@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import GlassCard from '../components/ui/GlassCard'
+import { useState } from 'react'
+import LandingNav from '../components/layout/LandingNav'
+import LandingFooter from '../components/layout/LandingFooter'
 import FAQSection from '../components/ui/FAQSection'
-
 
 export const Route = createFileRoute('/')({
   head: () => ({
@@ -13,81 +14,247 @@ export const Route = createFileRoute('/')({
   component: HomePage,
 })
 
-const CATEGORIES = [
+/* ── Tool Card Data ─────────────────────────────────── */
+
+const TOOLS = [
   {
-    name: 'Advanced Math',
-    tools: [
-      { to: '/algebra', label: 'Algebra Solver', desc: 'Linear & quadratic equations' },
-      { to: '/calculus', label: 'Calculus', desc: 'Derivatives & limits' },
-      { to: '/trigonometry', label: 'Trigonometry', desc: 'Sin, cos, tan & more' },
-    ]
+    to: '/scientific',
+    label: 'Scientific Calculator',
+    desc: 'Full-featured scientific computing with trigonometric, logarithmic, and exponential functions.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="2" width="16" height="20" rx="2" /><line x1="8" y1="6" x2="16" y2="6" /><circle cx="9" cy="11" r="0.5" fill="currentColor" /><circle cx="15" cy="11" r="0.5" fill="currentColor" /><circle cx="12" cy="14" r="0.5" fill="currentColor" /><circle cx="9" cy="17" r="0.5" fill="currentColor" /><circle cx="15" cy="17" r="0.5" fill="currentColor" />
+      </svg>
+    ),
+    tag: 'Popular'
   },
   {
-    name: 'Data & Analysis',
-    tools: [
-      { to: '/grapher', label: 'Graph Plotter', desc: 'Interactive visualization' },
-      { to: '/statistics', label: 'Statistics', desc: 'Data set analysis' },
-      { to: '/matrix', label: 'Matrix Calc', desc: 'Matrix operations' },
-    ]
+    to: '/algebra',
+    label: 'Algebra Solver',
+    desc: 'Linear & quadratic equations with complete discriminant analysis and step-by-step solutions.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 18 8 6l4 12" /><line x1="5" y1="14" x2="11" y2="14" /><path d="M15 8h6" /><path d="M18 5v6" /><path d="M15 18h6" />
+      </svg>
+    ),
   },
   {
-    name: 'Practical',
-    tools: [
-      { to: '/geometry', label: 'Geometry', desc: 'Area, volume & shapes' },
-      { to: '/percentage', label: 'Percentage', desc: 'Quick % calculations' },
-      { to: '/converter', label: 'Converter', desc: 'Unit conversions' },
-    ]
-  }
+    to: '/calculus',
+    label: 'Calculus Engine',
+    desc: 'Compute derivatives, integrals, and limits with mathematically rigorous precision.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2" /><path d="M9 16c1-2 2-6 3-6s2 4 3 6" />
+      </svg>
+    ),
+    tag: 'Advanced'
+  },
+  {
+    to: '/grapher',
+    label: 'Graph Plotter',
+    desc: 'Interactive 2D function visualization with asymptote detection and multi-equation support.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      </svg>
+    ),
+    tag: 'Visual'
+  },
+  {
+    to: '/statistics',
+    label: 'Statistics Engine',
+    desc: 'Mean, median, mode, standard deviation and variance with frequency distribution charts.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+    ),
+  },
+  {
+    to: '/geometry',
+    label: 'Geometry Visualizer',
+    desc: 'Area, perimeter, volume calculations with responsive 3D SVG shape rendering.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 2 22 22 22" />
+      </svg>
+    ),
+  },
+  {
+    to: '/trigonometry',
+    label: 'Trigonometry',
+    desc: 'Sin, cos, tan and inverse functions with interactive unit circle visualization.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 20 L22 20" /><path d="M2 20 Q12 -2 22 20" />
+      </svg>
+    ),
+  },
+  {
+    to: '/matrix',
+    label: 'Matrix Calculator',
+    desc: 'Matrix operations including determinants, inverses, and eigenvalue analysis.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    to: '/converter',
+    label: 'Unit Converter',
+    desc: 'Convert between metric, imperial, and scientific unit systems instantly.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="17 1 21 5 17 9" /><path d="M3 11V9a4 4 0 0 1 4-4h14" /><polyline points="7 23 3 19 7 15" /><path d="M21 13v2a4 4 0 0 1-4 4H3" />
+      </svg>
+    ),
+  },
 ]
+
+const STATS = [
+  { value: '15+', label: 'Math Tools' },
+  { value: '0ms', label: 'Database Latency' },
+  { value: '100%', label: 'Client-Side' },
+  { value: 'Free', label: 'Forever' },
+]
+
+const FAQS = [
+  { q: 'Is CalcPro really free?', a: 'Yes, CalcPro is completely free to use with no hidden charges, subscriptions, or account requirements.' },
+  { q: 'Does CalcPro store my data?', a: 'No. CalcPro is 100% client-side. All calculations happen in your browser. We never store or transmit your data.' },
+  { q: 'Can I use it on mobile?', a: 'Absolutely. CalcPro is fully responsive and works beautifully on phones, tablets, and desktops.' },
+  { q: 'What math topics are supported?', a: 'Algebra, Calculus, Trigonometry, Statistics, Geometry, Matrix operations, Graph plotting, Unit conversion, and more.' },
+]
+
+/* ── Page Component ─────────────────────────────────── */
 
 function HomePage() {
   return (
-    <div className="max-w-6xl mx-auto space-y-24 py-12 px-4">
-      {/* Hero Section */}
-      <section className="text-center space-y-8 py-12">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-amber text-[10px] font-bold uppercase tracking-widest text-amber">
-          The Future of Math is Here
+    <div className="landing-page">
+      <LandingNav />
+
+      {/* ── Hero Section ─────────────────────────────── */}
+      <section className="hero-section">
+        <div className="hero-glow" />
+        <div className="dot-grid" />
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-32 sm:pt-40 pb-20">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-amber text-[10px] font-black uppercase tracking-[0.2em] text-amber mb-8 border border-amber/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber animate-pulse" />
+            The Future of Math is Here
+          </div>
+
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight leading-[0.95] mb-8" style={{ color: 'var(--text-primary)' }}>
+            Master Math
+            <br />
+            with <span className="gradient-text">Intelligence.</span>
+          </h1>
+
+          <p className="max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-12" style={{ color: 'var(--text-secondary)' }}>
+            CalcPro is a world-class math platform providing instant step-by-step solutions, interactive graphing, and precision engineering tools — all running at the speed of light, right in your browser.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link to="/scientific" className="amber-btn px-10 py-4 text-sm font-bold tracking-wide w-full sm:w-auto text-center">
+              Launch Calculator →
+            </Link>
+            <a href="#features" className="glass px-10 py-4 text-sm font-bold tracking-wide w-full sm:w-auto text-center rounded-[var(--radius)] hover:bg-[rgba(255,157,46,0.05)] transition-all" style={{ color: 'var(--text-secondary)' }}>
+              Explore Features
+            </a>
+          </div>
         </div>
-        
-        <h1 className="text-5xl md:text-7xl font-black tracking-tight" style={{ color: 'var(--text-primary)' }}>
-          Master Math with <br />
-          <span className="text-amber">Intelligence.</span>
-        </h1>
 
-        <p className="max-w-2xl mx-auto text-lg" style={{ color: 'var(--text-secondary)' }}>
-          CalcPro is the world-class math platform providing instant step-by-step 
-          solutions, interactive graphing, and AI-powered insights.
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/scientific" className="amber-btn px-8 py-4 text-sm font-bold">Launch Scientific Calc</Link>
-          <Link to="/algebra" className="glass px-8 py-4 text-sm font-bold hover:bg-[rgba(255,157,46,0.05)] transition-all">Try Algebra Solver</Link>
+        {/* Stats Bar */}
+        <div className="relative z-10 max-w-3xl mx-auto px-6 pb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {STATS.map(stat => (
+              <div key={stat.label} className="text-center py-5 px-4 glass rounded-2xl">
+                <div className="text-2xl font-black text-amber mb-1">{stat.value}</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      {CATEGORIES.map((cat) => (
-        <section key={cat.name} className="space-y-8">
-          <div className="flex items-center gap-4">
-            <h2 className="text-xl font-bold uppercase tracking-widest">{cat.name}</h2>
-            <div className="h-[1px] flex-1 glass" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cat.tools.map((tool) => (
-              <Link key={tool.to} to={tool.to}>
-                <GlassCard className="h-full group hover:border-[rgba(255,157,46,0.2)]">
-                  <h3 className="text-lg font-bold mb-2">{tool.label}</h3>
-                  <p className="text-xs text-muted leading-relaxed">{tool.desc}</p>
-                </GlassCard>
-              </Link>
-            ))}
-          </div>
-        </section>
-      ))}
+      {/* ── Features / Tools Grid ────────────────────── */}
+      <section id="features" className="relative max-w-6xl mx-auto px-6 py-24">
+        <div className="text-center mb-16 space-y-4">
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber">Comprehensive Toolkit</span>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            Everything you need to <span className="gradient-text">solve.</span>
+          </h2>
+          <p className="max-w-lg mx-auto text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            From basic arithmetic to advanced calculus — every tool is crafted for speed, accuracy, and visual clarity.
+          </p>
+        </div>
 
-      <footer className="pt-12 pb-8 border-t border-[var(--border)] text-center">
-         <p className="text-[10px] font-mono text-faint">© 2024 CalcPro Premium. All rights reserved.</p>
-      </footer>
+        <div id="solvers" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {TOOLS.map(tool => (
+            <Link key={tool.to} to={tool.to} className="tool-card group">
+              {/* Accent Corner */}
+              <div className="tool-card-icon">
+                {tool.icon}
+              </div>
+
+              {/* Tag */}
+              {tool.tag && (
+                <span className="absolute top-5 right-5 px-3 py-1 rounded-full bg-amber/10 text-amber text-[8px] font-black uppercase tracking-widest border border-amber/15">
+                  {tool.tag}
+                </span>
+              )}
+
+              <div className="pt-14 pb-2">
+                <h3 className="text-base font-bold mb-2 group-hover:text-amber transition-colors" style={{ color: 'var(--text-primary)' }}>
+                  {tool.label}
+                </h3>
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  {tool.desc}
+                </p>
+              </div>
+
+              {/* Arrow */}
+              <div className="flex items-center gap-2 mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-all translate-x-[-8px] group-hover:translate-x-0">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-amber">Open Tool</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber">
+                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FAQ Section ──────────────────────────────── */}
+      <section id="faq" className="max-w-2xl mx-auto px-6 py-24">
+        <div className="text-center mb-12 space-y-3">
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber">Support</span>
+          <h2 className="text-3xl font-black tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            Common Questions
+          </h2>
+        </div>
+        <FAQSection items={FAQS} title="" />
+      </section>
+
+      {/* ── CTA Banner ───────────────────────────────── */}
+      <section className="max-w-4xl mx-auto px-6 pb-24">
+        <div className="relative overflow-hidden rounded-[2rem] p-12 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, rgba(255,157,46,0.08), rgba(255,107,46,0.04))', border: '1px solid rgba(255,157,46,0.15)' }}>
+          <div className="absolute inset-0 dot-grid opacity-30" />
+          <div className="relative z-10">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
+              Ready to calculate?
+            </h2>
+            <p className="text-sm max-w-md mx-auto mb-8" style={{ color: 'var(--text-secondary)' }}>
+              No sign-up. No downloads. Just pure mathematical power.
+            </p>
+            <Link to="/scientific" className="amber-btn px-10 py-4 text-sm font-bold inline-block">
+              Get Started — It's Free →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <LandingFooter />
     </div>
   )
 }

@@ -97,3 +97,196 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb { background: var(--bg-surface-3); border-radius: 10px; }
+
+
+/* ═══════════════════════════════════════════════════════
+   LANDING PAGE STYLES
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Landing Page Shell ─────────────────────────────── */
+.landing-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Sticky Navbar ──────────────────────────────────── */
+.landing-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(14, 14, 14, 0.6);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="light"] .landing-nav {
+  background: rgba(250, 249, 246, 0.7);
+}
+
+.landing-nav-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 0.75rem;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="light"] .nav-link:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.nav-link-mobile {
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 0.75rem;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.nav-link-mobile:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ── Hero Section ───────────────────────────────────── */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 157, 46, 0.08) 0%,
+    rgba(255, 107, 46, 0.03) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] .hero-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 157, 46, 0.12) 0%,
+    rgba(255, 107, 46, 0.04) 40%,
+    transparent 70%
+  );
+}
+
+/* ── Dot Grid Pattern ───────────────────────────────── */
+.dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 30%, transparent 100%);
+}
+
+[data-theme="light"] .dot-grid {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+}
+
+/* ── Interactive Tool Cards ─────────────────────────── */
+.tool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.tool-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,157,46,0.02) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 157, 46, 0.25);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 157, 46, 0.1),
+    0 0 60px rgba(255, 157, 46, 0.04);
+}
+
+[data-theme="light"] .tool-card:hover {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 157, 46, 0.2),
+    0 0 60px rgba(255, 157, 46, 0.06);
+}
+
+.tool-card:hover::before {
+  opacity: 1;
+}
+
+.tool-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 157, 46, 0.08);
+  border: 1px solid rgba(255, 157, 46, 0.12);
+  color: var(--amber);
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover .tool-card-icon {
+  background: rgba(255, 157, 46, 0.15);
+  border-color: rgba(255, 157, 46, 0.25);
+  transform: scale(1.05);
+}
+
+/* ── Landing Footer ─────────────────────────────────── */
+.landing-footer {
+  position: relative;
+  padding-top: 2rem;
+}
+
