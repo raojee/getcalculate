@@ -8,6 +8,8 @@ import path from 'path';
 const configPath = path.resolve('src/config/solversData.ts');
 const sitemapPath = path.resolve('public/sitemap.xml');
 
+const BASE_URL = 'https://calc.raotahir.online';
+
 try {
   const content = fs.readFileSync(configPath, 'utf-8');
   // Extract slugs using regex to avoid TS compilation overhead in build script
@@ -18,11 +20,11 @@ try {
   const markerStart = '<!-- pSEO Programmatic Routes -->';
   const markerEnd = '</urlset>';
   const startIndex = sitemap.indexOf(markerStart);
-  
+
   if (startIndex !== -1) {
     const header = sitemap.substring(0, startIndex + markerStart.length);
-    const newRoutes = slugs.map(slug => `\n  <url><loc>https://getcalculate.netlify.app/solvers/${slug}</loc><priority>0.9</priority></url>`).join('');
-    
+    const newRoutes = slugs.map(slug => `\n  <url><loc>${BASE_URL}/solvers/${slug}</loc><priority>0.9</priority></url>`).join('');
+
     const finalSitemap = `${header}${newRoutes}\n</urlset>\n`;
     fs.writeFileSync(sitemapPath, finalSitemap);
     console.log(`✅ Sitemap synchronized: ${slugs.length} programmatic routes injected.`);
