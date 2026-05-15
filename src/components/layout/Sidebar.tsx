@@ -112,8 +112,19 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         {/* Logo */}
         <div className="sidebar-logo">
           <Link to="/" onClick={onClose} className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
-              <img src="/Logo.png" alt="Logo" className="w-full h-full object-cover" />
+            <div className="w-8 h-8 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 bg-amber/10">
+              <img 
+                src="/logo.png" 
+                alt="TheCalcPro Logo" 
+                width="32" 
+                height="32"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+              <span className="hidden font-black text-[10px] text-amber">CP</span>
             </div>
             <span className="font-bold text-sm" style={{ color: 'var(--text-primary)' }}>
               TheCalc<span className="text-amber">Pro</span>

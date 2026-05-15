@@ -32,10 +32,20 @@ export default function LandingNav() {
   return (
     <header className="landing-nav">
       <div className="landing-nav-inner">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
-            <img src="/Logo.png" alt="CalcPro Logo" className="w-full h-full object-cover" />
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 bg-amber/10">
+            <img 
+              src="/logo.png" 
+              alt="TheCalcPro Logo" 
+              width="36" 
+              height="36" 
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            <span className="hidden font-black text-xs text-amber">CP</span>
           </div>
           <span className="font-bold text-base" style={{ color: 'var(--text-primary)' }}>
             TheCalc<span className="text-amber">Pro</span>
