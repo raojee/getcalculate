@@ -24,6 +24,12 @@ export const Route = createFileRoute('/solvers/$slug')({
       { name: 'description', content: loaderData.description },
       { name: 'keywords', content: loaderData.keywords.join(', ') },
     ],
+    links: [
+      {
+        rel: 'canonical',
+        href: `https://thecalcpro.com/solvers/${loaderData.slug}`,
+      },
+    ],
   }),
   component: SolverPageComponent,
 })
