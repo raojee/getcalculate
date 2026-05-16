@@ -39,7 +39,7 @@ const TOOLS = [
     ),
   },
   {
-    to: '/calculus',
+    to: '/solvers/derivative-calculator',
     label: 'Calculus Engine',
     desc: 'Compute derivatives, integrals, and limits with mathematically rigorous precision.',
     icon: (

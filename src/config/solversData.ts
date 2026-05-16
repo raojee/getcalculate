@@ -100,5 +100,34 @@ export const solversData: SolverConfig[] = [
       { title: 'Input Dataset', content: 'Paste your comma-separated or newline-separated numeric data.' },
       { title: 'Analyze Spread', content: 'The engine computes mean and individual deviations instantly.' }
     ]
+  },
+  {
+    slug: 'derivative-calculator',
+    title: 'Step-by-Step Derivative Calculator',
+    subtitle: 'Compute derivatives of any function instantly',
+    description: 'Calculate derivatives using the power rule, chain rule, product rule, and quotient rule with complete step-by-step differentiation analysis.',
+    category: 'Calculus',
+    type: 'calculus',
+    keywords: ['derivative calculator', 'differentiation', 'calculus solver', 'power rule', 'chain rule', 'step by step derivatives'],
+    schema: {
+      name: 'CalcPro Derivative Engine',
+      description: 'Advanced calculus tool for computing derivatives with step-by-step differentiation logic.',
+      category: 'CalculusApplication'
+    },
+    faqs: [
+      {
+        question: 'How do you calculate the derivative of a function?',
+        answer: 'The derivative represents the instantaneous rate of change. It is calculated using differentiation rules like the power rule (d/dx x^n = nx^{n-1}) or the definition of the limit.'
+      },
+      {
+        question: 'Can this calculator handle the power rule and chain rule?',
+        answer: 'Yes, our engine automatically applies the power rule, chain rule, product rule, and quotient rule to solve complex multi-variable and nested functions.'
+      }
+    ],
+    steps: [
+      { title: 'Input Function', content: 'Enter the mathematical expression f(x) you wish to differentiate.' },
+      { title: 'Identify Rules', content: 'The engine identifies which differentiation rules (chain, product, quotient) apply to the expression.' },
+      { title: 'Differentiate', content: 'Each term is differentiated step-by-step until the final derivative is reached.' }
+    ]
   }
 ]
