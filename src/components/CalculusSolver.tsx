@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { derivative } from 'mathjs'
-import StepByStep from '@/components/ui/StepByStep'
-import AIHint from '@/components/ui/AIHint'
+import StepByStep from './ui/StepByStep'
+import AIHint from './ui/AIHint'
 
 export default function CalculusSolver() {
   const [input, setInput] = useState('')
