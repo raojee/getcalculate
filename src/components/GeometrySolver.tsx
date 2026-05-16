@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Sigma, AlertCircle } from 'lucide-react'
 import MathRenderer from './ui/MathRenderer'
 import GlassCard from './ui/GlassCard'
 import ResultActions from './ui/ResultActions'

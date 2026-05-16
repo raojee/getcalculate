@@ -29,7 +29,7 @@ const TOOLS = [
     tag: 'Popular'
   },
   {
-    to: '/algebra',
+    to: '/solvers/quadratic-equation-solver',
     label: 'Algebra Solver',
     desc: 'Linear & quadratic equations with complete discriminant analysis and step-by-step solutions.',
     icon: (
@@ -61,7 +61,7 @@ const TOOLS = [
     tag: 'Visual'
   },
   {
-    to: '/statistics',
+    to: '/solvers/standard-deviation-calculator',
     label: 'Statistics Engine',
     desc: 'Mean, median, mode, standard deviation and variance with frequency distribution charts.',
     icon: (
@@ -71,7 +71,7 @@ const TOOLS = [
     ),
   },
   {
-    to: '/geometry',
+    to: '/solvers/cylinder-volume-calculator',
     label: 'Geometry Visualizer',
     desc: 'Area, perimeter, volume calculations with responsive 3D SVG shape rendering.',
     icon: (
