@@ -9,6 +9,7 @@ import { BookOpen, HelpCircle, ArrowRight, LayoutGrid, Loader2 } from 'lucide-re
 const GeometrySolver = lazy(() => import('../components/GeometrySolver'))
 const StatisticsCalculator = lazy(() => import('../components/StatisticsCalculator'))
 const GraphPlotter = lazy(() => import('../components/GraphPlotter'))
+const CalculusSolver = lazy(() => import('../components/CalculusSolver'))
 
 export const Route = createFileRoute('/solvers/$slug')({
   loader: ({ params }) => {
@@ -71,6 +72,7 @@ function SolverPageComponent() {
             case 'geometry': return <GeometrySolver />
             case 'statistics': return <StatisticsCalculator />
             case 'grapher': return <GraphPlotter />
+            case 'calculus': return <CalculusSolver />
             default: return (
               <div className="py-20 text-center glass rounded-[2.5rem]">
                  <p className="text-muted text-sm font-bold uppercase tracking-widest">Base Module Template for {solver.type}</p>
