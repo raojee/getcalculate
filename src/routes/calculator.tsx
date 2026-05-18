@@ -4,7 +4,7 @@ import Calculator from '../components/Calculator'
 export const Route = createFileRoute('/calculator')({
   head: () => ({
     meta: [
-      { title: 'Basic Calculator — CalcPro' },
+      { title: 'Basic Calculator — TheCalcPro' },
       { name: 'description', content: 'Simple and clean basic calculator for everyday use.' },
     ],
   }),

@@ -119,9 +119,9 @@ const STATS = [
 ]
 
 const FAQS = [
-  { q: 'Is CalcPro really free?', a: 'Yes, CalcPro is completely free to use with no hidden charges, subscriptions, or account requirements.' },
-  { q: 'Does CalcPro store my data?', a: 'No. CalcPro is 100% client-side. All calculations happen in your browser. We never store or transmit your data.' },
-  { q: 'Can I use it on mobile?', a: 'Absolutely. CalcPro is fully responsive and works beautifully on phones, tablets, and desktops.' },
+  { q: 'Is TheCalcPro really free?', a: 'Yes, TheCalcPro is completely free to use with no hidden charges, subscriptions, or account requirements.' },
+  { q: 'Does TheCalcPro store my data?', a: 'No. TheCalcPro is 100% client-side. All calculations happen in your browser. We never store or transmit your data.' },
+  { q: 'Can I use it on mobile?', a: 'Absolutely. TheCalcPro is fully responsive and works beautifully on phones, tablets, and desktops.' },
   { q: 'What math topics are supported?', a: 'Algebra, Calculus, Trigonometry, Statistics, Geometry, Matrix operations, Graph plotting, Unit conversion, and more.' },
 ]
 
@@ -164,7 +164,7 @@ function HomePage() {
           </h1>
 
           <p className="max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-12" style={{ color: 'var(--text-secondary)' }}>
-            CalcPro is a world-class math platform providing instant step-by-step solutions, interactive graphing, and precision engineering tools — all running at the speed of light, right in your browser.
+            TheCalcPro is a world-class math platform providing instant step-by-step solutions, interactive graphing, and precision engineering tools — all running at the speed of light, right in your browser.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

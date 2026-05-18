@@ -4,7 +4,7 @@ import MatrixCalculator from '../components/MatrixCalculator'
 export const Route = createFileRoute('/matrix')({
   head: () => ({
     meta: [
-      { title: 'Matrix Calculator — CalcPro' },
+      { title: 'Matrix Calculator — TheCalcPro' },
       { name: 'description', content: 'Perform matrix operations like addition, multiplication, determinant, and inverse.' },
     ],
   }),

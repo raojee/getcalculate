@@ -4,7 +4,7 @@ import CalculusSolver from '../components/CalculusSolver'
 export const Route = createFileRoute('/calculus')({
   head: () => ({
     meta: [
-      { title: 'Calculus Solver — CalcPro' },
+      { title: 'Calculus Solver — TheCalcPro' },
       { name: 'description', content: 'Differentiate functions instantly with step-by-step solutions and AI hints.' },
     ],
   }),

@@ -4,7 +4,7 @@ import GeometrySolver from '../components/GeometrySolver'
 export const Route = createFileRoute('/geometry')({
   head: () => ({
     meta: [
-      { title: 'Interactive Geometry Solver & 3D Visualizer — CalcPro' },
+      { title: 'Interactive Geometry Solver & 3D Visualizer — TheCalcPro' },
       { name: 'description', content: 'Calculate area, perimeter, volume, and surface area for standard shapes with step-by-step KaTeX explanations and responsive 3D visual models.' },
       { name: 'keywords', content: 'geometry solver, area calculator, volume calculator, 3d shape visualizer, circle area, cylinder volume' },
     ],

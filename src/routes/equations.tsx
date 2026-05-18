@@ -4,7 +4,7 @@ import EquationSolver from '../components/EquationSolver'
 export const Route = createFileRoute('/equations')({
   head: () => ({
     meta: [
-      { title: 'Equation Solver — CalcPro' },
+      { title: 'Equation Solver — TheCalcPro' },
       { name: 'description', content: 'Solve systems of linear equations and complex equations step-by-step.' },
     ],
   }),

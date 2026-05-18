@@ -4,7 +4,7 @@ import GraphPlotter from '../components/GraphPlotter'
 export const Route = createFileRoute('/grapher')({
   head: () => ({
     meta: [
-      { title: 'Interactive Online Graphing Calculator — CalcPro' },
+      { title: 'Interactive Online Graphing Calculator — TheCalcPro' },
       { name: 'description', content: 'Visualize complex mathematical functions with our high-performance interactive graphing tool. Support for asymptotes, multiple equations, and 2D function analysis.' },
       { name: 'keywords', content: 'graphing calculator, online plotter, function visualizer, plot math equations, interactive math graph' },
     ],
@@ -16,7 +16,7 @@ function GrapherPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "CalcPro Graphing Visualizer",
+    "name": "TheCalcPro Graphing Visualizer",
     "operatingSystem": "All",
     "applicationCategory": "MathApplication",
     "url": "https://thecalcpro.com/grapher",

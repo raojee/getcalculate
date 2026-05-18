@@ -4,7 +4,7 @@ import PercentageCalculator from '../components/PercentageCalculator'
 export const Route = createFileRoute('/percentage')({
   head: () => ({
     meta: [
-      { title: 'Percentage Calculator — CalcPro' },
+      { title: 'Percentage Calculator — TheCalcPro' },
       { name: 'description', content: 'Quickly find percentages, percentage change, and percentage differences.' },
     ],
   }),

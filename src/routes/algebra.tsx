@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/algebra')({
   head: () => ({
     meta: [
-      { title: 'Algebra Solver with Steps — CalcPro' },
+      { title: 'Algebra Solver with Steps — TheCalcPro' },
       { name: 'description', content: 'Free online algebra solver with step-by-step solutions.' },
     ],
   }),
@@ -13,7 +13,7 @@ export const Route = createFileRoute('/algebra')({
 })
 
 const FAQS = [
-  { q: 'What types of equations can I solve?', a: 'CalcPro solves linear equations (ax + b = c) and quadratic equations (ax² + bx + c = 0).' },
+  { q: 'What types of equations can I solve?', a: 'TheCalcPro solves linear equations (ax + b = c) and quadratic equations (ax² + bx + c = 0).' },
   { q: 'How do I enter an exponent?', a: 'Use the ^ symbol for powers, e.g., x^2.' },
 ]
 

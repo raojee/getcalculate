@@ -4,8 +4,8 @@ import { Mail, MessageSquare, Send } from 'lucide-react'
 export const Route = createFileRoute('/contact')({
   head: () => ({
     meta: [
-      { title: 'Contact CalcPro — Get in Touch' },
-      { name: 'description', content: 'Have a question or feedback for CalcPro? Send us a message.' },
+      { title: 'Contact TheCalcPro — Get in Touch' },
+      { name: 'description', content: 'Have a question or feedback for TheCalcPro? Send us a message.' },
     ],
   }),
   component: ContactPage,
@@ -53,7 +53,7 @@ function ContactPage() {
             </div>
             <div>
                <div className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Email</div>
-               <div className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>support@calcpro.com</div>
+               <div className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>support@thecalcpro.com</div>
             </div>
          </div>
          <div className="flex items-center gap-4 p-4 rounded-2xl" style={{ background: 'var(--bg-surface-2)', border: '1px solid var(--border)' }}>

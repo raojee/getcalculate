@@ -4,7 +4,7 @@ import ScientificCalculator from '../components/ScientificCalculator'
 export const Route = createFileRoute('/scientific')({
   head: () => ({
     meta: [
-      { title: 'Scientific Calculator — CalcPro' },
+      { title: 'Scientific Calculator — TheCalcPro' },
       { name: 'description', content: 'Advanced scientific calculator with support for functions, logarithms, and more.' },
     ],
   }),

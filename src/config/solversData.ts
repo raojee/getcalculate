@@ -73,7 +73,7 @@ export const solversData: SolverConfig[] = [
     type: 'algebra',
     keywords: ['quadratic formula', 'roots of equation', 'algebra solver', 'parabola vertex'],
     schema: {
-      name: 'CalcPro Quadratic Solver',
+      name: 'TheCalcPro Quadratic Solver',
       description: 'Advanced algebra tool for solving quadratic equations with real and complex root support.',
       category: 'AlgebraicApplication'
     },
@@ -98,7 +98,7 @@ export const solversData: SolverConfig[] = [
       {
         question: 'How does this platform handle imaginary numbers?',
         answer:
-          "CalcPro's quadratic engine detects a negative discriminant automatically "
+          "TheCalcPro's quadratic engine detects a negative discriminant automatically "
           + "and switches into complex-number mode. It expresses each root in the "
           + "standard form a ± bi, where the real part a = −b / 2a and the imaginary "
           + "part b = √|D| / 2a are displayed separately. No plugins or manual mode "
@@ -156,7 +156,7 @@ export const solversData: SolverConfig[] = [
     type: 'geometry',
     keywords: ['cylinder volume', 'surface area of cylinder', 'geometric solver', '3d shapes'],
     schema: {
-      name: 'CalcPro Cylinder Tool',
+      name: 'TheCalcPro Cylinder Tool',
       description: 'Geometric visualizer for calculating cylindrical volume and surface area.',
       category: 'GeometryApplication'
     },
@@ -239,7 +239,7 @@ export const solversData: SolverConfig[] = [
     type: 'statistics',
     keywords: ['standard deviation', 'variance', 'statistical analysis', 'data spread'],
     schema: {
-      name: 'CalcPro Statistics Visualizer',
+      name: 'TheCalcPro Statistics Visualizer',
       description: 'Data analysis tool for calculating standard deviation and variance with frequency charts.',
       category: 'StatisticsApplication'
     },
@@ -329,7 +329,7 @@ export const solversData: SolverConfig[] = [
     type: 'calculus',
     keywords: ['derivative calculator', 'differentiation', 'calculus solver', 'power rule', 'chain rule', 'step by step derivatives'],
     schema: {
-      name: 'CalcPro Derivative Engine',
+      name: 'TheCalcPro Derivative Engine',
       description: 'Advanced calculus tool for computing derivatives with step-by-step differentiation logic.',
       category: 'CalculusApplication'
     },

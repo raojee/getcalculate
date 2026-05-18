@@ -4,7 +4,7 @@ import TrigSolver from '../components/TrigSolver'
 export const Route = createFileRoute('/trigonometry')({
   head: () => ({
     meta: [
-      { title: 'Trigonometry Solver — CalcPro' },
+      { title: 'Trigonometry Solver — TheCalcPro' },
       { name: 'description', content: 'Solve trigonometric functions and explore the unit circle with step-by-step calculations.' },
     ],
   }),

@@ -61,8 +61,8 @@ export default function ResultActions({ latex, result, className = '' }: ResultA
 
   const handleShare = async () => {
     const shareData = {
-      title: 'CalcPro Result',
-      text: `Calculated with CalcPro: ${result}`,
+      title: 'TheCalcPro Result',
+      text: `Calculated with TheCalcPro: ${result}`,
       url: window.location.href,
     }
 

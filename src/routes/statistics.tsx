@@ -4,7 +4,7 @@ import StatisticsCalculator from '../components/StatisticsCalculator'
 export const Route = createFileRoute('/statistics')({
   head: () => ({
     meta: [
-      { title: 'Advanced Statistics & Probability Calculator — CalcPro' },
+      { title: 'Advanced Statistics & Probability Calculator — TheCalcPro' },
       { name: 'description', content: 'Instantly calculate mean, median, mode, standard deviation, and variance. Supports bulk data pasting from Excel or PDFs with robust distribution analysis.' },
       { name: 'keywords', content: 'statistics calculator, standard deviation calculator, mean median mode, data analysis tool, probability solver' },
     ],
@@ -16,7 +16,7 @@ function StatisticsPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "EducationalApplication",
-    "name": "CalcPro Statistics Engine",
+    "name": "TheCalcPro Statistics Engine",
     "operatingSystem": "All",
     "applicationCategory": "StatisticsApplication",
     "url": "https://thecalcpro.com/statistics",

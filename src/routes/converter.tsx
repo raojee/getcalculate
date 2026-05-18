@@ -4,7 +4,7 @@ import UnitConverter from '../components/UnitConverter'
 export const Route = createFileRoute('/converter')({
   head: () => ({
     meta: [
-      { title: 'Unit Converter — CalcPro' },
+      { title: 'Unit Converter — TheCalcPro' },
       { name: 'description', content: 'Convert between different units of length, weight, temperature, and more.' },
     ],
   }),
