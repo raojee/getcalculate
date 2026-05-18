@@ -129,8 +129,22 @@ const FAQS = [
 /* ── Page Component ─────────────────────────────────── */
 
 function HomePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  }
+
   return (
     <div className="landing-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <LandingNav />
 
       {/* ── Hero Section ─────────────────────────────── */}

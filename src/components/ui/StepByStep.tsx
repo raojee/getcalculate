@@ -54,12 +54,24 @@ export default function StepByStep({ result, steps, unit = '' }: StepByStepProps
       >
         <div>
           <div className="text-[10px] font-bold uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)' }}>Final Answer</div>
-          <div className="flex items-baseline gap-2">
+          <div className="flex items-center gap-3">
             <MathRenderer 
               math={result + unit} 
               className="text-3xl font-bold" 
               style={{ color: 'var(--amber)' }} 
             />
+            <button
+              onClick={handleCopy}
+              className="p-1.5 rounded-lg transition-all hover:bg-white/5 active:scale-90 group/btn"
+              style={{ color: 'var(--text-muted)' }}
+              title="Copy result"
+            >
+              {copied ? (
+                <Check size={14} className="text-green-400" />
+              ) : (
+                <Copy size={14} className="group-hover/btn:text-amber transition-colors" />
+              )}
+            </button>
           </div>
         </div>
         <div className="flex gap-2">

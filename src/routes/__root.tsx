@@ -1,10 +1,12 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { ThemeProvider } from '../context/ThemeContext'
 import AppLayout from '../components/layout/AppLayout'
+import { NotFoundPage } from '../components/NotFound'
 import '../styles.css'
 
 
 export const Route = createRootRoute({
+  notFoundComponent: NotFoundPage,
   head: () => ({
     meta: [
       { charSet: 'utf-8' },

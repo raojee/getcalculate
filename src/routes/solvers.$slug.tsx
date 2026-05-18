@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute, notFound, Link } from '@tanstack/react-router'
 import { solversData } from '../config/solversData'
 import GlassCard from '../components/ui/GlassCard'
 import ResultActions from '../components/ui/ResultActions'
@@ -97,6 +97,15 @@ function SolverPageComponent() {
       {/* Hero Section */}
       <div className="mb-16 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 items-end">
         <div className="space-y-6">
+           {/* Breadcrumbs */}
+           <div className="flex items-center gap-2 text-[10px] font-semibold tracking-wider uppercase" style={{ color: 'var(--text-muted)' }}>
+              <Link to="/" className="hover:text-amber transition-colors">Home</Link>
+              <span className="opacity-35">&gt;</span>
+              <span>Solvers</span>
+              <span className="opacity-35">&gt;</span>
+              <span className="text-amber truncate">{solver.title}</span>
+           </div>
+
           <div className="flex items-center gap-3">
              <span className="px-4 py-1 rounded-full bg-amber/10 text-amber text-[10px] font-black uppercase tracking-widest border border-amber/20">
                {solver.category}
