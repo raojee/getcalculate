@@ -93,7 +93,7 @@ export default function LandingFooter() {
         <div className="h-px w-full mb-8" style={{ background: 'var(--border)' }} />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8">
           <p className="text-[10px] font-mono" style={{ color: 'var(--text-faint)' }}>
-            © {new Date().getFullYear()} CalcPro Premium. All rights reserved.
+            © {new Date().getFullYear()} TheCalcPro. All rights reserved.
           </p>
           <p className="text-[10px]" style={{ color: 'var(--text-faint)' }}>
             Crafted with precision for mathematics.

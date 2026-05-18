@@ -9,20 +9,20 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'CalcPro — Free Online Math Platform' },
+      { title: 'TheCalcPro — Free Online Math Platform' },
       {
         name: 'description',
         content:
-          'CalcPro is a free all-in-one math platform with Algebra Solver, Trigonometry, Calculus, Equation Solver, Graph Plotter, Matrix Calculator and more. Step-by-step solutions.',
+          'TheCalcPro is a free all-in-one math platform with Algebra Solver, Trigonometry, Calculus, Equation Solver, Graph Plotter, Matrix Calculator and more. Step-by-step solutions.',
       },
       { name: 'keywords', content: 'calculator, algebra solver, calculus, trigonometry, equation solver, graph plotter, matrix calculator, math solver, online calculator' },
-      { property: 'og:title', content: 'CalcPro — Free Online Math Platform' },
+      { property: 'og:title', content: 'TheCalcPro — Free Online Math Platform' },
       { property: 'og:description', content: 'Free all-in-one math platform. Algebra, Calculus, Trigonometry, Graphing, Matrix and more with step-by-step solutions.' },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://thecalcpro.com' },
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'CalcPro — Free Online Math Platform' },
-      { name: 'twitter:description', content: 'Free all-in-one math solver platform.' },
+      { name: 'twitter:title', content: 'TheCalcPro — Free Online Math Platform' },
+      { name: 'twitter:description', content: 'Free all-in-one math solver platform. No sign-up. No downloads.' },
       { name: 'theme-color', content: '#ff9d2e' },
     ],
     links: [
@@ -47,7 +47,7 @@ export const Route = createRootRoute({
         children: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebApplication',
-          name: 'CalcPro',
+          name: 'TheCalcPro',
           url: 'https://thecalcpro.com',
           description: 'Free all-in-one math solving platform with step-by-step solutions.',
           applicationCategory: 'EducationApplication',

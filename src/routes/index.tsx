@@ -7,8 +7,8 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/')({
   head: () => ({
     meta: [
-      { title: 'CalcPro — Premium AI-Powered Math Platform' },
-      { name: 'description', content: 'Free all-in-one math solving platform with step-by-step solutions, AI hints, and interactive graphing.' },
+      { title: 'TheCalcPro — Free Online Math Platform' },
+      { name: 'description', content: 'Free all-in-one math solving platform with step-by-step solutions, interactive graphing, and precision tools — 100% client-side, no sign-up required.' },
     ],
   }),
   component: HomePage,

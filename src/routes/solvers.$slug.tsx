@@ -20,7 +20,7 @@ export const Route = createFileRoute('/solvers/$slug')({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData.title} — CalcPro Premium` },
+      { title: `${loaderData.title} — TheCalcPro` },
       { name: 'description', content: loaderData.description },
       { name: 'keywords', content: loaderData.keywords.join(', ') },
     ],
@@ -76,8 +76,12 @@ function SolverPageComponent() {
             case 'calculus': return <CalculusSolver />
             case 'algebra': return <AlgebraSolver />
             default: return (
-              <div className="py-20 text-center glass rounded-[2.5rem]">
-                 <p className="text-muted text-sm font-bold uppercase tracking-widest">Base Module Template for {solver.type}</p>
+              <div className="py-24 text-center glass rounded-[2.5rem] flex flex-col items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl glass-amber flex items-center justify-center mb-2">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-amber"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                </div>
+                <p className="text-amber text-sm font-black uppercase tracking-widest">Coming Soon</p>
+                <p className="text-muted text-xs max-w-sm">This solver is currently being built. Check back soon for the full interactive experience.</p>
               </div>
             )
           }
@@ -97,8 +101,6 @@ function SolverPageComponent() {
              <span className="px-4 py-1 rounded-full bg-amber/10 text-amber text-[10px] font-black uppercase tracking-widest border border-amber/20">
                {solver.category}
              </span>
-             <div className="h-px w-12 bg-white/10" />
-             <span className="text-[10px] font-bold text-muted uppercase tracking-widest">pSEO Index: {solver.slug}</span>
           </div>
           <h1 className="text-5xl sm:text-7xl font-black tracking-tight leading-[0.9] text-primary">
             {solver.title.split(' ').slice(0, -1).join(' ')} <span className="text-amber">{solver.title.split(' ').pop()}</span>
