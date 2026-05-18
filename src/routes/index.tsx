@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useState } from 'react'
 import LandingNav from '../components/layout/LandingNav'
 import LandingFooter from '../components/layout/LandingFooter'
 import FAQSection from '../components/ui/FAQSection'

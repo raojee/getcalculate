@@ -98,12 +98,12 @@ export const solversData: SolverConfig[] = [
       {
         question: 'How does this platform handle imaginary numbers?',
         answer:
-          'CalcPro's quadratic engine detects a negative discriminant automatically '
-          + 'and switches into complex-number mode. It expresses each root in the '
-          + 'standard form a ± bi, where the real part a = −b / 2a and the imaginary '
-          + 'part b = √|D| / 2a are displayed separately. No plugins or manual mode '
-          + 'switching are needed — the solver handles real, repeated, and complex '
-          + 'roots transparently within a single workflow.'
+          "CalcPro's quadratic engine detects a negative discriminant automatically "
+          + "and switches into complex-number mode. It expresses each root in the "
+          + "standard form a ± bi, where the real part a = −b / 2a and the imaginary "
+          + "part b = √|D| / 2a are displayed separately. No plugins or manual mode "
+          + "switching are needed — the solver handles real, repeated, and complex "
+          + "roots transparently within a single workflow."
       },
       {
         question: 'Can I verify the formula derivation step by step?',
@@ -257,13 +257,13 @@ export const solversData: SolverConfig[] = [
       {
         question: 'What is the difference between population and sample standard deviation?',
         answer:
-          'Population standard deviation (σ) divides the sum of squared '
-          + 'deviations by N — the total number of data points — and is used '
-          + 'when your dataset represents the entire population. Sample standard '
-          + 'deviation (s) divides by N − 1 (Bessel's correction) to produce an '
-          + 'unbiased estimate when your data is a subset drawn from a larger '
-          + 'population. Choosing the wrong variant will systematically '
-          + 'underestimate or overestimate the true spread.'
+          "Population standard deviation (σ) divides the sum of squared "
+          + "deviations by N — the total number of data points — and is used "
+          + "when your dataset represents the entire population. Sample standard "
+          + "deviation (s) divides by N − 1 (Bessel's correction) to produce an "
+          + "unbiased estimate when your data is a subset drawn from a larger "
+          + "population. Choosing the wrong variant will systematically "
+          + "underestimate or overestimate the true spread."
       },
       {
         question: 'How do I interpret a high or low standard deviation?',

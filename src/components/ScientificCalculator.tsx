@@ -2,8 +2,6 @@ import { useState, useCallback } from 'react'
 import { evaluate } from 'mathjs'
 import StepByStep from './ui/StepByStep'
 
-type MemKey = 'M+' | 'M-' | 'MR' | 'MC'
-
 const BUTTONS = [
   ['MC', 'MR', 'M+', 'M-'],
   ['2nd', 'π', 'e', 'C', '⌫'],
