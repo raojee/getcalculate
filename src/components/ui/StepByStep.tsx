@@ -33,7 +33,7 @@ export default function StepByStep({ result, steps, unit = '' }: StepByStepProps
 
   const handleShare = async () => {
     if (navigator.share) {
-      await navigator.share({ title: 'CalcPro Result', text: `Result: ${result}${unit}` })
+      await navigator.share({ title: 'TheCalcPro Result', text: `Result: ${result}${unit}`, url: window.location.href })
     } else {
       handleCopy()
     }
