@@ -94,6 +94,26 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* ── Hero accent: animated shimmer gradient ─────────── */
+@keyframes gradient-shift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  /* Prevent layout shift: force text-fill to transparent at parse time */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-x { animation: none; }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb { background: var(--bg-surface-3); border-radius: 10px; }

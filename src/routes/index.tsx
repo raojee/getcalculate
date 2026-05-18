@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
 import LandingNav from '../components/layout/LandingNav'
 import LandingFooter from '../components/layout/LandingFooter'
 import FAQSection from '../components/ui/FAQSection'
@@ -157,11 +158,46 @@ function HomePage() {
             The Future of Math is Here
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight leading-[0.95] mb-8" style={{ color: 'var(--text-primary)' }}>
-            Master Math
-            <br />
-            with <span className="gradient-text">Intelligence.</span>
-          </h1>
+          {/* CLS-safe wrapper: explicit min-height reserves space before animation */}
+          <div style={{ minHeight: 'clamp(140px, 20vw, 220px)' }}>
+            <motion.h1
+              className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight leading-[0.95] mb-8"
+              style={{ color: 'var(--text-primary)' }}
+              aria-label="Master Math with Intelligence."
+            >
+              {/* Word block 1 */}
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
+              >
+                Master Math
+              </motion.span>
+
+              {/* Word block 2 */}
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.20 }}
+              >
+                with{' '}
+                {/* Word block 3 — animated shimmer accent */}
+                <motion.span
+                  className="animate-gradient-x"
+                  style={{
+                    backgroundImage: 'linear-gradient(90deg, #f97316, #fbbf24, #ea580c, #f97316)',
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.35 }}
+                >
+                  Intelligence.
+                </motion.span>
+              </motion.span>
+            </motion.h1>
+          </div>
 
           <p className="max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-12" style={{ color: 'var(--text-secondary)' }}>
             TheCalcPro is a world-class math platform providing instant step-by-step solutions, interactive graphing, and precision engineering tools — all running at the speed of light, right in your browser.
