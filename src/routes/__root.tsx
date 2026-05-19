@@ -70,10 +70,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
         {/* Ad Network */}
         <script
-          src="https://quge5.com/88/tag.min.js"
-          data-zone="240891"
-          async
-          data-cfasync="false"
+          dangerouslySetInnerHTML={{
+            __html: `(function(s){s.dataset.zone='11028295',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
+          }}
         />
         <script
           dangerouslySetInnerHTML={{
