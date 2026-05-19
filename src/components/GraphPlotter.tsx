@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
-import { parse } from 'mathjs'
-import { ZoomIn, ZoomOut, MoveLeft, MoveRight, RefreshCcw, Activity, Plus, Trash2, Settings2, AlertCircle } from 'lucide-react'
+import { parse, derivative } from 'mathjs'
+import { ZoomIn, ZoomOut, MoveLeft, MoveRight, RefreshCcw, Activity, Plus, Trash2, Settings2, AlertCircle, TrendingUp } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import GlassCard from './ui/GlassCard'
 import ResultActions from './ui/ResultActions'
@@ -14,6 +14,10 @@ export default function GraphPlotter() {
   const [domain, setDomain] = useState({ min: -10, max: 10 })
   const [showSettings, setShowSettings] = useState(false)
   const [resolution, setResolution] = useState(200)
+
+  // Tangent Animator State
+  const [enableTangent, setEnableTangent] = useState(false)
+  const [tangentX, setTangentX] = useState<number>(1)
 
   const handleZoom = useCallback((factor: number) => {
     setDomain(prev => {
@@ -30,22 +34,40 @@ export default function GraphPlotter() {
     })
   }, [])
 
-  const data = useMemo(() => {
-    const points = []
+  const { points, tangentStats } = useMemo(() => {
+    const pointsArray = []
     const step = (domain.max - domain.min) / resolution
     
     const compiledFunctions = inputs
       .filter(i => i.trim() !== '')
       .map(i => {
         try {
-          return { expr: i, fn: parse(i).compile() }
+          const parsed = parse(i)
+          return { expr: i, parsed, fn: parsed.compile() }
         } catch (e) {
           return null
         }
       })
-      .filter((item): item is { expr: string, fn: any } => item !== null)
+      .filter((item): item is { expr: string, parsed: any, fn: any } => item !== null)
 
-    if (compiledFunctions.length === 0) return []
+    let tangentFn: any = null
+    let tStats = null
+
+    if (enableTangent && compiledFunctions.length > 0) {
+      try {
+        const primary = compiledFunctions[0]
+        const f_a = primary.fn.evaluate({ x: tangentX })
+        const d_expr = derivative(primary.parsed, 'x')
+        const m = d_expr.evaluate({ x: tangentX })
+        
+        tangentFn = (x: number) => m * (x - tangentX) + f_a
+        tStats = { a: tangentX, f_a, m }
+      } catch (e) {
+        // Fallback if not differentiable
+      }
+    }
+
+    if (compiledFunctions.length === 0 && !tangentFn) return { points: [], tangentStats: null }
 
     for (let i = 0; i <= resolution; i++) {
       const x = domain.min + (i * step)
@@ -54,28 +76,37 @@ export default function GraphPlotter() {
       compiledFunctions.forEach((item, idx) => {
         try {
           const y = item.fn.evaluate({ x })
-          
-          // Production Asymptote Check:
-          // Handle Infinity, -Infinity, and NaN cases (e.g., 1/x at x=0 or tan(x) at pi/2)
           if (typeof y === 'number' && isFinite(y)) {
-            // Clamp huge values to prevent chart distortion while showing trend
             if (Math.abs(y) > Y_CLAMP_LIMIT) {
               point[`y${idx}`] = y > 0 ? Y_CLAMP_LIMIT : -Y_CLAMP_LIMIT
             } else {
               point[`y${idx}`] = Number(y.toFixed(6))
             }
           } else {
-            // Return null to break the line at asymptotes
             point[`y${idx}`] = null
           }
         } catch (e) {
           point[`y${idx}`] = null
         }
       })
-      points.push(point)
+
+      if (tangentFn) {
+        try {
+           const yT = tangentFn(x)
+           if (typeof yT === 'number' && isFinite(yT)) {
+             point.tangent = Math.abs(yT) > Y_CLAMP_LIMIT ? (yT > 0 ? Y_CLAMP_LIMIT : -Y_CLAMP_LIMIT) : Number(yT.toFixed(6))
+           } else {
+             point.tangent = null
+           }
+        } catch (e) {
+           point.tangent = null
+        }
+      }
+
+      pointsArray.push(point)
     }
-    return points
-  }, [inputs, domain, resolution])
+    return { points: pointsArray, tangentStats: tStats }
+  }, [inputs, domain, resolution, tangentX, enableTangent])
 
   const colors = ['#ff9d2e', '#38bdf8', '#a855f7', '#10b981', '#f43f5e']
 
@@ -139,6 +170,47 @@ export default function GraphPlotter() {
               >
                 <Plus size={14} /> Append Expression
               </button>
+            </div>
+
+            {/* Dynamic Tangent Controls */}
+            <div className="mt-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-4">
+              <div className="flex items-center justify-between">
+                <label className="text-[11px] font-extrabold uppercase tracking-widest text-sky-400 flex items-center gap-2">
+                  <TrendingUp size={14} />
+                  Tangent Animator
+                </label>
+                <button 
+                  onClick={() => setEnableTangent(!enableTangent)} 
+                  className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${enableTangent ? 'bg-sky-500/20 text-sky-400' : 'glass text-muted hover:text-white'}`}
+                >
+                  {enableTangent ? 'Active' : 'Enable'}
+                </button>
+              </div>
+              
+              <AnimatePresence>
+                {enableTangent && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden space-y-3"
+                  >
+                    <div className="flex justify-between items-center mt-2">
+                      <span className="text-[10px] font-bold text-muted uppercase tracking-wider">Point a</span>
+                      <span className="text-[10px] font-mono text-sky-400 font-bold">x = {tangentX.toFixed(2)}</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      min={domain.min} 
+                      max={domain.max} 
+                      step={(domain.max - domain.min) / 500} 
+                      value={tangentX} 
+                      onChange={e => setTangentX(parseFloat(e.target.value))}
+                      className="w-full accent-sky-400 h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <AnimatePresence>
@@ -215,19 +287,56 @@ export default function GraphPlotter() {
               ))}
             </div>
 
+            {/* Tangent Stats Overlay */}
+            <AnimatePresence>
+              {enableTangent && tangentStats && (
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  className="absolute top-8 right-8 z-20 pointer-events-none"
+                >
+                  <GlassCard className="p-5 border-sky-400/30 bg-black/60 backdrop-blur-xl shadow-2xl">
+                    <h4 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-sky-400 mb-4 flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+                      Calculus Engine
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center gap-8">
+                         <span className="text-[10px] font-bold uppercase tracking-wider text-muted">Slope f'(a)</span>
+                         <span className="text-xs font-mono font-bold text-white">{tangentStats.m.toFixed(4)}</span>
+                      </div>
+                      <div className="flex justify-between items-center gap-8">
+                         <span className="text-[10px] font-bold uppercase tracking-wider text-muted">Point (a, f(a))</span>
+                         <span className="text-xs font-mono font-bold text-white">({tangentStats.a.toFixed(2)}, {tangentStats.f_a.toFixed(2)})</span>
+                      </div>
+                      <div className="pt-3 mt-3 border-t border-white/10">
+                         <span className="block text-[10px] font-bold uppercase tracking-wider text-muted mb-1">Tangent Line</span>
+                         <span className="text-xs font-mono font-bold text-sky-300">
+                           y = {tangentStats.m.toFixed(2)}(x {tangentStats.a < 0 ? '+' : '-'} {Math.abs(tangentStats.a).toFixed(2)}) + {tangentStats.f_a.toFixed(2)}
+                         </span>
+                      </div>
+                    </div>
+                  </GlassCard>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             {/* Action Overlay */}
-            <div className="absolute top-8 right-8 z-20">
-              <ResultActions 
-                latex={inputs.map(i => `f(x) = ${i}`).join('\\\\')} 
-                result={`Graph: ${inputs.join(', ')}`}
-                className="opacity-40 hover:opacity-100 transition-all"
-              />
-            </div>
+            {!enableTangent && (
+              <div className="absolute top-8 right-8 z-20">
+                <ResultActions 
+                  latex={inputs.map(i => `f(x) = ${i}`).join('\\\\')} 
+                  result={`Graph: ${inputs.join(', ')}`}
+                  className="opacity-40 hover:opacity-100 transition-all"
+                />
+              </div>
+            )}
 
             {/* The Canvas Grid */}
             <div className="w-full h-full bg-[#080808]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={data} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+                <LineChart data={points} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                   <CartesianGrid 
                     strokeDasharray="3 3" 
                     vertical={true} 
@@ -277,12 +386,23 @@ export default function GraphPlotter() {
                       dataKey={`y${idx}`}
                       stroke={colors[idx % colors.length]}
                       dot={false}
-                      strokeWidth={3}
+                      strokeWidth={idx === 0 ? 3 : 2}
                       connectNulls={false} // Prevent connecting across asymptotes
-                      animationDuration={800}
-                      isAnimationActive={true}
+                      animationDuration={enableTangent ? 0 : 800} // Disable animation when scrubbing
+                      isAnimationActive={!enableTangent}
                     />
                   ))}
+                  {enableTangent && (
+                    <Line
+                      type="linear"
+                      dataKey="tangent"
+                      stroke="#38bdf8"
+                      strokeDasharray="5 5"
+                      dot={false}
+                      strokeWidth={2}
+                      isAnimationActive={false}
+                    />
+                  )}
                 </LineChart>
               </ResponsiveContainer>
             </div>
