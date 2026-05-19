@@ -68,12 +68,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        {/* Ad Network */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(s){s.dataset.zone='11028295',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
-          }}
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
