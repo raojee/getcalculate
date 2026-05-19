@@ -45,7 +45,8 @@ function StatisticsPage() {
         "@type": "Question",
         "name": "What is the difference between standard deviation and variance?",
         "acceptedAnswer": {
-          "@type": { "@type": "Answer", "text": "Variance is the average of the squared differences from the Mean, while Standard Deviation is the square root of the Variance, providing a measure of spread in the original units." }
+          "@type": "Answer",
+          "text": "Variance is the average of the squared differences from the Mean, while Standard Deviation is the square root of the Variance, providing a measure of spread in the original units."
         }
       }
     ]
