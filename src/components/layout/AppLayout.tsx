@@ -3,6 +3,7 @@ import { Outlet, useLocation } from '@tanstack/react-router'
 
 import Sidebar from './Sidebar'
 import TopBar from './TopBar'
+import AdSlot from '../ui/AdSlot'
 
 export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -24,14 +25,19 @@ export default function AppLayout() {
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <TopBar onMenuClick={() => setSidebarOpen(true)} />
-        <main className="workspace-main flex-1 overflow-y-auto relative">
+        <main className="workspace-main flex-1 overflow-y-auto relative flex flex-col">
            {/* Ambient Background Effects */}
            <div className="workspace-glow" />
            <div className="workspace-dots" />
 
            {/* Content */}
-           <div className="relative z-10 p-4 md:p-8">
+           <div className="relative z-10 p-4 md:p-8 flex-1">
              <Outlet />
+           </div>
+
+           {/* Workspace Bottom Ad Slot (Sticky) */}
+           <div className="sticky bottom-0 z-40 w-full p-3 bg-[#080808]/80 backdrop-blur-xl border-t border-white/5 shadow-2xl flex justify-center">
+             <AdSlot format="horizontal-banner" />
            </div>
         </main>
       </div>

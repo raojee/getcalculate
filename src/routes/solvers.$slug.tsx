@@ -3,6 +3,7 @@ import { solversData } from '../config/solversData'
 import GlassCard from '../components/ui/GlassCard'
 import ResultActions from '../components/ui/ResultActions'
 import { BookOpen, HelpCircle, ArrowRight, LayoutGrid } from 'lucide-react'
+import AdSlot from '../components/ui/AdSlot'
 
 // Lazy load heavy engine modules for optimal tree-shaking
 import GeometrySolver from '../components/GeometrySolver'
@@ -126,8 +127,13 @@ function SolverPageComponent() {
       </div>
 
       {/* Main Solver Engine with Suspense Boundary */}
-      <div className="mb-20">
+      <div className="mb-12">
          {renderSolver()}
+      </div>
+
+      {/* Programmatic Ad Slot below engine output */}
+      <div className="flex justify-center mb-16">
+         <AdSlot format="rectangle" />
       </div>
 
       {/* pSEO Content Grid */}

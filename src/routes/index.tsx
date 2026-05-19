@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import LandingNav from '../components/layout/LandingNav'
 import LandingFooter from '../components/layout/LandingFooter'
 import FAQSection from '../components/ui/FAQSection'
+import AdSlot from '../components/ui/AdSlot'
 
 export const Route = createFileRoute('/')({
   head: () => ({
@@ -226,8 +227,13 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ── Homepage Top Ad Slot ─────────────────────── */}
+      <div className="max-w-4xl mx-auto px-6 pt-8 pb-16">
+        <AdSlot format="horizontal-banner" />
+      </div>
+
       {/* ── Features / Tools Grid ────────────────────── */}
-      <section id="features" className="relative max-w-6xl mx-auto px-6 py-24">
+      <section id="features" className="relative max-w-6xl mx-auto px-6 py-8">
         <div className="text-center mb-16 space-y-4">
           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber">Comprehensive Toolkit</span>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight" style={{ color: 'var(--text-primary)' }}>
