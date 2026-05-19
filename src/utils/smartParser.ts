@@ -57,7 +57,15 @@ export function parseSmartQuery(rawInput: string): SmartParseResult {
     }
   }
 
-  // 3. Construct Target URL
+  // 3. Algebra Fallback (Catch-All for equations)
+  if (!matchedSlug && !exactRoute) {
+    if (input.includes('solve') || input.includes('=')) {
+      matchedSlug = 'quadratic-equation-solver';
+      payload = input.replace(/^solve\s+/i, '').trim();
+    }
+  }
+
+  // 4. Construct Target URL
   if (exactRoute) {
     return { url: `${exactRoute}${payload ? `?query=${encodeURIComponent(payload)}` : ''}` };
   }
