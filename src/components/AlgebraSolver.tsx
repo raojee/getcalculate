@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearch } from '@tanstack/react-router'
 import StepByStep from './ui/StepByStep'
 
 
@@ -71,7 +72,9 @@ function solveEquation(input: string): SolveResult {
 }
 
 export default function AlgebraSolver() {
-  const [input, setInput] = useState('')
+  // Engine Hydration: Read smart query from URL if present
+  const search = useSearch({ strict: false }) as { query?: string }
+  const [input, setInput] = useState(search.query || '')
   const [solved, setSolved] = useState<SolveResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -82,10 +85,17 @@ export default function AlgebraSolver() {
     if (!input.trim()) { setError('Please enter an equation.'); return }
     setError(''); setLoading(true)
     setTimeout(() => {
-      const r = solveEquation(input)
+      const r = solveEquation(input || search.query || '')
       setSolved(r); setLoading(false)
     }, 300)
   }
+
+  // Auto-solve if hydrated on mount
+  useEffect(() => {
+    if (search.query) {
+      handleSolve()
+    }
+  }, [])
 
   return (
     <div className="space-y-6">

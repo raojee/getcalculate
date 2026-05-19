@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearch } from '@tanstack/react-router'
 import { derivative } from 'mathjs'
 import StepByStep from './ui/StepByStep'
 import AIHint from './ui/AIHint'
 
 export default function CalculusSolver() {
-  const [input, setInput] = useState('')
+  // Engine Hydration: Read smart query from URL if present
+  const search = useSearch({ strict: false }) as { query?: string }
+  const [input, setInput] = useState(search.query || '')
   const [solved, setSolved] = useState<any>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -31,6 +34,13 @@ export default function CalculusSolver() {
     } catch (err) { setError('Could not compute derivative.') }
     finally { setLoading(false) }
   }
+
+  // Auto-solve if hydrated on mount
+  useEffect(() => {
+    if (search.query) {
+      handleSolve()
+    }
+  }, [])
 
   const examples = ['x^2 + 3x + 2', 'sin(x) * x', 'e^x + log(x)', 'x^3 - 4x^2 + 5']
 
