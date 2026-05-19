@@ -68,6 +68,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Ad Network */}
+        <script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="240891"
+          async
+          data-cfasync="false"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
