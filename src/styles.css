@@ -112,6 +112,19 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-gradient-x { animation: none; }
+  .ad-skeleton-bar { animation: none !important; }
+}
+
+/* ── Ad Slot Skeleton Shimmer ───────────────────────── */
+@keyframes ad-shimmer {
+  0%, 100% { opacity: 0.04; }
+  50%      { opacity: 0.08; }
+}
+
+.ad-skeleton-bar {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
+  background-size: 200% 100%;
+  animation: ad-shimmer 2s ease-in-out infinite;
 }
 
 /* Scrollbar */

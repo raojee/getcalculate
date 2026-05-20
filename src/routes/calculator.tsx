@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Calculator from '../components/Calculator'
+import StandardCalculator from '../components/StandardCalculator'
 
 export const Route = createFileRoute('/calculator')({
   head: () => ({
@@ -21,7 +21,7 @@ function BasicPage() {
         </p>
       </div>
       <div className="flex justify-center">
-        <Calculator />
+        <StandardCalculator />
       </div>
     </div>
   )

@@ -187,9 +187,8 @@ function SolverPageComponent() {
       </div>
 
       {/* CLS-Stable Ad Slot Placeholder */}
-      <div className="mt-20 h-[280px] w-full glass rounded-[3rem] border-dashed border-white/5 flex flex-col items-center justify-center bg-white/[0.01] gap-4">
-         <LayoutGrid size={32} className="text-muted opacity-10" />
-         <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted opacity-20">Dynamic Educational Resource Slot</p>
+      <div className="mt-20 flex justify-center">
+         <AdSlot format="rectangle" />
       </div>
     </div>
   )
