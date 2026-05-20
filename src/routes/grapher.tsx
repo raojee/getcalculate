@@ -76,9 +76,13 @@ function GrapherPage() {
         <GraphPlotter />
       </div>
 
-      {/* CLS Stable Ad/Resource Area */}
+      {/* CLS Stable Ad/Resource Area — pure CSS skeleton, zero crawlable text */}
       <div className="mt-20 h-[300px] w-full glass rounded-[2.5rem] border-dashed border-white/5 flex items-center justify-center bg-white/[0.01]">
-         <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted opacity-20">Analytic Documentation Slot</p>
+        <div className="flex flex-col items-center gap-3 w-full max-w-xs" aria-hidden="true" role="presentation">
+          <div className="ad-skeleton-bar w-3/4 h-3 rounded-full" />
+          <div className="ad-skeleton-bar w-1/2 h-3 rounded-full" style={{ animationDelay: '0.15s' }} />
+          <div className="ad-skeleton-bar w-5/8 h-3 rounded-full" style={{ animationDelay: '0.3s' }} />
+        </div>
       </div>
     </div>
   )
