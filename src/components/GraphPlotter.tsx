@@ -1,4 +1,5 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useEffect } from 'react'
+import { useSearch } from '@tanstack/react-router'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
 import { parse, derivative } from 'mathjs'
 import { ZoomIn, ZoomOut, MoveLeft, MoveRight, RefreshCcw, Activity, Plus, Trash2, Settings2, AlertCircle, TrendingUp } from 'lucide-react'
@@ -10,7 +11,8 @@ import ResultActions from './ui/ResultActions'
 const Y_CLAMP_LIMIT = 1000
 
 export default function GraphPlotter() {
-  const [inputs, setInputs] = useState<string[]>(['sin(x)', '1/x'])
+  const search = useSearch({ strict: false }) as { query?: string }
+  const [inputs, setInputs] = useState<string[]>(search.query ? search.query.split(',') : ['sin(x)', '1/x'])
   const [domain, setDomain] = useState({ min: -10, max: 10 })
   const [showSettings, setShowSettings] = useState(false)
   const [resolution, setResolution] = useState(200)

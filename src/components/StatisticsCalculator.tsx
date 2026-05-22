@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useSearch } from '@tanstack/react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { LayoutGrid, ListFilter, Sigma, Info } from 'lucide-react'
@@ -7,7 +8,8 @@ import GlassCard from './ui/GlassCard'
 import ResultActions from './ui/ResultActions'
 
 export default function StatisticsCalculator() {
-  const [input, setInput] = useState('12, 15, 22, 18, 25, 30, 22, 19, 21, 28')
+  const search = useSearch({ strict: false }) as { query?: string }
+  const [input, setInput] = useState(search.query || '12, 15, 22, 18, 25, 30, 22, 19, 21, 28')
   
   const stats = useMemo(() => {
     // Sanitize input: filter out invalid entries and handle multiple delimiters
