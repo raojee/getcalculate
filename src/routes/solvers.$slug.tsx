@@ -20,7 +20,7 @@ export const Route = createFileRoute('/solvers/$slug')({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.title || 'Math Solver'} — TheCalcPro` },
+      { title: `${loaderData?.title || 'Math Solver'} — Free Step-by-Step Solver` },
       { name: 'description', content: loaderData?.description || '' },
       { name: 'keywords', content: loaderData?.keywords?.join(', ') || '' },
     ],
