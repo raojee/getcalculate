@@ -163,7 +163,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
         {/* Bottom Brand */}
         <div className="px-5 py-4 border-t" style={{ borderColor: 'var(--border)' }}>
-          <p className="text-[9px] font-mono tracking-wide" style={{ color: 'var(--text-faint)' }}>
+          <p className="text-[9px] font-mono tracking-wide" style={{ color: 'var(--text-muted)' }}>
             TheCalcPro · Free Math Platform
           </p>
         </div>

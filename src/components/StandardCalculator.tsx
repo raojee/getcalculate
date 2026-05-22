@@ -310,7 +310,7 @@ export default function StandardCalculator() {
         </div>
       </div>
 
-      <p className="text-[#3e3b38] text-[9px] font-mono tracking-widest uppercase text-center mt-1">
+      <p className="text-[9px] font-mono tracking-widest uppercase text-center mt-1" style={{ color: 'var(--text-muted)' }}>
         Esc · Clear &nbsp;|&nbsp; ⌫ · Backspace &nbsp;|&nbsp; Enter · Equals
       </p>
     </div>

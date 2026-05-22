@@ -116,16 +116,17 @@ export default function GraphPlotter() {
         
         {/* Controls Panel */}
         <div className="space-y-6 order-2 lg:order-1">
-          <GlassCard className="relative overflow-hidden border-white/5">
+          <GlassCard className="relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber to-amber-dark opacity-40" />
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-muted flex items-center gap-2">
+              <h3 className="text-[11px] font-extrabold uppercase tracking-[0.2em] flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
                 <Activity size={14} className="text-amber" />
                 Logic Editor
               </h3>
               <button 
                 onClick={() => setShowSettings(!showSettings)}
-                className={`p-1.5 rounded-lg transition-all ${showSettings ? 'bg-amber text-black shadow-lg shadow-amber/20' : 'text-muted hover:bg-white/5'}`}
+                className={`p-1.5 rounded-lg transition-all ${showSettings ? 'bg-amber text-black shadow-lg shadow-amber/20' : 'hover:bg-white/5'}`}
+                style={{ color: showSettings ? undefined : 'var(--text-muted)' }}
               >
                 <Settings2 size={16} />
               </button>
@@ -156,7 +157,8 @@ export default function GraphPlotter() {
                     />
                     <button 
                       onClick={() => setInputs(inputs.length > 1 ? inputs.filter((_, i) => i !== idx) : [''])}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1.5 text-muted opacity-0 group-hover:opacity-100 hover:text-red-400 transition-all"
+                      className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1.5 opacity-0 group-hover:opacity-100 hover:text-red-400 transition-all"
+                      style={{ color: 'var(--text-muted)' }}
                     >
                       <Trash2 size={14} />
                     </button>
@@ -173,7 +175,7 @@ export default function GraphPlotter() {
             </div>
 
             {/* Dynamic Tangent Controls */}
-            <div className="mt-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-4">
+            <div className="mt-4 p-4 rounded-2xl space-y-4" style={{ background: 'var(--bg-surface-2)', border: '1px solid var(--border)' }}>
               <div className="flex items-center justify-between">
                 <label className="text-[11px] font-extrabold uppercase tracking-widest text-sky-400 flex items-center gap-2">
                   <TrendingUp size={14} />
@@ -181,7 +183,8 @@ export default function GraphPlotter() {
                 </label>
                 <button 
                   onClick={() => setEnableTangent(!enableTangent)} 
-                  className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${enableTangent ? 'bg-sky-500/20 text-sky-400' : 'glass text-muted hover:text-white'}`}
+                  className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${enableTangent ? 'bg-sky-500/20 text-sky-400' : 'glass'}`}
+                  style={{ color: enableTangent ? undefined : 'var(--text-muted)' }}
                 >
                   {enableTangent ? 'Active' : 'Enable'}
                 </button>
@@ -196,7 +199,7 @@ export default function GraphPlotter() {
                     className="overflow-hidden space-y-3"
                   >
                     <div className="flex justify-between items-center mt-2">
-                      <span className="text-[10px] font-bold text-muted uppercase tracking-wider">Point a</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Point a</span>
                       <span className="text-[10px] font-mono text-sky-400 font-bold">x = {tangentX.toFixed(2)}</span>
                     </div>
                     <input 
@@ -221,10 +224,10 @@ export default function GraphPlotter() {
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="mt-6 pt-6 border-t border-white/5 space-y-4">
+                  <div className="mt-6 pt-6 border-t space-y-4" style={{ borderColor: 'var(--border)' }}>
                     <div>
                       <div className="flex justify-between items-center mb-2">
-                        <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Loop Resolution</label>
+                        <label className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>Loop Resolution</label>
                         <span className="text-[10px] font-mono text-amber font-bold">{resolution} Steps</span>
                       </div>
                       <input 
@@ -240,8 +243,8 @@ export default function GraphPlotter() {
             </AnimatePresence>
           </GlassCard>
 
-          <GlassCard className="border-white/5">
-            <h4 className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-muted mb-4">Precision Navigation</h4>
+          <GlassCard>
+            <h4 className="text-[11px] font-extrabold uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--text-muted)' }}>Precision Navigation</h4>
             <div className="grid grid-cols-2 gap-2">
               <button onClick={() => handleZoom(0.5)} className="glass flex flex-col items-center gap-1 py-3 rounded-2xl hover:text-amber transition-all group">
                 <ZoomIn size={18} className="group-hover:scale-110 transition-transform" />
@@ -421,13 +424,13 @@ export default function GraphPlotter() {
             </div>
           </GlassCard>
           
-          <div className="flex items-start gap-4 px-8 py-5 glass rounded-3xl border-white/5">
+          <div className="flex items-start gap-4 px-8 py-5 glass rounded-3xl">
              <div className="w-11 h-11 rounded-2xl glass-amber flex items-center justify-center shrink-0 mt-0.5">
                 <AlertCircle size={22} className="text-amber" />
              </div>
              <div className="space-y-1">
-                <p className="text-xs font-extrabold uppercase tracking-widest text-primary">Advanced Asymptote Handling</p>
-                <p className="text-[11px] text-muted leading-relaxed">
+                <p className="text-xs font-extrabold uppercase tracking-widest" style={{ color: 'var(--text-primary)' }}>Advanced Asymptote Handling</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                   The visualizer automatically detects mathematical discontinuities (like 1/0 or tan(π/2)). 
                   Points exceeding a magnitude of {Y_CLAMP_LIMIT} are clamped or treated as breaks to maintain visual coherence across extreme value ranges.
                 </p>

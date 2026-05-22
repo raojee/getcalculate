@@ -77,8 +77,8 @@ function StatisticsPage() {
       </div>
 
       {/* CLS Stable Slot */}
-      <div className="mt-20 h-[250px] w-full glass rounded-[2.5rem] border-dashed border-white/5 flex items-center justify-center bg-white/[0.01]">
-         <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted opacity-20">Statistical Methodology Area</p>
+      <div className="mt-20 h-[250px] w-full glass rounded-[2.5rem] border-dashed flex items-center justify-center" style={{ borderColor: 'var(--border)', background: 'var(--bg-surface)' }}>
+         <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-20" style={{ color: 'var(--text-muted)' }}>Statistical Methodology Area</p>
       </div>
     </div>
   )

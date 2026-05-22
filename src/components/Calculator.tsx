@@ -296,7 +296,8 @@ export default function Calculator() {
       {/* History toggle */}
       <button
         onClick={() => setShowHistory(v => !v)}
-        className="self-end flex items-center gap-2 text-xs text-[#7a7060] hover:text-[#c8c0b4] transition-colors duration-150 font-mono tracking-wider uppercase"
+        className="self-end flex items-center gap-2 text-xs transition-colors duration-150 font-mono tracking-wider uppercase"
+        style={{ color: 'var(--text-muted)' }}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
@@ -398,7 +399,7 @@ export default function Calculator() {
       </div>
 
       {/* Keyboard shortcuts hint */}
-      <p className="text-[#2e2b28] text-[10px] font-mono tracking-widest uppercase text-center">
+      <p className="text-[10px] font-mono tracking-widest uppercase text-center" style={{ color: 'var(--text-muted)' }}>
         Esc · Clear &nbsp;|&nbsp; ⌫ · Delete &nbsp;|&nbsp; Enter · Equals
       </p>
     </div>

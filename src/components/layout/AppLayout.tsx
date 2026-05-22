@@ -36,7 +36,7 @@ export default function AppLayout() {
            </div>
 
            {/* Workspace Bottom Ad Slot (Sticky) */}
-           <div className="sticky bottom-0 z-40 w-full p-3 bg-[#080808]/80 backdrop-blur-xl border-t border-white/5 shadow-2xl flex justify-center">
+           <div className="sticky bottom-0 z-40 w-full p-3 backdrop-blur-xl border-t shadow-2xl flex justify-center" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border)' }}>
              <AdSlot format="horizontal-banner" />
            </div>
         </main>

@@ -35,14 +35,14 @@ export default function AIHint({ strategy, tips }: AIHintProps) {
                  <Sparkles size={18} />
                  <span className="text-sm font-bold uppercase tracking-widest">AI Strategy</span>
               </div>
-              <button onClick={() => setIsOpen(false)} className="text-muted hover:text-primary transition-colors">
+              <button onClick={() => setIsOpen(false)} className="transition-colors" style={{ color: 'var(--text-muted)' }}>
                  <X size={20} />
               </button>
             </div>
 
             <div className="flex-1 overflow-y-auto space-y-8 custom-scrollbar pr-2">
                <section>
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-3 flex items-center gap-2">
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest mb-3 flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
                      <Lightbulb size={12} /> The Approach
                   </h4>
                   <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -51,7 +51,7 @@ export default function AIHint({ strategy, tips }: AIHintProps) {
                </section>
 
                <section>
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-3">Key Tips</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--text-muted)' }}>Key Tips</h4>
                   <ul className="space-y-4">
                      {tips.map((tip, i) => (
                         <li key={i} className="flex gap-3 text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>

@@ -372,7 +372,7 @@ export default function ScientificCalculator() {
       {/* Calculator Body */}
       <div className="w-full max-w-md mx-auto lg:mx-0">
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-xs font-mono tracking-wider text-[#a0988a] uppercase">Trig Mode:</span>
+          <span className="text-xs font-mono tracking-wider uppercase" style={{ color: 'var(--text-secondary)' }}>Trig Mode:</span>
           <button
             onClick={() => setIsDeg(d => !d)}
             className="px-3 py-1.5 rounded-lg text-xs font-black transition-all hover:scale-105 active:scale-95"

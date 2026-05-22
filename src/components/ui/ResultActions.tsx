@@ -93,7 +93,8 @@ export default function ResultActions({ latex, result, className = '' }: ResultA
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={handleCopy}
-        className={`p-2.5 rounded-xl glass border border-white/5 transition-all relative group ${copied ? 'text-green-400' : 'text-muted hover:text-amber'}`}
+        className={`p-2.5 rounded-xl glass border transition-all relative group ${copied ? 'text-green-400' : ''}`}
+        style={{ borderColor: 'var(--border)', color: copied ? undefined : 'var(--text-muted)' }}
         title="Copy LaTeX"
       >
         <AnimatePresence mode="wait">
@@ -137,7 +138,8 @@ export default function ResultActions({ latex, result, className = '' }: ResultA
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={handleShare}
-        className={`p-2.5 rounded-xl glass border border-white/5 transition-all relative group ${shared ? 'text-green-400' : 'text-muted hover:text-amber'}`}
+        className={`p-2.5 rounded-xl glass border transition-all relative group ${shared ? 'text-green-400' : ''}`}
+        style={{ borderColor: 'var(--border)', color: shared ? undefined : 'var(--text-muted)' }}
         title="Share Result"
       >
         <AnimatePresence mode="wait">

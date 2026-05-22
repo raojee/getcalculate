@@ -92,10 +92,10 @@ export default function LandingFooter() {
         {/* Bottom Bar */}
         <div className="h-px w-full mb-8" style={{ background: 'var(--border)' }} />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8">
-          <p className="text-[10px] font-mono" style={{ color: 'var(--text-faint)' }}>
+          <p className="text-[10px] font-mono" style={{ color: 'var(--text-muted)' }}>
             © {new Date().getFullYear()} TheCalcPro. All rights reserved.
           </p>
-          <p className="text-[10px]" style={{ color: 'var(--text-faint)' }}>
+          <p className="text-[10px]" style={{ color: 'var(--text-muted)' }}>
             Crafted with precision for mathematics.
           </p>
         </div>

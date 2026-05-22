@@ -33,7 +33,7 @@ export default function AdSlot({ format, className = '', client = 'ca-pub-813821
   }, [])
 
   return (
-    <div className={`relative flex items-center justify-center mx-auto overflow-hidden rounded-2xl border border-white/5 bg-black/20 backdrop-blur-md ${dimensions[format]} ${className}`}>
+    <div className={`relative flex items-center justify-center mx-auto overflow-hidden rounded-2xl border backdrop-blur-md ${dimensions[format]} ${className}`} style={{ borderColor: 'var(--border)', background: 'var(--bg-surface)' }}>
       
       {/* Pure CSS Skeleton Loader — zero crawlable text, invisible to SEO scrapers */}
       <div

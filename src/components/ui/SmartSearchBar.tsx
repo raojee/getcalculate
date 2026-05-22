@@ -34,7 +34,7 @@ export default function SmartSearchBar() {
         <div className="absolute inset-0 bg-amber/20 blur-xl rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none" />
         
         {/* Omnibar Input Field */}
-        <div className="relative w-full flex items-center bg-[#0e0e0e]/80 backdrop-blur-2xl border border-white/10 rounded-full overflow-hidden focus-within:border-amber/50 transition-colors shadow-2xl">
+        <div className="relative w-full flex items-center backdrop-blur-2xl border rounded-full overflow-hidden focus-within:border-amber/50 transition-colors shadow-2xl" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-strong)' }}>
           <div className="pl-4 pr-2 text-amber animate-pulse">
             <Sparkles size={16} />
           </div>
@@ -46,14 +46,16 @@ export default function SmartSearchBar() {
               if (error) setError('')
             }}
             placeholder="Ask AI: 'find derivative of sin(x)'..."
-            className="w-full bg-transparent border-none py-2.5 px-2 text-xs font-mono text-white placeholder:text-white/30 outline-none focus:ring-0"
+            className="w-full bg-transparent border-none py-2.5 px-2 text-xs font-mono outline-none focus:ring-0"
+            style={{ color: 'var(--text-primary)' }}
             autoComplete="off"
             spellCheck="false"
           />
           <button 
             type="submit"
             disabled={!query.trim()}
-            className="p-1.5 mr-2 rounded-full hover:bg-amber/10 text-white/50 hover:text-amber transition-colors disabled:opacity-50 flex items-center justify-center"
+            className="p-1.5 mr-2 rounded-full hover:bg-amber/10 hover:text-amber transition-colors disabled:opacity-50 flex items-center justify-center"
+            style={{ color: 'var(--text-muted)' }}
             aria-label="Search"
           >
             <ArrowRight size={14} strokeWidth={3} />

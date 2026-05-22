@@ -108,13 +108,14 @@ function ContactPage() {
             <AlertCircle size={20} className="text-red-400 shrink-0" />
           )}
           
-          <div className="flex-1 text-sm font-medium text-[#f0ede8]">
+          <div className="flex-1 text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
             {toast.message}
           </div>
 
           <button 
             onClick={() => setToast(prev => ({ ...prev, show: false }))}
-            className="text-[#a0988a] hover:text-white transition-colors cursor-pointer shrink-0 ml-2"
+            className="transition-colors cursor-pointer shrink-0 ml-2"
+            style={{ color: 'var(--text-secondary)' }}
           >
             <X size={15} />
           </button>
@@ -129,10 +130,10 @@ function ContactPage() {
         <span className="px-4 py-1.5 rounded-full bg-amber/10 text-amber text-[10px] font-black uppercase tracking-[0.2em] border border-amber/20">
           Inquiries & Support
         </span>
-        <h1 className="text-5xl sm:text-6xl font-black tracking-tight leading-[0.9] text-primary">
+        <h1 className="text-5xl sm:text-6xl font-black tracking-tight leading-[0.9]" style={{ color: 'var(--text-primary)' }}>
           Get In <span className="text-amber">Touch</span>
         </h1>
-        <p className="text-base text-muted max-w-xl mx-auto leading-relaxed">
+        <p className="text-base max-w-xl mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
           Have a calculation inquiry, math feature suggestion, or developer feedback? Send us a secure message.
         </p>
       </div>
@@ -140,39 +141,39 @@ function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Contact Info Sidebar (Left column) */}
         <div className="lg:col-span-4 flex flex-col gap-5 justify-between">
-          <GlassCard className="flex flex-col gap-6 p-7 border-white/5 bg-white/[0.01] flex-1 hover:translate-y-0 hover:shadow-none" hover={false}>
+          <GlassCard className="flex flex-col gap-6 p-7 flex-1 hover:translate-y-0 hover:shadow-none" hover={false}>
             <div className="space-y-2">
-              <h3 className="text-lg font-black uppercase tracking-wide text-primary">Direct Lines</h3>
-              <p className="text-xs text-muted leading-relaxed">For immediate developer assistance or API licensing agreements, reach out below.</p>
+              <h3 className="text-lg font-black uppercase tracking-wide" style={{ color: 'var(--text-primary)' }}>Direct Lines</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>For immediate developer assistance or API licensing agreements, reach out below.</p>
             </div>
 
             <div className="space-y-4 flex-1 justify-center flex flex-col">
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-amber/20 transition-all duration-300">
+              <div className="flex items-center gap-4 p-4 rounded-2xl hover:border-amber/20 transition-all duration-300" style={{ background: 'var(--bg-surface-2)', border: '1px solid var(--border)' }}>
                 <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-amber-glow text-amber border border-amber/10">
                   <Mail size={18} />
                 </div>
                 <div className="overflow-hidden">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted">Email Support</div>
-                  <a href="mailto:support@thecalcpro.com" className="text-sm font-semibold text-primary truncate block hover:text-amber transition-colors">
+                  <div className="text-[10px] font-black uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Email Support</div>
+                  <a href="mailto:support@thecalcpro.com" className="text-sm font-semibold truncate block hover:text-amber transition-colors" style={{ color: 'var(--text-primary)' }}>
                     support@thecalcpro.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-amber/20 transition-all duration-300">
+              <div className="flex items-center gap-4 p-4 rounded-2xl hover:border-amber/20 transition-all duration-300" style={{ background: 'var(--bg-surface-2)', border: '1px solid var(--border)' }}>
                 <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-amber-glow text-amber border border-amber/10">
                   <MessageSquare size={18} />
                 </div>
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-wider text-muted">Developer Forums</div>
-                  <a href="#" className="text-sm font-semibold text-primary hover:text-amber transition-colors">
+                  <div className="text-[10px] font-black uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Developer Forums</div>
+                  <a href="#" className="text-sm font-semibold hover:text-amber transition-colors" style={{ color: 'var(--text-primary)' }}>
                     Join Discord Server
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="text-[10px] text-muted font-mono tracking-widest uppercase border-t border-white/5 pt-4">
+            <div className="text-[10px] font-mono tracking-widest uppercase border-t pt-4" style={{ color: 'var(--text-muted)', borderColor: 'var(--border)' }}>
               CF-EDGE SECURE CHANNEL
             </div>
           </GlassCard>
@@ -180,13 +181,13 @@ function ContactPage() {
 
         {/* Premium Glassmorphic Form Card (Right column) */}
         <div className="lg:col-span-8">
-          <GlassCard className="p-8 sm:p-10 border-white/5 bg-white/[0.02]" hover={false}>
+          <GlassCard className="p-8 sm:p-10" hover={false}>
             <form onSubmit={handleSubmit} className="space-y-6">
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Name field */}
                 <div className="space-y-2">
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-muted ml-1">
+                  <label className="block text-[10px] font-black uppercase tracking-widest ml-1" style={{ color: 'var(--text-muted)' }}>
                     Your Name
                   </label>
                   <input 
@@ -195,14 +196,15 @@ function ContactPage() {
                     onChange={(e) => setName(e.target.value)}
                     required 
                     disabled={submitting}
-                    className="w-full px-4 py-3.5 rounded-2xl outline-none transition-all border bg-black/30 text-primary border-white/5 focus:border-amber/40 focus:ring-2 focus:ring-amber-glow placeholder-[#4a4540] disabled:opacity-50 font-medium text-sm" 
+                    className="w-full px-4 py-3.5 rounded-2xl outline-none transition-all border focus:border-amber/40 focus:ring-2 focus:ring-amber-glow disabled:opacity-50 font-medium text-sm" 
+                    style={{ background: 'var(--bg-surface-2)', color: 'var(--text-primary)', borderColor: 'var(--border)' }}
                     placeholder="E.g., Nikola Tesla" 
                   />
                 </div>
 
                 {/* Email field */}
                 <div className="space-y-2">
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-muted ml-1">
+                  <label className="block text-[10px] font-black uppercase tracking-widest ml-1" style={{ color: 'var(--text-muted)' }}>
                     Email Address
                   </label>
                   <input 
@@ -211,7 +213,8 @@ function ContactPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     required 
                     disabled={submitting}
-                    className="w-full px-4 py-3.5 rounded-2xl outline-none transition-all border bg-black/30 text-primary border-white/5 focus:border-amber/40 focus:ring-2 focus:ring-amber-glow placeholder-[#4a4540] disabled:opacity-50 font-medium text-sm" 
+                    className="w-full px-4 py-3.5 rounded-2xl outline-none transition-all border focus:border-amber/40 focus:ring-2 focus:ring-amber-glow disabled:opacity-50 font-medium text-sm" 
+                    style={{ background: 'var(--bg-surface-2)', color: 'var(--text-primary)', borderColor: 'var(--border)' }}
                     placeholder="E.g., nikola@tesla.com" 
                   />
                 </div>
@@ -219,7 +222,7 @@ function ContactPage() {
 
               {/* Message field */}
               <div className="space-y-2">
-                <label className="block text-[10px] font-black uppercase tracking-widest text-muted ml-1">
+                <label className="block text-[10px] font-black uppercase tracking-widest ml-1" style={{ color: 'var(--text-muted)' }}>
                   Message Details
                 </label>
                 <textarea 
@@ -228,7 +231,8 @@ function ContactPage() {
                   required 
                   rows={5} 
                   disabled={submitting}
-                  className="w-full px-4 py-3.5 rounded-2xl outline-none resize-none transition-all border bg-black/30 text-primary border-white/5 focus:border-amber/40 focus:ring-2 focus:ring-amber-glow placeholder-[#4a4540] disabled:opacity-50 font-medium text-sm leading-relaxed" 
+                  className="w-full px-4 py-3.5 rounded-2xl outline-none resize-none transition-all border focus:border-amber/40 focus:ring-2 focus:ring-amber-glow disabled:opacity-50 font-medium text-sm leading-relaxed" 
+                  style={{ background: 'var(--bg-surface-2)', color: 'var(--text-primary)', borderColor: 'var(--border)' }}
                   placeholder="How can we assist you with our calculation algorithms?"
                 />
               </div>
