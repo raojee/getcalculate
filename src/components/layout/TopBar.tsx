@@ -1,5 +1,6 @@
 import { useTheme } from '@/context/ThemeContext'
 import { Link, useRouterState } from '@tanstack/react-router'
+import { useEffect, useState } from 'react'
 
 const SunIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -24,6 +25,14 @@ const MenuIcon = () => (
   </svg>
 )
 
+const DownloadIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
+  </svg>
+)
+
 interface TopBarProps {
   onMenuClick: () => void
 }
@@ -31,6 +40,26 @@ interface TopBarProps {
 export default function TopBar({ onMenuClick }: TopBarProps) {
   const { theme, toggleTheme } = useTheme()
   const { pathname } = useRouterState({ select: s => s.location })
+
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
+
+  useEffect(() => {
+    const handler = (e: any) => {
+      e.preventDefault()
+      setDeferredPrompt(e)
+    }
+    window.addEventListener('beforeinstallprompt', handler)
+    return () => window.removeEventListener('beforeinstallprompt', handler)
+  }, [])
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return
+    deferredPrompt.prompt()
+    const { outcome } = await deferredPrompt.userChoice
+    if (outcome === 'accepted') {
+      setDeferredPrompt(null)
+    }
+  }
 
   const getPageTitle = () => {
     if (pathname === '/') return 'Dashboard'
@@ -57,6 +86,16 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
       </div>
 
       <div className="flex items-center gap-3">
+        {deferredPrompt && (
+          <button
+            onClick={handleInstallClick}
+            className="hidden sm:flex items-center gap-2 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-xl transition-all hover:scale-105 active:scale-95"
+            style={{ color: 'var(--amber)', background: 'rgba(249, 115, 22, 0.1)', border: '1px solid rgba(249, 115, 22, 0.2)' }}
+          >
+            <DownloadIcon />
+            Install App
+          </button>
+        )}
         <Link
           to="/"
           className="hidden sm:inline-flex text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-xl transition-all"

@@ -39,7 +39,7 @@ export const Route = createRootRoute({
         href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
       },
       { rel: 'canonical', href: 'https://thecalcpro.com' },
-      { rel: 'manifest', href: '/manifest.webmanifest' },
+      { rel: 'manifest', href: '/manifest.json' },
       { rel: 'icon', href: '/favicon.ico' },
     ],
 
@@ -80,6 +80,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 const theme = localStorage.getItem('calcpro-theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
               })();
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                  navigator.serviceWorker.register('/sw.js').catch(console.error);
+                });
+              }
             `,
           }}
         />

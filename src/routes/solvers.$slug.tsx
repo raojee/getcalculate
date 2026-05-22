@@ -2,7 +2,8 @@ import { createFileRoute, notFound, Link } from '@tanstack/react-router'
 import { solversData } from '../config/solversData'
 import GlassCard from '../components/ui/GlassCard'
 import ResultActions from '../components/ui/ResultActions'
-import { BookOpen, HelpCircle, ArrowRight, LayoutGrid } from 'lucide-react'
+import { BookOpen, HelpCircle, ArrowRight, LayoutGrid, Code, Check, Copy } from 'lucide-react'
+import { useState } from 'react'
 import AdSlot from '../components/ui/AdSlot'
 
 // Lazy load heavy engine modules for optimal tree-shaking
@@ -36,6 +37,14 @@ export const Route = createFileRoute('/solvers/$slug')({
 
 function SolverPageComponent() {
   const solver = Route.useLoaderData()
+  const [embedCopied, setEmbedCopied] = useState(false)
+
+  const handleCopyEmbed = () => {
+    const embedCode = `<div style="text-align:center;"><a href="https://thecalcpro.com/solvers/${solver.slug}" target="_blank" style="font-family:sans-serif;color:#f97316;text-decoration:none;font-weight:bold;">${solver.title} by TheCalcPro</a></div>`
+    navigator.clipboard.writeText(embedCode)
+    setEmbedCopied(true)
+    setTimeout(() => setEmbedCopied(false), 3000)
+  }
 
   const webAppSchema = {
     "@context": "https://schema.org",
@@ -129,6 +138,44 @@ function SolverPageComponent() {
       {/* Main Solver Engine with Suspense Boundary */}
       <div className="mb-12">
          {renderSolver()}
+      </div>
+
+      {/* Embed on Your Blog Panel */}
+      <div className="mb-16 max-w-2xl mx-auto">
+         <GlassCard className="p-6 relative overflow-hidden group border-amber/10">
+           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber/40 to-transparent" />
+           <div className="flex items-center justify-between gap-4 flex-wrap">
+             <div className="flex items-center gap-4">
+               <div className="w-12 h-12 rounded-2xl glass-amber flex items-center justify-center shrink-0">
+                 <Code size={24} className="text-amber" />
+               </div>
+               <div>
+                 <h3 className="text-lg font-black uppercase tracking-tight" style={{ color: 'var(--text-primary)' }}>Share &amp; Embed</h3>
+                 <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Add this calculator to your own blog or website.</p>
+               </div>
+             </div>
+             
+             <button
+               onClick={handleCopyEmbed}
+               className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest transition-all active:scale-95 border"
+               style={{ 
+                 background: embedCopied ? 'rgba(34, 197, 94, 0.1)' : 'var(--bg-surface-2)',
+                 color: embedCopied ? '#4ade80' : 'var(--text-primary)',
+                 borderColor: embedCopied ? 'rgba(34, 197, 94, 0.2)' : 'var(--border)'
+               }}
+             >
+               {embedCopied ? <Check size={16} /> : <Copy size={16} />}
+               {embedCopied ? 'Copied!' : 'Copy Embed Code'}
+             </button>
+           </div>
+           
+           {/* Toast Notification */}
+           {embedCopied && (
+             <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-green-500/30 backdrop-blur-md animate-fade-in z-50 shadow-2xl">
+               Embed code copied to clipboard!
+             </div>
+           )}
+         </GlassCard>
       </div>
 
       {/* Programmatic Ad Slot below engine output */}
