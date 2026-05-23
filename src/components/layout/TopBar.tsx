@@ -42,6 +42,17 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
   const { pathname } = useRouterState({ select: s => s.location })
 
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
+  const [iosHintDismissed, setIosHintDismissed] = useState(false)
+
+  // iOS detection — Safari never fires beforeinstallprompt, so we surface a manual hint
+  const isIOS =
+    typeof navigator !== 'undefined' &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(navigator as any).standalone
+  const isStandalone =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(display-mode: standalone)').matches
+  const showIOSHint = isIOS && !isStandalone && !iosHintDismissed
 
   useEffect(() => {
     const handler = (e: any) => {
@@ -68,7 +79,7 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
   }
 
   return (
-    <header className="topbar">
+    <header className="topbar" style={{ flexWrap: 'wrap', gap: showIOSHint ? '0' : undefined }}>
       <div className="flex items-center gap-4">
         <button
           onClick={onMenuClick}
@@ -111,6 +122,36 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
           {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </button>
       </div>
+
+      {/* iOS install hint — full-width sub-row inside flex-wrap header */}
+      {showIOSHint && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="w-full flex items-center justify-between gap-3 px-4 py-2 text-[11px] font-semibold tracking-wide"
+          style={{
+            background: 'rgba(255, 157, 46, 0.08)',
+            borderTop: '1px solid rgba(255, 157, 46, 0.18)',
+            color: 'var(--text-secondary)',
+          }}
+        >
+          <span>
+            On iOS? Tap{' '}
+            <strong style={{ color: 'var(--text-primary)' }}>Share ⎋</strong>{' '}
+            then{' '}
+            <strong style={{ color: 'var(--text-primary)' }}>“Add to Home Screen”</strong>{' '}
+            to install.
+          </span>
+          <button
+            onClick={() => setIosHintDismissed(true)}
+            aria-label="Dismiss iOS install hint"
+            className="flex-shrink-0 p-1 rounded-lg transition-colors hover:bg-[rgba(255,157,46,0.15)]"
+            style={{ color: 'var(--text-muted)', lineHeight: 1 }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
     </header>
   )
 }

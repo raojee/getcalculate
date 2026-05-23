@@ -1,4 +1,4 @@
-export type SolverType = 'algebra' | 'geometry' | 'statistics' | 'grapher' | 'calculus' | 'matrix'
+export type SolverType = 'algebra' | 'geometry' | 'statistics' | 'grapher' | 'calculus' | 'matrix' | 'utility'
 
 export interface SolverConfig {
   slug: string
@@ -1120,5 +1120,395 @@ export const solversData: SolverConfig[] = [
       { title: 'Solve f\'(x) = 0', content: 'Find the x-values that make the derivative zero or undefined.' },
       { title: 'Classify Extrema', content: 'Test intervals around the critical points to determine max, min, or saddle points.' }
     ]
+  },
+  {
+    slug: 'solar-panel-calculator',
+    title: 'Solar Panel Calculator',
+    subtitle: 'Estimate system size, savings, and payback period',
+    description: 'Calculate solar panel system size (kW), annual kWh production, 25-year lifecycle savings, and payback period using real irradiance and efficiency coefficients.',
+
+    overview:
+      'The Solar Panel Calculator models residential and commercial PV systems using the '
+      + 'production formula: Annual kWh = System Size (kW) × Peak Sun Hours × 365 × '
+      + 'efficiency factor (0.75–0.85 accounting for inverter losses, shading, and '
+      + 'temperature derating). It derives the required system size from your monthly '
+      + 'electricity bill and local utility rate, computes 25-year lifecycle savings '
+      + 'against a 3% annual utility inflation model, and calculates a simple payback '
+      + 'period in years (install cost ÷ annual savings). Federal ITC (30%) and optional '
+      + 'state incentives are applied before payback computation.',
+
+    intentKeywords: [
+      'how many solar panels do I need calculator',
+      'solar system size from electricity bill',
+      'solar payback period calculator',
+      '25-year solar savings projection',
+      'kWh production from solar panels',
+      'solar panel ROI calculator',
+      'federal solar tax credit ITC 30 percent',
+      'residential solar energy cost savings',
+    ],
+
+    category: 'Energy',
+    type: 'utility',
+    keywords: ['solar panel calculator', 'solar system size', 'solar payback period', 'kWh production', 'solar savings', 'PV system calculator'],
+    schema: {
+      name: 'TheCalcPro Solar Panel Calculator',
+      description: 'PV system sizing tool with 25-year lifecycle savings and payback period projection.',
+      category: 'UtilityApplication',
+    },
+    faqs: [
+      {
+        question: 'How do I calculate how many solar panels I need?',
+        answer:
+          'Divide your average monthly kWh usage by the average monthly sun hours for your location, '
+          + 'then divide by the wattage per panel (typically 400 W). For example, 1,000 kWh/month '
+          + 'in a region with 150 peak sun-hours per month requires about 1,000 ÷ 150 ÷ 0.4 = '
+          + '16–17 panels at 400 W each, before applying a 15–20% efficiency correction.'
+      },
+      {
+        question: 'What is a solar payback period?',
+        answer:
+          'The payback period is the number of years it takes for your cumulative energy savings '
+          + 'to equal the upfront installation cost net of incentives. It is calculated as '
+          + '(Net Install Cost) ÷ (Annual kWh × Utility Rate). With the 30% federal ITC, '
+          + 'most residential systems achieve payback in 6–10 years.'
+      },
+      {
+        question: 'What efficiency factor should I use for my solar system?',
+        answer:
+          'A conservative overall system efficiency of 75–80% (also called the performance ratio) '
+          + 'accounts for inverter conversion losses (~4%), temperature derating (~7%), wiring '
+          + 'resistance (~2%), and typical shading or soiling (~5%). High-quality modern systems '
+          + 'in optimal conditions can achieve 82–85%.'
+      },
+      {
+        question: 'Does the 30% federal solar tax credit apply to all systems?',
+        answer:
+          'The Investment Tax Credit (ITC) allows you to deduct 30% of the total installed cost '
+          + 'of a solar system from your federal income taxes through 2032 for both residential '
+          + 'and commercial installations. You must have a federal tax liability to benefit; '
+          + 'unused credit can be carried forward to subsequent tax years.'
+      },
+    ],
+    steps: [
+      { title: 'Enter Monthly Bill & Rate', content: 'Input your average monthly electricity bill and your utility rate ($/kWh) to derive monthly kWh consumption.' },
+      { title: 'Set Peak Sun Hours', content: 'Enter the daily peak sun hours for your location (e.g. 4.5 h for the US average) — this drives annual production.' },
+      { title: 'Size the System', content: 'System size (kW) = Monthly kWh ÷ (Peak Sun Hours × 30 × 0.80 efficiency).' },
+      { title: 'Apply Federal ITC', content: 'Multiply total install cost (kW × $/kW) by 0.70 to get net cost after the 30% tax credit.' },
+      { title: 'Project 25-Year Savings', content: 'Sum annual savings compounded at 3% utility inflation, subtract net install cost to show total lifecycle return.' },
+    ],
+  },
+  {
+    slug: 'electric-load-calculator',
+    title: 'Electric Load Calculator',
+    subtitle: 'NEC demand-factor electrical load analysis',
+    description: 'Calculate total electrical load in watts and amperes using NEC Article 220 demand factors for general lighting, HVAC, small appliances, and large loads.',
+
+    overview:
+      'The Electric Load Calculator applies NEC Article 220 demand-factor methodology to '
+      + 'estimate a building\'s total electrical service load. General lighting load is '
+      + 'computed at 3 VA/ft² (residential) or per-occupancy table values (commercial). '
+      + 'The first 3,000 VA of small-appliance and laundry branch circuits are taken at '
+      + '100% demand; the next 117,000 VA at 35%; and the remainder at 25%, per NEC '
+      + 'Table 220.42. HVAC uses the larger of heating or cooling load at 100%. The engine '
+      + 'sums all demand-adjusted loads, divides by service voltage (120/240 V single-phase '
+      + 'or 208/480 V three-phase), and outputs the minimum service ampacity.',
+
+    intentKeywords: [
+      'NEC electrical load calculation residential',
+      'demand factor calculation NEC Article 220',
+      'electrical service size calculator',
+      'total connected load vs demand load',
+      'ampere service panel size calculator',
+      'commercial building electrical load estimate',
+      'HVAC heating cooling load NEC',
+      'how to size electrical service panel',
+    ],
+
+    category: 'Engineering',
+    type: 'utility',
+    keywords: ['electric load calculator', 'NEC demand factor', 'electrical service size', 'ampere calculation', 'watt load calculator'],
+    schema: {
+      name: 'TheCalcPro Electric Load Calculator',
+      description: 'NEC Article 220 demand-factor electrical load analysis for residential and commercial buildings.',
+      category: 'UtilityApplication',
+    },
+    faqs: [
+      {
+        question: 'What is a demand factor in electrical calculations?',
+        answer:
+          'A demand factor is the ratio of the maximum demand on a system to the total connected load. '
+          + 'Because not all loads run simultaneously at full capacity, the NEC allows you to reduce '
+          + 'the connected load by a demand factor percentage when sizing conductors and service '
+          + 'equipment. For example, the NEC applies a 35% demand factor to general lighting loads '
+          + 'between 3,001 VA and 120,000 VA for dwelling units.'
+      },
+      {
+        question: 'How do I calculate the electrical load for a house?',
+        answer:
+          'Per NEC 220.12, start with 3 VA × gross square footage for general lighting. Add '
+          + 'two 1,500-VA small-appliance circuits and one 1,500-VA laundry circuit. Apply '
+          + 'NEC Table 220.42 demand factors (100% on first 3,000 VA, 35% on next 117,000 VA). '
+          + 'Add 100% of the nameplate rating for all fixed appliances and the larger of '
+          + 'heating or cooling load. Divide the total VA by the service voltage to get amps.'
+      },
+      {
+        question: 'What service panel size do I need?',
+        answer:
+          'Most modern single-family homes require 200-amp service. If the calculated total '
+          + 'demand load divided by 240 V is less than 100 A, a 100-amp panel may suffice; '
+          + '101–160 A suggests 150–200 A service. EV chargers, hot tubs, and electric '
+          + 'vehicles may push requirements to 320–400 A for high-demand homes.'
+      },
+      {
+        question: 'Should I use heating or cooling load for HVAC in the NEC calculation?',
+        answer:
+          'NEC 220.60 (non-coincident loads) allows you to omit the smaller of two loads '
+          + 'that will never run simultaneously. For most climates, you include 100% of the '
+          + 'larger HVAC load (whichever of heating or cooling draws more amperes) and '
+          + 'exclude the smaller one from the service calculation.'
+      },
+    ],
+    steps: [
+      { title: 'Enter Floor Area', content: 'Input gross square footage — general lighting load = 3 VA/ft² for residential.' },
+      { title: 'Add Branch Circuits', content: 'Include small-appliance (2 × 1,500 VA) and laundry (1,500 VA) branch circuit loads.' },
+      { title: 'Apply NEC Demand Factors', content: 'Use NEC Table 220.42: 100% on first 3,000 VA, 35% on next 117,000 VA, 25% on remainder.' },
+      { title: 'Add Fixed & HVAC Loads', content: 'Sum 100% nameplate ratings for fixed appliances and include larger of heating or cooling.' },
+      { title: 'Compute Service Ampacity', content: 'Divide total demand VA by service voltage (240 V single-phase) to determine minimum amps.' },
+    ],
+  },
+  {
+    slug: 'concrete-slab-calculator',
+    title: 'Concrete Slab Calculator',
+    subtitle: 'Cubic yards, bags, and cost for any concrete pour',
+    description: 'Calculate concrete volume in cubic yards and cubic feet, number of 60 lb or 80 lb bags required, and total material cost for slabs, footings, and columns.',
+
+    overview:
+      'The Concrete Slab Calculator converts slab dimensions to volume using '
+      + 'V = Length × Width × Thickness (all converted to feet before multiplication, '
+      + 'then divided by 27 to yield cubic yards). A 10% waste/overpour factor is '
+      + 'added automatically to prevent short pours. The engine then divides total '
+      + 'volume by the yield per bag (0.45 ft³ for 60 lb bags, 0.60 ft³ for 80 lb bags) '
+      + 'to compute bag count, rounds up to the nearest whole bag, and multiplies by '
+      + 'the entered unit cost to produce a total material estimate.',
+
+    intentKeywords: [
+      'concrete slab calculator cubic yards',
+      'how many bags of concrete do I need',
+      'concrete volume calculator feet to yards',
+      'concrete cost estimator per yard',
+      '80 lb bag concrete yield calculator',
+      'footing concrete calculator',
+      'concrete pour volume with waste factor',
+      'slab thickness cubic yards calculator',
+    ],
+
+    category: 'Construction',
+    type: 'utility',
+    keywords: ['concrete calculator', 'cubic yards concrete', 'concrete bags calculator', 'slab calculator', 'concrete cost estimator'],
+    schema: {
+      name: 'TheCalcPro Concrete Slab Calculator',
+      description: 'Concrete volume, bag count, and cost estimator with waste factor for slabs and footings.',
+      category: 'UtilityApplication',
+    },
+    faqs: [
+      {
+        question: 'How do I calculate cubic yards of concrete?',
+        answer:
+          'Convert all dimensions to feet (1 inch = 0.0833 ft), multiply Length × Width × Thickness '
+          + 'to get cubic feet, then divide by 27 to convert to cubic yards (since 1 yd³ = 27 ft³). '
+          + 'Always add a 10% overage for waste, spillage, and uneven subgrade.'
+      },
+      {
+        question: 'How many 80 lb bags of concrete make a cubic yard?',
+        answer:
+          'One 80 lb bag of premixed concrete yields approximately 0.60 cubic feet when mixed. '
+          + 'Since one cubic yard = 27 cubic feet, you need 27 ÷ 0.60 ≈ 45 bags per cubic yard. '
+          + 'For 60 lb bags (yield 0.45 ft³ each), you need about 60 bags per cubic yard.'
+      },
+      {
+        question: 'What thickness should a concrete slab be?',
+        answer:
+          'Standard residential driveway slabs are 4 inches thick (6 inches for heavy vehicles). '
+          + 'Sidewalks and patios are typically 4 inches. Structural slabs and garage floors '
+          + 'range from 4 to 6 inches. Footings are typically 8–12 inches thick depending on '
+          + 'load and local frost depth requirements.'
+      },
+      {
+        question: 'Why add a 10% waste factor to concrete orders?',
+        answer:
+          'Concrete volume calculations assume perfectly level subgrades and exact form dimensions. '
+          + 'In practice, subgrade irregularities, form flex under pressure, spillage during '
+          + 'pouring, and pump line residuals typically consume 5–10% additional material. '
+          + 'Ordering short is costly — running out mid-pour creates cold joints that weaken the slab.'
+      },
+    ],
+    steps: [
+      { title: 'Enter Dimensions', content: 'Input slab length and width in feet, and thickness in inches.' },
+      { title: 'Convert & Compute Volume', content: 'Convert thickness to feet (÷ 12), multiply L × W × T for cubic feet, divide by 27 for cubic yards.' },
+      { title: 'Apply Waste Factor', content: 'Add 10% overage: Total yd³ = Volume × 1.10.' },
+      { title: 'Count Bags', content: 'Divide total cubic feet by bag yield (0.60 ft³ for 80 lb, 0.45 ft³ for 60 lb) and round up.' },
+      { title: 'Estimate Cost', content: 'Multiply bag count by cost per bag to get total material cost.' },
+    ],
+  },
+  {
+    slug: 'cash-on-cash-calculator',
+    title: 'Cash-on-Cash Return Calculator',
+    subtitle: 'Analyze rental property investment yield',
+    description: 'Calculate cash-on-cash return, net operating income (NOI), cap rate, and annual cash flow for rental properties using actual cash invested and pre-tax income.',
+
+    overview:
+      'The Cash-on-Cash Return Calculator computes CoC = Annual Pre-Tax Cash Flow ÷ '
+      + 'Total Cash Invested × 100%, where Annual Pre-Tax Cash Flow = Gross Rental '
+      + 'Income − Operating Expenses − Annual Debt Service (mortgage P&I). Net '
+      + 'Operating Income (NOI) is computed as Gross Income × (1 − Vacancy Rate) − '
+      + 'Operating Expenses (taxes, insurance, maintenance, management). The cap rate '
+      + 'is shown as NOI ÷ Property Value × 100%. The engine separates NOI from cash '
+      + 'flow so investors can compare leveraged (CoC) versus unlevered (cap rate) yield.',
+
+    intentKeywords: [
+      'cash on cash return calculator rental property',
+      'how to calculate cash on cash return',
+      'NOI cap rate calculator real estate',
+      'rental property cash flow calculator',
+      'real estate investment yield analysis',
+      'leveraged vs unlevered real estate return',
+      'cap rate vs cash on cash difference',
+      'rental property ROI annual cash flow',
+    ],
+
+    category: 'Finance',
+    type: 'utility',
+    keywords: ['cash on cash return', 'rental property calculator', 'NOI calculator', 'cap rate calculator', 'real estate cash flow'],
+    schema: {
+      name: 'TheCalcPro Cash-on-Cash Calculator',
+      description: 'Real estate investment analyzer computing CoC return, NOI, cap rate, and annual cash flow.',
+      category: 'FinanceApplication',
+    },
+    faqs: [
+      {
+        question: 'What is cash-on-cash return in real estate?',
+        answer:
+          'Cash-on-cash (CoC) return measures the annual pre-tax cash income earned on the '
+          + 'actual cash you invested (down payment + closing costs + renovation). Unlike '
+          + 'ROI, it excludes appreciation and principal paydown — it only captures the '
+          + 'income yield on your out-of-pocket equity. A CoC of 6–10% is generally '
+          + 'considered a solid return for residential rentals.'
+      },
+      {
+        question: 'How is cash-on-cash return different from cap rate?',
+        answer:
+          'Cap rate = NOI ÷ Property Value and measures unlevered yield (as if you paid '
+          + 'all cash). Cash-on-cash accounts for financing by subtracting mortgage payments '
+          + 'before dividing by equity invested. A property with a 7% cap rate may yield '
+          + '10%+ CoC with leverage, or below cap rate if loan terms are unfavorable.'
+      },
+      {
+        question: 'What expenses go into Net Operating Income?',
+        answer:
+          'NOI = Effective Gross Income − Operating Expenses. Operating expenses include '
+          + 'property taxes, insurance, property management fees (typically 8–10%), '
+          + 'maintenance/repairs (1% of value/year is a common estimate), vacancy loss '
+          + '(5–10% of gross rent), and utilities paid by the owner. Mortgage payments '
+          + 'are NOT included in NOI — they appear below the line in cash flow.'
+      },
+      {
+        question: 'What is a good cash-on-cash return for rental property?',
+        answer:
+          'Most real estate investors target 6–10% CoC for stable residential properties. '
+          + 'Value-add and commercial deals may target 10–15%. Markets with high appreciation '
+          + 'potential (coastal cities) often trade at 3–5% CoC. Always weigh CoC alongside '
+          + 'total return (appreciation + principal paydown + tax benefits) for a '
+          + 'complete investment picture.'
+      },
+    ],
+    steps: [
+      { title: 'Enter Gross Rental Income', content: 'Input expected annual gross rent; apply vacancy rate to compute effective gross income.' },
+      { title: 'Subtract Operating Expenses', content: 'Deduct taxes, insurance, management, maintenance to arrive at NOI.' },
+      { title: 'Subtract Debt Service', content: 'Deduct annual mortgage payments (P&I) to get annual pre-tax cash flow.' },
+      { title: 'Compute Cash Invested', content: 'Sum down payment, closing costs, and any initial renovation capital.' },
+      { title: 'Calculate CoC & Cap Rate', content: 'CoC = Cash Flow ÷ Cash Invested × 100%; Cap Rate = NOI ÷ Property Value × 100%.' },
+    ],
+  },
+  {
+    slug: 'tdee-calculator',
+    title: 'TDEE Calculator',
+    subtitle: 'Total Daily Energy Expenditure with Mifflin-St Jeor',
+    description: 'Calculate BMR using the Mifflin-St Jeor equation and multiply by your NEAT activity multiplier to get TDEE — your total daily calorie burn for weight management.',
+
+    overview:
+      'The TDEE Calculator uses the Mifflin-St Jeor equation — the most accurate '
+      + 'BMR predictor for the general population per the Academy of Nutrition and '
+      + 'Dietetics — to compute Basal Metabolic Rate: BMR = (10 × weight kg) + '
+      + '(6.25 × height cm) − (5 × age) + 5 (men) or − 161 (women). The BMR is '
+      + 'then multiplied by an activity factor (1.2 sedentary to 1.9 extra active) '
+      + 'to yield TDEE. The engine outputs calorie targets for weight loss (TDEE − 500), '
+      + 'maintenance (TDEE), and lean bulk (TDEE + 250), and breaks down the '
+      + 'Mifflin-St Jeor coefficient application step by step.',
+
+    intentKeywords: [
+      'TDEE calculator Mifflin-St Jeor',
+      'how to calculate total daily energy expenditure',
+      'BMR to TDEE activity multiplier calculator',
+      'calories to eat to lose weight calculator',
+      'basal metabolic rate formula for men and women',
+      'caloric deficit for weight loss calculator',
+      'NEAT activity level calorie calculator',
+      'maintenance calories calculator body weight',
+    ],
+
+    category: 'Health',
+    type: 'utility',
+    keywords: ['TDEE calculator', 'BMR calculator', 'Mifflin-St Jeor', 'calorie calculator', 'total daily energy expenditure', 'maintenance calories'],
+    schema: {
+      name: 'TheCalcPro TDEE Calculator',
+      description: 'Mifflin-St Jeor BMR and TDEE calculator with activity multipliers and calorie targets.',
+      category: 'HealthApplication',
+    },
+    faqs: [
+      {
+        question: 'What is the Mifflin-St Jeor equation?',
+        answer:
+          'The Mifflin-St Jeor equation estimates Basal Metabolic Rate (BMR) — the calories '
+          + 'your body burns at complete rest. The formula is: Men: BMR = (10 × weight in kg) '
+          + '+ (6.25 × height in cm) − (5 × age in years) + 5. Women: BMR = (10 × weight kg) '
+          + '+ (6.25 × height cm) − (5 × age) − 161. It was validated in a 1990 study and '
+          + 'consistently outperforms the older Harris-Benedict equation in accuracy.'
+      },
+      {
+        question: 'What activity multiplier should I use for TDEE?',
+        answer:
+          'TDEE = BMR × Activity Factor, where: Sedentary (desk job, no exercise) = 1.2; '
+          + 'Lightly Active (1–3 days/week exercise) = 1.375; Moderately Active (3–5 days) '
+          + '= 1.55; Very Active (6–7 days hard exercise) = 1.725; Extra Active (physical '
+          + 'job + hard exercise) = 1.9. Most people overestimate their activity level — '
+          + 'when in doubt, choose the lower multiplier.'
+      },
+      {
+        question: 'How many calories should I eat to lose weight?',
+        answer:
+          'A deficit of 500 kcal/day below TDEE produces approximately 0.45 kg (1 lb) of '
+          + 'fat loss per week, since 3,500 kcal ≈ 1 lb of body fat. Do not go below '
+          + 'BMR in caloric intake — very low calorie diets cause muscle catabolism and '
+          + 'metabolic adaptation. A moderate deficit of 300–500 kcal/day is sustainable '
+          + 'and preserves lean mass, especially when paired with adequate protein intake.'
+      },
+      {
+        question: 'What is the difference between BMR and TDEE?',
+        answer:
+          'BMR (Basal Metabolic Rate) is the energy your body needs to sustain basic '
+          + 'physiological functions (breathing, circulation, organ function) at complete rest. '
+          + 'TDEE (Total Daily Energy Expenditure) adds all physical activity on top of BMR. '
+          + 'TDEE is your true maintenance calorie level — the number of calories you burn '
+          + 'per day given your actual lifestyle.'
+      },
+    ],
+    steps: [
+      { title: 'Enter Biometrics', content: 'Provide weight (kg or lbs), height (cm or ft/in), age, and biological sex for the Mifflin-St Jeor formula.' },
+      { title: 'Compute BMR', content: 'Men: (10×kg) + (6.25×cm) − (5×age) + 5. Women: same formula −161 instead of +5.' },
+      { title: 'Select Activity Level', content: 'Choose your NEAT multiplier from Sedentary (1.2) to Extra Active (1.9).' },
+      { title: 'Calculate TDEE', content: 'TDEE = BMR × Activity Multiplier — this is your daily maintenance calorie target.' },
+      { title: 'Output Calorie Targets', content: 'Display weight loss (TDEE−500), maintenance (TDEE), and lean bulk (TDEE+250) goals.' },
+    ],
   }
 ]

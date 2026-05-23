@@ -12,6 +12,11 @@ import StatisticsCalculator from '../components/StatisticsCalculator'
 import GraphPlotter from '../components/GraphPlotter'
 import CalculusSolver from '../components/CalculusSolver'
 import AlgebraSolver from '../components/AlgebraSolver'
+import SolarPanelCalculator from '../components/SolarPanelCalculator'
+import ElectricLoadCalculator from '../components/ElectricLoadCalculator'
+import ConcreteSlabCalculator from '../components/ConcreteSlabCalculator'
+import CashOnCashCalculator from '../components/CashOnCashCalculator'
+import TDEECalculator from '../components/TDEECalculator'
 
 export const Route = createFileRoute('/solvers/$slug')({
   loader: ({ params }) => {
@@ -113,6 +118,16 @@ function SolverPageComponent() {
         case 'grapher': return <GraphPlotter />
         case 'calculus': return <CalculusSolver />
         case 'algebra': return <AlgebraSolver />
+        case 'utility': {
+          switch (solver.slug) {
+            case 'solar-panel-calculator':    return <SolarPanelCalculator />
+            case 'electric-load-calculator':  return <ElectricLoadCalculator />
+            case 'concrete-slab-calculator':  return <ConcreteSlabCalculator />
+            case 'cash-on-cash-calculator':   return <CashOnCashCalculator />
+            case 'tdee-calculator':           return <TDEECalculator />
+            default: return null
+          }
+        }
         default: return (
           <div className="py-24 text-center glass rounded-[2.5rem] flex flex-col items-center gap-4">
             <div className="w-14 h-14 rounded-2xl glass-amber flex items-center justify-center mb-2">
