@@ -111,10 +111,71 @@ const TOOLS = [
       </svg>
     ),
   },
+  {
+    to: '/solvers/solar-panel-calculator',
+    label: 'Solar Panel Calculator',
+    desc: 'Size your PV system, project 25-year lifecycle savings, and compute simple payback period with federal ITC.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="4" />
+        <line x1="12" y1="2" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="2" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22" y2="12" />
+      </svg>
+    ),
+    tag: 'Energy',
+  },
+  {
+    to: '/solvers/electric-load-calculator',
+    label: 'Electric Load Calculator',
+    desc: 'NEC Article 220 demand-factor analysis for residential and commercial service panel sizing.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+    tag: 'Engineering',
+  },
+  {
+    to: '/solvers/concrete-slab-calculator',
+    label: 'Concrete Slab Calculator',
+    desc: 'Compute cubic yards, bag count (60/80 lb), and total material cost with automatic 10% waste factor.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+        <polyline points="2 17 12 22 22 17" />
+        <polyline points="2 12 12 17 22 12" />
+      </svg>
+    ),
+    tag: 'Construction',
+  },
+  {
+    to: '/solvers/cash-on-cash-calculator',
+    label: 'Cash-on-Cash Return',
+    desc: 'Analyze rental property investment with CoC return, NOI, cap rate, and vacancy-adjusted cash flow.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23" />
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    ),
+    tag: 'Finance',
+  },
+  {
+    to: '/solvers/tdee-calculator',
+    label: 'TDEE Calculator',
+    desc: 'Mifflin-St Jeor BMR with 5 NEAT activity multipliers, metric/imperial toggle, and calorie targets.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    ),
+    tag: 'Health',
+  },
 ]
 
 const STATS = [
-  { value: '15+', label: 'Math Tools' },
+  { value: '20+', label: 'Math Tools' },
   { value: '0ms', label: 'Database Latency' },
   { value: '100%', label: 'Client-Side' },
   { value: 'Free', label: 'Forever' },

@@ -49,6 +49,43 @@ const SwapIcon = () => (
   </svg>
 )
 
+const SunIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="4" />
+    <line x1="12" y1="2" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="2" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </svg>
+)
+
+const ZapIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+  </svg>
+)
+
+const LayersIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+    <polyline points="2 17 12 22 22 17" />
+    <polyline points="2 12 12 17 22 12" />
+  </svg>
+)
+
+const DollarIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="12" y1="1" x2="12" y2="23" />
+    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+  </svg>
+)
+
+const HeartIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+  </svg>
+)
+
 const NAV_GROUPS = [
   {
     title: 'General',
@@ -81,8 +118,28 @@ const NAV_GROUPS = [
       { to: '/geometry', label: 'Geometry', icon: TriIcon },
       { to: '/percentage', label: 'Percentage', icon: CalcIcon },
       { to: '/converter', label: 'Converter', icon: SwapIcon },
+      { to: '/solvers/concrete-slab-calculator', label: 'Concrete Slab', icon: LayersIcon },
     ]
-  }
+  },
+  {
+    title: 'Energy & Engineering',
+    items: [
+      { to: '/solvers/solar-panel-calculator',   label: 'Solar Panel Sizing',  icon: SunIcon },
+      { to: '/solvers/electric-load-calculator', label: 'Electric Load (NEC)', icon: ZapIcon },
+    ]
+  },
+  {
+    title: 'Finance',
+    items: [
+      { to: '/solvers/cash-on-cash-calculator', label: 'Cash-on-Cash Return', icon: DollarIcon },
+    ]
+  },
+  {
+    title: 'Health & Fitness',
+    items: [
+      { to: '/solvers/tdee-calculator', label: 'TDEE Calculator', icon: HeartIcon },
+    ]
+  },
 ]
 
 interface SidebarProps {
