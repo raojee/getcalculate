@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { ADS_CONFIG } from '../../config/adsConfig'
 
 type AdFormat = 'horizontal-banner' | 'rectangle' | 'vertical-sidebar'
 
@@ -11,6 +12,10 @@ interface AdSlotProps {
 
 export default function AdSlot({ format, className = '', client = 'ca-pub-8138211887478220', slot = '' }: AdSlotProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  
+  if (!ADS_CONFIG.isAdSenseApproved) {
+    return null
+  }
   
   // Strict, hardcoded dimensions to prevent Cumulative Layout Shift (CLS)
   const dimensions = {

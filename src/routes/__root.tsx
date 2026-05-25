@@ -2,6 +2,7 @@ import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { ThemeProvider } from '../context/ThemeContext'
 import AppLayout from '../components/layout/AppLayout'
 import { NotFoundPage } from '../components/NotFound'
+import { ADS_CONFIG } from '../config/adsConfig'
 import '../styles.css'
 
 
@@ -51,11 +52,15 @@ export const Route = createRootRoute({
     ],
 
     scripts: [
-      {
-        async: true,
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8138211887478220',
-        crossOrigin: 'anonymous',
-      },
+      ...(ADS_CONFIG.isAdSenseApproved
+        ? [
+            {
+              async: true as const,
+              src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8138211887478220',
+              crossOrigin: 'anonymous' as const,
+            },
+          ]
+        : []),
       {
         type: 'application/ld+json',
         children: JSON.stringify({
