@@ -67,6 +67,11 @@ export const Route = createRootRoute({
           applicationCategory: 'EducationApplication',
           operatingSystem: 'Web',
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+          sameAs: [
+            'https://github.com/raojee',
+            'https://www.facebook.com/profile.php?id=61590309694532',
+            'https://www.youtube.com/@Thecalcpro',
+          ],
         }),
       },
     ],

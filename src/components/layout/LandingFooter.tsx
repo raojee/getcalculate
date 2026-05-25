@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { Github, Facebook, Youtube } from 'lucide-react'
 
 const FOOTER_LINKS = {
   Tools: [
@@ -55,17 +56,44 @@ export default function LandingFooter() {
             <p className="text-xs leading-relaxed max-w-[200px]" style={{ color: 'var(--text-muted)' }}>
               The world-class math platform for students, engineers, and professionals.
             </p>
-            {/* Social Indicators */}
-            <div className="flex items-center gap-3 pt-2">
-              {['GitHub', 'X', 'Discord'].map(name => (
-                <span
-                  key={name}
-                  className="text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg"
-                  style={{ background: 'var(--bg-surface-2)', color: 'var(--text-muted)', border: '1px solid var(--border)' }}
-                >
-                  {name}
-                </span>
-              ))}
+            {/* Social Icon Links */}
+            <div className="flex items-center gap-2 pt-2">
+              <a
+                href="https://github.com/raojee"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TheCalcPro on GitHub"
+                className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ background: 'var(--bg-surface-2)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-primary)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border-strong)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-secondary)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border)' }}
+              >
+                <Github size={16} stroke="currentColor" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61590309694532"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TheCalcPro on Facebook"
+                className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ background: 'var(--bg-surface-2)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#1877F2'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(24,119,242,0.3)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-secondary)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border)' }}
+              >
+                <Facebook size={16} stroke="currentColor" />
+              </a>
+              <a
+                href="https://www.youtube.com/@Thecalcpro"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TheCalcPro on YouTube"
+                className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ background: 'var(--bg-surface-2)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#FF0000'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,0,0,0.25)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-secondary)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border)' }}
+              >
+                <Youtube size={16} stroke="currentColor" />
+              </a>
             </div>
           </div>
 
