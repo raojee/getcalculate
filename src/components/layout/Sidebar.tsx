@@ -138,6 +138,7 @@ const NAV_GROUPS = [
     title: 'Health & Fitness',
     items: [
       { to: '/solvers/tdee-calculator', label: 'TDEE Calculator', icon: HeartIcon },
+      { to: '/solvers/sleep-calculator', label: 'Sleep Time', icon: HeartIcon },
     ]
   },
 ]

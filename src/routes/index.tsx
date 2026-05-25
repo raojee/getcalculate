@@ -172,6 +172,17 @@ const TOOLS = [
     ),
     tag: 'Health',
   },
+  {
+    to: '/solvers/sleep-calculator',
+    label: 'Sleep Time Calculator',
+    desc: 'Calculate optimal sleep cycles to wake up refreshed and eliminate morning grogginess.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </svg>
+    ),
+    tag: 'Health',
+  },
 ]
 
 const STATS = [

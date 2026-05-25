@@ -1510,5 +1510,40 @@ export const solversData: SolverConfig[] = [
       { title: 'Calculate TDEE', content: 'TDEE = BMR × Activity Multiplier — this is your daily maintenance calorie target.' },
       { title: 'Output Calorie Targets', content: 'Display weight loss (TDEE−500), maintenance (TDEE), and lean bulk (TDEE+250) goals.' },
     ],
+  },
+  {
+    slug: 'sleep-calculator',
+    title: 'Sleep Time Calculator',
+    subtitle: 'Optimal Sleep Cycle Finder',
+    description: 'Calculate the perfect time to go to bed or wake up. Optimize your 90-minute sleep cycles to wake up feeling refreshed and eliminate morning grogginess.',
+    overview: 'The Sleep Time Calculator operates on the biological principle of human circadian rhythms, plotting out sequential 90-minute REM cycles. To prevent sleep inertia (waking up groggy mid-cycle), the engine backwards-calculates from your target alarm time, adding a standard 15-minute buffer to fall asleep. It provides precise times to target 3, 4, 5, or 6 complete sleep cycles, highlighting 5 cycles (7.5 hours) as the optimal adult recommendation.',
+    intentKeywords: [
+      'sleep calculator',
+      'when should I go to bed',
+      'what time to wake up calculator',
+      '90 minute sleep cycle calculator',
+      'prevent sleep inertia',
+      'how many hours of sleep',
+      'REM cycle alarm calculator'
+    ],
+    category: 'Health & Fitness',
+    type: 'utility',
+    keywords: ['sleep calculator', 'sleep cycles', 'bedtime calculator', 'wake up time', 'sleep inertia', 'circadian rhythm'],
+    schema: {
+      name: 'TheCalcPro Sleep Time Calculator',
+      description: 'Calculate optimal sleep cycles to wake up refreshed. Avoid morning grogginess by aligning your alarm with natural 90-minute REM intervals.',
+      category: 'HealthApplication',
+    },
+    faqs: [
+      { question: 'Why am I groggy when I wake up after 8 hours of sleep?', answer: 'Waking up in the middle of deep sleep causes "sleep inertia," a feeling of grogginess. Since a full sleep cycle is roughly 90 minutes, sleeping exactly 8 hours means your alarm interrupts a cycle. Sleeping for 7.5 hours (exactly 5 cycles) often leaves you feeling more refreshed.' },
+      { question: 'How long does it take to fall asleep?', answer: 'The average adult takes 10 to 20 minutes to fall asleep (sleep latency). This calculator automatically builds a 15-minute buffer into all bedtimes so your cycles begin accurately.' },
+      { question: 'How many sleep cycles do I need?', answer: 'Most adults require 4 to 5 complete sleep cycles per night, totaling 6 to 7.5 hours of sleep. The optimal recommendation for maximum restoration and lowest sleep inertia is 5 cycles.' }
+    ],
+    steps: [
+      { title: 'Select Mode', content: 'Choose whether you want to wake up at a specific time or go to bed right now.' },
+      { title: 'Enter Time', content: 'Input your target wake time.' },
+      { title: 'Calculate Cycles', content: 'The engine adds a 15-minute buffer, then measures out 90-minute intervals backwards (or forwards).' },
+      { title: 'Find Optimal Bedtime', content: 'Select the recommended 5-cycle (7.5 hours) target to wake up feeling completely refreshed.' }
+    ],
   }
 ]
