@@ -186,6 +186,11 @@ const FAQS = [
   { q: 'Does TheCalcPro store my data?', a: 'No. TheCalcPro is 100% client-side. All calculations happen in your browser. We never store or transmit your data.' },
   { q: 'Can I use it on mobile?', a: 'Absolutely. TheCalcPro is fully responsive and works beautifully on phones, tablets, and desktops.' },
   { q: 'What math topics are supported?', a: 'Algebra, Calculus, Trigonometry, Statistics, Geometry, Matrix operations, Graph plotting, Unit conversion, and more.' },
+  { q: 'What is a good cash-on-cash return for a rental property?', a: 'A good return typically falls between 8% and 12%, though it varies by market. Our calculator helps you pinpoint this exact yield factoring in your specific operating expenses and mortgage debt.' },
+  { q: 'How much extra concrete should I order for a slab?', a: 'Industry standard recommends ordering 10% more concrete than your exact volumetric calculation to account for spills, uneven subgrades, and settling. Our tool compounds this waste factor automatically.' },
+  { q: 'How many solar panels are needed to power a house?', a: 'The average home requires between 15 to 20 panels to fully offset utility usage, depending on panel wattage and local peak sun hours. Use our solar sizer to get your exact count.' },
+  { q: 'Is TDEE the same as BMR?', a: 'No. Basal Metabolic Rate (BMR) is the energy your body burns at rest. Total Daily Energy Expenditure (TDEE) multiplies your BMR by your physical activity level to give your true daily calorie burn.' },
+  { q: 'How is residential electrical load calculated?', a: 'It is calculated using National Electrical Code (NEC) demand factors, which allocate wattage for general square footage, dedicated appliance circuits, and continuous loads to determine your required panel amperage.' }
 ]
 
 /* ── Page Component ─────────────────────────────────── */
