@@ -1545,5 +1545,39 @@ export const solversData: SolverConfig[] = [
       { title: 'Calculate Cycles', content: 'The engine adds a 15-minute buffer, then measures out 90-minute intervals backwards (or forwards).' },
       { title: 'Find Optimal Bedtime', content: 'Select the recommended 5-cycle (7.5 hours) target to wake up feeling completely refreshed.' }
     ],
+  },
+  {
+    slug: 'fire-calculator',
+    title: 'FIRE Calculator',
+    subtitle: 'Compound Interest & Early Retirement Planner',
+    description: 'Plan your early retirement with our free FIRE calculator. Project compound interest, calculate your 4% safe withdrawal rate, and find your financial independence number.',
+    overview: 'The FIRE Calculator projects year-over-year portfolio growth using future value annuity math to pinpoint the exact crossover year when your investments can safely sustain your target annual retirement income indefinitely.',
+    intentKeywords: [
+      'FIRE calculator',
+      'financial independence retire early',
+      'compound interest with monthly contributions',
+      '4% safe withdrawal rate calculator',
+      'how to find my FIRE number',
+      'early retirement planner'
+    ],
+    category: 'Finance',
+    type: 'utility',
+    keywords: ['FIRE calculator', 'compound interest', 'early retirement', 'financial independence', '4 percent rule'],
+    schema: {
+      name: 'TheCalcPro FIRE & Compound Interest Calculator',
+      description: 'Calculate your exact Financial Independence (FIRE) number. Model your compound interest and monthly contributions to find out when you can retire.',
+      category: 'FinanceApplication',
+    },
+    faqs: [
+      { question: 'What is the FIRE movement 4% rule?', answer: 'The 4% rule states you can safely withdraw 4% of your invested portfolio your first year of retirement, adjusting for inflation subsequently, without running out of money over 30 years.' },
+      { question: 'How do I calculate my FIRE number?', answer: 'Multiply your desired annual retirement income by 25. If you want $40,000 a year, your FIRE number is $1,000,000.' },
+      { question: 'Does compound interest include monthly contributions?', answer: 'Yes, our calculator compounds both your initial principal and your recurring monthly investments to project your true portfolio growth.' }
+    ],
+    steps: [
+      { title: 'Define Financial Baseline', content: 'Input your current principal savings and recurring monthly contribution.' },
+      { title: 'Set Target Retirement Income', content: 'Enter the annual income you need to live on comfortably in retirement.' },
+      { title: 'Calculate FIRE Number', content: 'The engine multiplies your target income by 25 based on the 4% safe withdrawal rule.' },
+      { title: 'Project Compound Growth', content: 'Review the year-by-year amortization table to find the exact year your balance crosses the FIRE target.' }
+    ],
   }
 ]

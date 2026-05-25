@@ -132,6 +132,7 @@ const NAV_GROUPS = [
     title: 'Finance',
     items: [
       { to: '/solvers/cash-on-cash-calculator', label: 'Cash-on-Cash Return', icon: DollarIcon },
+      { to: '/solvers/fire-calculator', label: 'FIRE & Compound', icon: DollarIcon },
     ]
   },
   {

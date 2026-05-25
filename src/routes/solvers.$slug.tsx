@@ -18,6 +18,7 @@ import ConcreteSlabCalculator from '../components/ConcreteSlabCalculator'
 import CashOnCashCalculator from '../components/CashOnCashCalculator'
 import TDEECalculator from '../components/TDEECalculator'
 import SleepCalculator from '../components/SleepCalculator'
+import FIRECalculator from '../components/FIRECalculator'
 
 export const Route = createFileRoute('/solvers/$slug')({
   loader: ({ params }) => {
@@ -127,6 +128,7 @@ function SolverPageComponent() {
             case 'cash-on-cash-calculator':   return <CashOnCashCalculator />
             case 'tdee-calculator':           return <TDEECalculator />
             case 'sleep-calculator':          return <SleepCalculator />
+            case 'fire-calculator':           return <FIRECalculator />
             default: return null
           }
         }

@@ -162,6 +162,18 @@ const TOOLS = [
     tag: 'Finance',
   },
   {
+    to: '/solvers/fire-calculator',
+    label: 'FIRE & Compound Interest',
+    desc: 'Calculate your exact Financial Independence (FIRE) number and model your compound interest.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </svg>
+    ),
+    tag: 'Finance',
+  },
+  {
     to: '/solvers/tdee-calculator',
     label: 'TDEE Calculator',
     desc: 'Mifflin-St Jeor BMR with 5 NEAT activity multipliers, metric/imperial toggle, and calorie targets.',
