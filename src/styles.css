@@ -16,9 +16,9 @@
   --border: rgba(255,255,255,0.06);
   --border-strong: rgba(255,255,255,0.1);
   --text-primary: #f0ede8;
-  --text-secondary: #a0988a;
-  --text-muted: #6a6258;
-  --text-faint: #3e3b38;
+  --text-secondary: #b0a898;
+  --text-muted: #8c8278;
+  --text-faint: #5a5650;
   --sidebar-w: 260px;
   --radius: 1.25rem;
 
@@ -35,9 +35,9 @@
   --border: rgba(0,0,0,0.06);
   --border-strong: rgba(0,0,0,0.12);
   --text-primary: #1a1814;
-  --text-secondary: #5a5248;
-  --text-muted: #9a9080;
-  --text-faint: #a09890;
+  --text-secondary: #4a4240;
+  --text-muted: #6e6460;
+  --text-faint: #8a8480;
   --shadow-card: 0 4px 20px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.8) inset;
   --shadow-elevated: 0 16px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05) inset;
 }
@@ -94,24 +94,44 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* ── Hero accent: animated shimmer gradient ─────────── */
-@keyframes gradient-shift {
-  0%   { background-position: 0%   50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0%   50%; }
-}
-
+/* ── Hero accent: GPU-accelerated shimmer ───────────── */
+/*
+ * Re-implemented as a translateX() pseudo-layer so the compositor
+ * can paint this on the GPU without triggering main-thread reflow.
+ * The gradient lives on a ::before overlay that slides left;
+ * the text itself gets background-clip applied statically.
+ */
 .animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
-  /* Prevent layout shift: force text-fill to transparent at parse time */
+  position: relative;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Static gradient on the element itself (no animation = no reflow) */
+  background-image: linear-gradient(135deg, var(--amber) 0%, #ff6b2e 40%, var(--amber-light) 70%, #ff6b2e 100%);
+  background-size: 200% 100%;
+}
+
+.animate-gradient-x::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: 200% 100%;
+  /* translateX drives the shimmer; no background-position paint */
+  animation: gradient-shimmer 4s ease-in-out infinite;
+  will-change: transform;
+  z-index: -1;
+}
+
+@keyframes gradient-shimmer {
+  0%   { transform: translateX(0%); }
+  50%  { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-gradient-x { animation: none; }
+  .animate-gradient-x::before { animation: none; }
   .ad-skeleton-bar { animation: none !important; }
 }
 

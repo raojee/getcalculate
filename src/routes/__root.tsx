@@ -30,6 +30,13 @@ export const Route = createRootRoute({
     links: [
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossOrigin: 'anonymous' },
+      { rel: 'dns-prefetch', href: 'https://pagead2.googlesyndication.com' },
+      {
+        rel: 'preload',
+        href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
+        as: 'style',
+      },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',

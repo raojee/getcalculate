@@ -35,17 +35,20 @@ export default function LandingFooter() {
           <div className="col-span-2 md:col-span-1 space-y-6">
             <Link to="/" className="inline-block group transition-transform hover:scale-105">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden border border-amber/20 bg-gradient-to-br from-amber/10 to-transparent shadow-[0_0_15px_rgba(255,107,0,0.15)] transition-all group-hover:border-amber/40 group-hover:shadow-[0_0_25px_rgba(255,107,0,0.25)]">
-                <img 
-                  src="/logo.png" 
-                  alt="TheCalcPro Logo" 
-                  width="44" 
-                  height="44" 
-                  className="w-11 h-11 object-contain"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                  }}
-                />
+                <picture>
+                  <source srcSet="/logo-icon.webp" type="image/webp" />
+                  <img 
+                    src="/logo.png" 
+                    alt="TheCalcPro Logo" 
+                    width="44" 
+                    height="44" 
+                    className="w-11 h-11 object-contain"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                    }}
+                  />
+                </picture>
                 <span className="hidden font-black text-xs text-amber">CP</span>
               </div>
             </Link>
@@ -69,9 +72,10 @@ export default function LandingFooter() {
           {/* Link Columns */}
           {Object.entries(FOOTER_LINKS).map(([title, links]) => (
             <div key={title} className="space-y-4">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>
+              {/* p instead of h4: these are nav section labels, not content headings */}
+              <p className="text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: 'var(--text-primary)' }}>
                 {title}
-              </h4>
+              </p>
               <ul className="space-y-2.5">
                 {links.map(link => (
                   <li key={link.label}>
@@ -92,10 +96,10 @@ export default function LandingFooter() {
         {/* Bottom Bar */}
         <div className="h-px w-full mb-8" style={{ background: 'var(--border)' }} />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8">
-          <p className="text-[10px] font-mono" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-[10px] font-mono" style={{ color: 'var(--text-secondary)' }}>
             © {new Date().getFullYear()} TheCalcPro. All rights reserved.
           </p>
-          <p className="text-[10px]" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-[10px]" style={{ color: 'var(--text-secondary)' }}>
             Crafted with precision for mathematics.
           </p>
         </div>

@@ -35,17 +35,20 @@ export default function LandingNav() {
       <div className="landing-nav-inner">
         <Link to="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 bg-amber/10">
-            <img 
-              src="/logo.png" 
-              alt="TheCalcPro Logo" 
-              width="36" 
-              height="36" 
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling?.classList.remove('hidden');
-              }}
-            />
+            <picture>
+              <source srcSet="/logo-icon.webp" type="image/webp" />
+              <img 
+                src="/logo.png" 
+                alt="TheCalcPro Logo" 
+                width="36" 
+                height="36" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+            </picture>
             <span className="hidden font-black text-xs text-amber">CP</span>
           </div>
           <span className="font-bold text-base" style={{ color: 'var(--text-primary)' }}>

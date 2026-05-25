@@ -14,7 +14,9 @@ export default function AppLayout() {
   if (isHomepage) {
     return (
       <div className="min-h-screen" style={{ background: 'var(--bg-page)', color: 'var(--text-primary)' }}>
-        <Outlet />
+        <main id="main-content">
+          <Outlet />
+        </main>
       </div>
     )
   }
