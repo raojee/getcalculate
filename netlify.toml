@@ -5,3 +5,10 @@
   command = "npm run dev"
   targetPort = 3000
   port = 8888
+
+# SEO: 301 redirect obsolete /lander route to homepage
+[[redirects]]
+  from = "/lander"
+  to = "/"
+  status = 301
+  force = true

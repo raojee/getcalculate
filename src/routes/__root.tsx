@@ -8,7 +8,12 @@ import '../styles.css'
 
 export const Route = createRootRoute({
   notFoundComponent: NotFoundPage,
-  head: () => ({
+  head: (ctx) => {
+    // Derive the active pathname from the deepest (leaf) match
+    const pathname = ctx.matches[ctx.matches.length - 1]?.pathname ?? '/'
+    const canonicalUrl = `https://thecalcpro.com${pathname === '/' ? '' : pathname}`
+
+    return ({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -46,7 +51,7 @@ export const Route = createRootRoute({
         rel: 'stylesheet',
         href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
       },
-      { rel: 'canonical', href: 'https://thecalcpro.com' },
+      { rel: 'canonical', href: canonicalUrl },
       { rel: 'manifest', href: '/manifest.json' },
       { rel: 'icon', href: '/favicon.ico' },
     ],
@@ -80,7 +85,7 @@ export const Route = createRootRoute({
         }),
       },
     ],
-  }),
+  })},
   shellComponent: RootDocument,
   component: AppLayout,
 })
