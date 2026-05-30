@@ -38,19 +38,6 @@ export const Route = createRootRoute({
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
       { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossOrigin: 'anonymous' },
       { rel: 'dns-prefetch', href: 'https://pagead2.googlesyndication.com' },
-      {
-        rel: 'preload',
-        href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
-        as: 'style',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
-      },
       { rel: 'canonical', href: canonicalUrl },
       { rel: 'manifest', href: '/manifest.json' },
       { rel: 'icon', href: '/favicon.ico' },
@@ -95,21 +82,62 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+
+        {/* ── Non-blocking async font loading (eliminates render-block on 4G) ── */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          as="style"
+        />
+        <link
+          rel="preload"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+          as="style"
+        />
+
+        {/* Async stylesheet swap: preload fires onload to flip rel to stylesheet */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const theme = localStorage.getItem('calcpro-theme') || 'dark';
+                var theme = localStorage.getItem('calcpro-theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
               })();
+
+              (function() {
+                function loadCSS(href) {
+                  var l = document.createElement('link');
+                  l.rel = 'stylesheet';
+                  l.href = href;
+                  document.head.appendChild(l);
+                }
+                if (requestIdleCallback) {
+                  requestIdleCallback(function() {
+                    loadCSS('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+                    loadCSS('https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css');
+                  });
+                } else {
+                  window.addEventListener('load', function() {
+                    loadCSS('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+                    loadCSS('https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css');
+                  });
+                }
+              })();
+
               if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
+                window.addEventListener('load', function() {
                   navigator.serviceWorker.register('/sw.js').catch(console.error);
                 });
               }
             `,
           }}
         />
+
+        {/* No-JS fallback: load stylesheets synchronously if JS is disabled */}
+        <noscript>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+        </noscript>
       </head>
       <body>
         <ThemeProvider>
