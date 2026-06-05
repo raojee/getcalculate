@@ -4,3 +4,6 @@ dist
 .DS_Store
 .env*
 .env
+
+# Capacitor native platform (generated via `npx cap add android`)
+/android/

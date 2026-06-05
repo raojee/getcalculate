@@ -21,7 +21,7 @@ A fast, keyboard-friendly online calculator built with TanStack Start and deploy
 | Build | Vite 7 |
 | Styling | Tailwind CSS 4 |
 | Language | TypeScript 5.7 (strict mode) |
-| Deployment | Netlify |
+| Deployment | RaoTahir |
 
 ## Running Locally
 

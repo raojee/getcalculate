@@ -10,9 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrigonometryRouteImport } from './routes/trigonometry'
+import { Route as TermsOfServiceRouteImport } from './routes/terms-of-service'
 import { Route as StatisticsRouteImport } from './routes/statistics'
 import { Route as ScientificRouteImport } from './routes/scientific'
 import { Route as ProbabilityRouteImport } from './routes/probability'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PercentageRouteImport } from './routes/percentage'
 import { Route as MatrixRouteImport } from './routes/matrix'
 import { Route as GrapherRouteImport } from './routes/grapher'
@@ -32,6 +34,11 @@ const TrigonometryRoute = TrigonometryRouteImport.update({
   path: '/trigonometry',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsOfServiceRoute = TermsOfServiceRouteImport.update({
+  id: '/terms-of-service',
+  path: '/terms-of-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StatisticsRoute = StatisticsRouteImport.update({
   id: '/statistics',
   path: '/statistics',
@@ -45,6 +52,11 @@ const ScientificRoute = ScientificRouteImport.update({
 const ProbabilityRoute = ProbabilityRouteImport.update({
   id: '/probability',
   path: '/probability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PercentageRoute = PercentageRouteImport.update({
@@ -126,9 +138,11 @@ export interface FileRoutesByFullPath {
   '/grapher': typeof GrapherRoute
   '/matrix': typeof MatrixRoute
   '/percentage': typeof PercentageRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/probability': typeof ProbabilityRoute
   '/scientific': typeof ScientificRoute
   '/statistics': typeof StatisticsRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
   '/trigonometry': typeof TrigonometryRoute
   '/solvers/$slug': typeof SolversSlugRoute
 }
@@ -145,9 +159,11 @@ export interface FileRoutesByTo {
   '/grapher': typeof GrapherRoute
   '/matrix': typeof MatrixRoute
   '/percentage': typeof PercentageRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/probability': typeof ProbabilityRoute
   '/scientific': typeof ScientificRoute
   '/statistics': typeof StatisticsRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
   '/trigonometry': typeof TrigonometryRoute
   '/solvers/$slug': typeof SolversSlugRoute
 }
@@ -165,9 +181,11 @@ export interface FileRoutesById {
   '/grapher': typeof GrapherRoute
   '/matrix': typeof MatrixRoute
   '/percentage': typeof PercentageRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/probability': typeof ProbabilityRoute
   '/scientific': typeof ScientificRoute
   '/statistics': typeof StatisticsRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
   '/trigonometry': typeof TrigonometryRoute
   '/solvers/$slug': typeof SolversSlugRoute
 }
@@ -186,9 +204,11 @@ export interface FileRouteTypes {
     | '/grapher'
     | '/matrix'
     | '/percentage'
+    | '/privacy-policy'
     | '/probability'
     | '/scientific'
     | '/statistics'
+    | '/terms-of-service'
     | '/trigonometry'
     | '/solvers/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -205,9 +225,11 @@ export interface FileRouteTypes {
     | '/grapher'
     | '/matrix'
     | '/percentage'
+    | '/privacy-policy'
     | '/probability'
     | '/scientific'
     | '/statistics'
+    | '/terms-of-service'
     | '/trigonometry'
     | '/solvers/$slug'
   id:
@@ -224,9 +246,11 @@ export interface FileRouteTypes {
     | '/grapher'
     | '/matrix'
     | '/percentage'
+    | '/privacy-policy'
     | '/probability'
     | '/scientific'
     | '/statistics'
+    | '/terms-of-service'
     | '/trigonometry'
     | '/solvers/$slug'
   fileRoutesById: FileRoutesById
@@ -244,9 +268,11 @@ export interface RootRouteChildren {
   GrapherRoute: typeof GrapherRoute
   MatrixRoute: typeof MatrixRoute
   PercentageRoute: typeof PercentageRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ProbabilityRoute: typeof ProbabilityRoute
   ScientificRoute: typeof ScientificRoute
   StatisticsRoute: typeof StatisticsRoute
+  TermsOfServiceRoute: typeof TermsOfServiceRoute
   TrigonometryRoute: typeof TrigonometryRoute
   SolversSlugRoute: typeof SolversSlugRoute
 }
@@ -258,6 +284,13 @@ declare module '@tanstack/react-router' {
       path: '/trigonometry'
       fullPath: '/trigonometry'
       preLoaderRoute: typeof TrigonometryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-of-service': {
+      id: '/terms-of-service'
+      path: '/terms-of-service'
+      fullPath: '/terms-of-service'
+      preLoaderRoute: typeof TermsOfServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/statistics': {
@@ -279,6 +312,13 @@ declare module '@tanstack/react-router' {
       path: '/probability'
       fullPath: '/probability'
       preLoaderRoute: typeof ProbabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/percentage': {
@@ -388,9 +428,11 @@ const rootRouteChildren: RootRouteChildren = {
   GrapherRoute: GrapherRoute,
   MatrixRoute: MatrixRoute,
   PercentageRoute: PercentageRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ProbabilityRoute: ProbabilityRoute,
   ScientificRoute: ScientificRoute,
   StatisticsRoute: StatisticsRoute,
+  TermsOfServiceRoute: TermsOfServiceRoute,
   TrigonometryRoute: TrigonometryRoute,
   SolversSlugRoute: SolversSlugRoute,
 }
