@@ -55,11 +55,7 @@ export const Route = createRootRoute({
             },
           ]
         : []),
-      {
-        async: true as const,
-        src: 'https://analytics.ahrefs.com/analytics.js',
-        'data-key': 'SRTn2J8jrRq204RGYkFtTw',
-      },
+
       {
         type: 'application/ld+json',
         children: JSON.stringify({
@@ -89,6 +85,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+
+        {/* Ahrefs Web Analytics */}
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="SRTn2J8jrRq204RGYkFtTw"
+          async
+        />
 
         {/* ── Non-blocking async font loading (eliminates render-block on 4G) ── */}
         <link
