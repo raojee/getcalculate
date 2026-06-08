@@ -11,7 +11,9 @@ export const Route = createRootRoute({
   head: (ctx) => {
     // Derive the active pathname from the deepest (leaf) match
     const pathname = ctx.matches[ctx.matches.length - 1]?.pathname ?? '/'
-    const canonicalUrl = `https://thecalcpro.com${pathname === '/' ? '' : pathname}`
+    // Guard: never emit unresolved route patterns (containing $) as canonical URLs
+    const resolvedPath = pathname.includes('$') ? '/' : pathname
+    const canonicalUrl = `https://thecalcpro.com${resolvedPath === '/' ? '' : resolvedPath}`
 
     return ({
     meta: [
@@ -53,6 +55,11 @@ export const Route = createRootRoute({
             },
           ]
         : []),
+      {
+        async: true as const,
+        src: 'https://analytics.ahrefs.com/analytics.js',
+        'data-key': 'SRTn2J8jrRq204RGYkFtTw',
+      },
       {
         type: 'application/ld+json',
         children: JSON.stringify({
