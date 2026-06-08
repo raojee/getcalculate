@@ -7,3 +7,9 @@ dist
 
 # Capacitor native platform (generated via `npx cap add android`)
 /android/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
