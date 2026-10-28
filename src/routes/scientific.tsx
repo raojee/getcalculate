@@ -5,9 +5,30 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/scientific')({
   head: () => ({
     meta: [
-      { title: 'Free Scientific Calculator Online — Trig, Log, Exponents | TheCalcPro' },
-      { name: 'description', content: 'Free online scientific calculator with trigonometric functions (sin, cos, tan), logarithms (ln, log₁₀), exponents, factorials, and constants (π, e). Supports degrees and radians.' },
-      { name: 'keywords', content: 'scientific calculator, online scientific calculator, trigonometry calculator, logarithm calculator, factorial calculator, sin cos tan calculator' },
+      { title: 'Scientific Calculator Online — Free Full-Screen Calc with History | TheCalcPro' },
+      {
+        name: 'description',
+        content:
+          'Use our free Scientific Calculator Online with calculation history tape, keyboard support, DEG/RAD mode, sin/cos/tan, logarithms (ln, log₁₀), exponents, and factorials. Instant, full-screen, no sign-up.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'scientific calculator online, free scientific calculator online, online scientific calculator, scientific calculator with history, sin cos tan calculator, trigonometry calculator, logarithm calculator, factorial calculator',
+      },
+      { property: 'og:title', content: 'Scientific Calculator Online — Free Full-Screen Calc with History | TheCalcPro' },
+      {
+        property: 'og:description',
+        content:
+          'Free Scientific Calculator Online with history tape, keyboard shortcuts, DEG/RAD toggle, trig, logs, exponents, and factorials. Fast & 100% browser-based.',
+      },
+      { property: 'og:url', content: 'https://thecalcpro.com/scientific' },
+      { name: 'twitter:title', content: 'Scientific Calculator Online — Free Full-Screen Calc with History' },
+      {
+        name: 'twitter:description',
+        content:
+          'Free Scientific Calculator Online with calculation history, DEG/RAD trig functions, logs, and keyboard support.',
+      },
     ],
   }),
   component: ScientificPage,
@@ -46,17 +67,67 @@ function ScientificPage() {
     })),
   }
 
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TheCalcPro Scientific Calculator Online",
+    "url": "https://thecalcpro.com/scientific",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Trigonometric functions (sin, cos, tan, asin, acos, atan) in Degrees and Radians",
+      "Logarithms (ln, log10) and exponential powers",
+      "Calculation history tape with one-click recall",
+      "Full keyboard shortcuts support",
+      "Factorials (n!), square roots, percentage, and constants (π, e)"
+    ]
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://thecalcpro.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Scientific Calculator Online",
+        "item": "https://thecalcpro.com/scientific"
+      }
+    ]
+  }
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Scientific Calculator</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Scientific Calculator Online
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Advanced functions for engineering and physics.
+          Free full-screen scientific calculator online with history tape, keyboard support, DEG/RAD trigonometry, logarithms, and exponents.
         </p>
       </div>
       <ScientificCalculator />
@@ -64,17 +135,18 @@ function ScientificPage() {
       {/* SEO Content Article */}
       <article className="mt-16 space-y-6" style={{ color: 'var(--text-secondary)' }}>
         <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
-          What Is a Scientific Calculator?
+          How to Use Our Free Scientific Calculator Online
         </h2>
         <p className="leading-relaxed">
-          A scientific calculator extends basic arithmetic with advanced mathematical functions used across
-          science, engineering, and mathematics. Unlike a standard calculator, it supports
-          <strong> trigonometric functions</strong> (sin, cos, tan and their inverses),
+          Whether you are solving homework problems, engineering equations, or physics formulas, our
+          <strong> scientific calculator online</strong> gives you instant, high-precision results right in your
+          browser. Unlike a basic pocket calculator, it includes
+          <strong> trigonometric functions</strong> (sin, cos, tan and their inverses in both Degrees and Radians),
           <strong> logarithms</strong> (natural log ln and common log log₁₀),
           <strong> exponentiation</strong> (powers and roots), <strong>factorials</strong> (n!),
+          a collapsible <strong>calculation history tape</strong>, full keyboard shortcuts,
           and mathematical constants such as <strong>π</strong> (3.14159…) and <strong>e</strong> (2.71828…).
-          TheCalcPro's scientific calculator runs entirely in your browser — no downloads, no sign-ups,
-          and no data sent to any server.
+          Everything runs 100% client-side with zero lag, no downloads, and no sign-up required.
         </p>
 
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
