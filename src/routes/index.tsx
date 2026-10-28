@@ -381,7 +381,7 @@ function HomePage() {
       </section>
 
       {/* ── CTA Banner ───────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-6 pb-24">
+      <section className="max-w-4xl mx-auto px-6 pb-16">
         <div className="relative overflow-hidden rounded-[2rem] p-12 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, rgba(255,157,46,0.08), rgba(255,107,46,0.04))', border: '1px solid rgba(255,157,46,0.15)' }}>
           <div className="absolute inset-0 dot-grid opacity-30" />
           <div className="relative z-10">
@@ -397,6 +397,11 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Native Ad Slot ───────────────────────────── */}
+      <div className="max-w-4xl mx-auto px-6 pb-16">
+        <AdSlot format="rectangle" />
+      </div>
 
       <LandingFooter />
     </div>

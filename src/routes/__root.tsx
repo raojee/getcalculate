@@ -154,6 +154,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           {children}
         </ThemeProvider>
 
+        {/* Adsterra Social Bar / Global Script */}
+        {ADS_CONFIG.isBannerAdEnabled && (
+          <script
+            data-cfasync="false"
+            src={ADS_CONFIG.socialBarScript}
+          />
+        )}
+
         <Scripts />
       </body>
     </html>
