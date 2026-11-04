@@ -35,6 +35,7 @@ export const Route = createRootRoute({
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'TheCalcPro — Free Online Math Platform' },
       { name: 'twitter:description', content: 'Free all-in-one math solver platform. No sign-up. No downloads.' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
       { name: 'theme-color', content: '#ff9d2e' },
     ],
     links: [

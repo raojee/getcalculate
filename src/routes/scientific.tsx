@@ -29,6 +29,8 @@ export const Route = createFileRoute('/scientific')({
         content:
           'Free Scientific Calculator Online with calculation history, DEG/RAD trig functions, logs, and keyboard support.',
       },
+      { name: 'application-name', content: 'Scientific Calculator Online — TheCalcPro' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: ScientificPage,
@@ -70,7 +72,14 @@ function ScientificPage() {
   const appSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "TheCalcPro Scientific Calculator Online",
+    "name": "Scientific Calculator Online",
+    "alternateName": [
+      "Scientific Calculator",
+      "Free Scientific Calculator Online",
+      "Online Scientific Calculator",
+      "Scientific Calculator with History",
+      "TheCalcPro Scientific Calculator"
+    ],
     "url": "https://thecalcpro.com/scientific",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "All",
@@ -79,6 +88,7 @@ function ScientificPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
+    "keywords": "scientific calculator, scientific calculator online, free scientific calculator, online scientific calculator, trig calculator, log calculator, sin cos tan calculator",
     "featureList": [
       "Trigonometric functions (sin, cos, tan, asin, acos, atan) in Degrees and Radians",
       "Logarithms (ln, log10) and exponential powers",
