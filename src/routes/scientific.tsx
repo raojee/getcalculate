@@ -9,12 +9,12 @@ export const Route = createFileRoute('/scientific')({
       {
         name: 'description',
         content:
-          'Free Scientific Calculator Online with history tape, sin/cos/tan (DEG & RAD), inverse trig, logs (ln, log), exponents, roots & keyboard shortcuts. Instant & no sign-up.',
+          'Free Scientific Calculator Online — our online scientific calculator & science calculator includes history tape, sin/cos/tan (DEG & RAD), logs (ln, log), exponents & keyboard support.',
       },
       {
         name: 'keywords',
         content:
-          'scientific calculator, scientific calculator online, free scientific calculator, online scientific calculator, scientific calculator with history, sin cos tan calculator, trigonometry calculator, logarithm calculator',
+          'scientific calculator online, scientific calculator, online scientific calculator, online calculator scientific, scientific online calculator, science calculator, calculator online scientific, calculator pro online, calculator scientific, solve calculator pro',
       },
       { property: 'og:title', content: 'Scientific Calculator Online (Free) — Trig, Log & History | TheCalcPro' },
       {
@@ -53,6 +53,10 @@ const FAQS = [
     q: 'How do I enter scientific notation?',
     a: 'Use the EXP or × 10ˣ button to enter numbers in scientific notation. For example, to enter 6.022 × 10²³ (Avogadro\'s number), type 6.022, press EXP, then type 23. The calculator will store and compute with the full-precision value.',
   },
+  {
+    q: 'Why use this online scientific calculator instead of a handheld science calculator?',
+    a: 'An online scientific calculator (also searched as an online calculator scientific or scientific online calculator) gives you a full-screen display, an interactive history tape you can click to reuse past results, full desktop keyboard shortcuts, and instant access on any phone or laptop without buying hardware.',
+  },
 ]
 
 function ScientificPage() {
@@ -75,9 +79,14 @@ function ScientificPage() {
     "name": "Scientific Calculator Online",
     "alternateName": [
       "Scientific Calculator",
-      "Free Scientific Calculator Online",
       "Online Scientific Calculator",
-      "Scientific Calculator with History",
+      "Online Calculator Scientific",
+      "Scientific Online Calculator",
+      "Science Calculator",
+      "Calculator Online Scientific",
+      "Calculator Pro Online",
+      "Calculator Scientific",
+      "Solve Calculator Pro",
       "TheCalcPro Scientific Calculator"
     ],
     "url": "https://thecalcpro.com/scientific",
@@ -88,7 +97,7 @@ function ScientificPage() {
       "price": "0",
       "priceCurrency": "USD"
     },
-    "keywords": "scientific calculator, scientific calculator online, free scientific calculator, online scientific calculator, trig calculator, log calculator, sin cos tan calculator",
+    "keywords": "scientific calculator online, scientific calculator, online scientific calculator, online calculator scientific, scientific online calculator, science calculator, calculator online scientific, calculator pro online, calculator scientific, solve calculator pro",
     "featureList": [
       "Trigonometric functions (sin, cos, tan, asin, acos, atan) in Degrees and Radians",
       "Logarithms (ln, log10) and exponential powers",
@@ -162,13 +171,14 @@ function ScientificPage() {
       <article className="mt-16 space-y-8" style={{ color: 'var(--text-secondary)' }}>
         <section className="space-y-4">
           <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
-            How to Use Our Free Scientific Calculator Online
+            How to Use Our Free Online Scientific Calculator
           </h2>
           <p className="leading-relaxed">
-            Whether you are solving high school math homework, college engineering equations, or physics formulas, our
-            <strong> scientific calculator</strong> (available 100% free as a <strong>scientific calculator online</strong>)
-            gives you instant, double-precision results directly in your browser. Unlike basic built-in search calculators,
-            it features a persistent <strong>calculation history tape</strong>, <strong>inverse trigonometric functions</strong> (sin⁻¹, cos⁻¹, tan⁻¹),
+            Whether you are solving high school math homework, college engineering equations, or lab formulas with a
+            <strong> science calculator</strong>, our <strong>scientific calculator online</strong> (also known as
+            <strong> TheCalcPro — Calculator Pro Online</strong>) gives you instant, double-precision results directly in your browser.
+            Unlike basic search widgets, this <strong>online scientific calculator</strong> features a persistent
+            <strong> calculation history tape</strong>, <strong>inverse trigonometric functions</strong> (sin⁻¹, cos⁻¹, tan⁻¹),
             <strong> Degrees &amp; Radians toggle</strong>, <strong>logarithms</strong> (ln and log₁₀),
             <strong> exponents &amp; roots</strong> (x², x³, xʸ, √x), and <strong>factorials</strong> (n!).
           </p>

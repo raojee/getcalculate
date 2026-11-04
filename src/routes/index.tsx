@@ -20,8 +20,8 @@ export const Route = createFileRoute('/')({
 const TOOLS = [
   {
     to: '/scientific',
-    label: 'Scientific Calculator',
-    desc: 'Full-featured scientific computing with trigonometric, logarithmic, and exponential functions.',
+    label: 'Scientific Calculator Online',
+    desc: 'Free online scientific calculator & science calculator with history tape, sin/cos/tan (DEG/RAD), logarithms, and exponents.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="2" width="16" height="20" rx="2" /><line x1="8" y1="6" x2="16" y2="6" /><circle cx="9" cy="11" r="0.5" fill="currentColor" /><circle cx="15" cy="11" r="0.5" fill="currentColor" /><circle cx="12" cy="14" r="0.5" fill="currentColor" /><circle cx="9" cy="17" r="0.5" fill="currentColor" /><circle cx="15" cy="17" r="0.5" fill="currentColor" />
