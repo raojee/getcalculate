@@ -18,6 +18,12 @@ export interface SolverConfig {
   keywords: string[]
 
   /**
+   * Optional plain-text formula the tool applies (e.g. "V = (4/3)πr³").
+   * Emitted in JSON-LD as a DefinedTerm under `about` when present.
+   */
+  formula?: string
+
+  /**
    * AI Engine Visibility — semantic intent phrases that match natural-language
    * queries issued to AI search assistants (ChatGPT, Perplexity, SGE, etc.).
    */
@@ -41,6 +47,7 @@ export interface SolverConfig {
 export const solversData: SolverConfig[] = [
   {
     slug: 'quadratic-equation-solver',
+    formula: 'x = (−b ± √(b² − 4ac)) / 2a',
     title: 'Quadratic Equation Solver',
     subtitle: 'Solve ax² + bx + c = 0 instantly',
     description: 'Find roots using the quadratic formula with step-by-step discriminant analysis and vertex calculation.',
@@ -124,6 +131,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'cylinder-volume-calculator',
+    formula: 'V = πr²h',
     title: 'Cylinder Volume Calculator',
     subtitle: 'Calculate volume and surface area of cylinders',
     description: 'Enter radius and height to compute high-precision geometric metrics for any cylindrical object.',
@@ -206,6 +214,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'standard-deviation-calculator',
+    formula: 'σ = √(Σ(xᵢ − μ)² / N)',
     title: 'Standard Deviation Solver',
     subtitle: 'Analyze dataset variability and spread',
     description: 'Compute population and sample standard deviation, variance, and mean for any numeric dataset.',
@@ -295,6 +304,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'derivative-calculator',
+    formula: 'd/dx [xⁿ] = n·xⁿ⁻¹ (with product, quotient and chain rules)',
     title: 'Step-by-Step Derivative Calculator',
     subtitle: 'Compute derivatives of any function instantly',
     description: 'Calculate derivatives using the power rule, chain rule, product rule, and quotient rule with complete step-by-step differentiation analysis.',
@@ -409,6 +419,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'sphere-volume-calculator',
+    formula: 'V = (4/3)πr³',
     title: 'Sphere Volume Calculator',
     subtitle: 'Volume and surface area of any sphere',
     description: 'Enter the radius to instantly compute sphere volume (4/3 πr³) and surface area (4πr²) with unit conversion support.',
@@ -430,6 +441,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'cone-volume-calculator',
+    formula: 'V = (1/3)πr²h',
     title: 'Cone Volume Calculator',
     subtitle: 'Volume, slant height, and surface area of cones',
     description: 'Calculate the volume, lateral surface area, and slant height of any right circular cone from radius and height.',
@@ -472,6 +484,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'z-score-calculator',
+    formula: 'z = (x − μ) / σ',
     title: 'Z-Score Calculator',
     subtitle: 'Standardise any data point against its distribution',
     description: 'Calculate the z-score, percentile rank, and probability for any value given the population mean and standard deviation.',
@@ -514,6 +527,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'linear-equation-solver',
+    formula: 'ax + b = c  →  x = (c − b) / a',
     title: 'Linear Equation Solver',
     subtitle: 'Solve any single-variable linear equation',
     description: 'Solve equations of the form ax + b = c step by step, with support for fractions, decimals, and negative coefficients.',
@@ -535,6 +549,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'compound-interest-calculator',
+    formula: 'A = P(1 + r/n)^(nt)',
     title: 'Compound Interest Calculator',
     subtitle: 'Model investment growth with compound interest',
     description: 'Calculate final amount, total interest earned, and year-by-year growth using the compound interest formula A = P(1 + r/n)^(nt).',
@@ -766,6 +781,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'simple-interest-calculator',
+    formula: 'I = P × r × t',
     title: 'Simple Interest Calculator',
     subtitle: 'Compute interest, final amount, rate, or time',
     description: 'Solve for any variable in the simple interest formula I = Prt — find interest earned, principal, rate, or duration.',
@@ -829,6 +845,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'quadratic-discriminant-calculator',
+    formula: 'D = b² − 4ac',
     title: 'Quadratic Discriminant Calculator',
     subtitle: 'Determine the nature of roots for any quadratic',
     description: 'Calculate the discriminant (b² - 4ac) to determine if a quadratic equation has real, repeated, or complex roots.',

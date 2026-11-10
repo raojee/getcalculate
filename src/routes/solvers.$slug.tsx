@@ -2,9 +2,10 @@ import { createFileRoute, notFound, Link } from '@tanstack/react-router'
 import { solversData } from '../config/solversData'
 import GlassCard from '../components/ui/GlassCard'
 import ResultActions from '../components/ui/ResultActions'
-import { BookOpen, HelpCircle, ArrowRight, LayoutGrid, Code, Check, Copy, Share2 } from 'lucide-react'
+import { BookOpen, HelpCircle, ArrowRight, Code, Check, Share2 } from 'lucide-react'
 import { useState } from 'react'
 import AdSlot from '../components/ui/AdSlot'
+import { buildSolverSchema, serializeJsonLd } from '../utils/solverSchema'
 
 // Lazy load heavy engine modules for optimal tree-shaking
 import GeometrySolver from '../components/GeometrySolver'
@@ -81,21 +82,9 @@ function SolverPageComponent() {
     setTimeout(() => setEmbedCopied(false), 3000)
   }
 
-  const webAppSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": solver.schema.name,
-    "alternateName": solver.keywords || [],
-    "operatingSystem": "All",
-    "applicationCategory": "EducationalApplication",
-    "url": `https://thecalcpro.com/solvers/${solver.slug}`,
-    "description": solver.schema.description,
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
+  // Unified @graph JSON-LD (WebPage + WebApplication/MathSolver + HowTo + Breadcrumb)
+  const hasEngine = solver.type !== 'matrix' // matrix slugs currently render "Coming Soon"
+  const solverGraphSchema = buildSolverSchema(solver, { hasEngine })
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -146,8 +135,8 @@ function SolverPageComponent() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:py-16 animate-fade-in">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(solverGraphSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
 
       {/* Hero Section */}
       <div className="mb-16 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 items-end">
