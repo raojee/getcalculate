@@ -30,9 +30,9 @@ const TOOLS = [
     tag: 'Popular'
   },
   {
-    to: '/solvers/quadratic-equation-solver',
-    label: 'Algebra Solver',
-    desc: 'Linear & quadratic equations with complete discriminant analysis and step-by-step solutions.',
+    to: '/algebra',
+    label: 'Algebra & Discriminant Solver',
+    desc: 'Linear & quadratic equations with complete discriminant (b² − 4ac) analysis and step-by-step solutions.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 18 8 6l4 12" /><line x1="5" y1="14" x2="11" y2="14" /><path d="M15 8h6" /><path d="M18 5v6" /><path d="M15 18h6" />
@@ -40,9 +40,9 @@ const TOOLS = [
     ),
   },
   {
-    to: '/solvers/derivative-calculator',
-    label: 'Calculus Engine',
-    desc: 'Compute derivatives, integrals, and limits with mathematically rigorous precision.',
+    to: '/calculus',
+    label: 'Derivative Calculator with Steps',
+    desc: 'Compute derivatives, differentiation rules, integrals, and limits with step-by-step explanations.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2" /><path d="M9 16c1-2 2-6 3-6s2 4 3 6" />
@@ -52,8 +52,8 @@ const TOOLS = [
   },
   {
     to: '/grapher',
-    label: 'Graph Plotter',
-    desc: 'Interactive 2D function visualization with asymptote detection and multi-equation support.',
+    label: 'Graphing Calculator & Plotter',
+    desc: 'Interactive 2D graphing calculator online and function graph plotter with asymptote detection.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -62,9 +62,9 @@ const TOOLS = [
     tag: 'Visual'
   },
   {
-    to: '/solvers/standard-deviation-calculator',
-    label: 'Statistics Engine',
-    desc: 'Mean, median, mode, standard deviation and variance with frequency distribution charts.',
+    to: '/statistics',
+    label: 'Mean, Median, Mode & SD Calculator',
+    desc: 'Mean, median, mode finder, standard deviation, and variance with frequency distribution charts.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
@@ -72,12 +72,22 @@ const TOOLS = [
     ),
   },
   {
-    to: '/solvers/cylinder-volume-calculator',
-    label: 'Geometry Visualizer',
-    desc: 'Area, perimeter, volume calculations with responsive 3D SVG shape rendering.',
+    to: '/geometry',
+    label: 'Geometry & Sphere Volume Calculator',
+    desc: 'Sphere volume, cylinder volume, area, and perimeter calculations with 3D geometric solids rendering.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="12 2 2 22 22 22" />
+      </svg>
+    ),
+  },
+  {
+    to: '/equations',
+    label: 'System of Equations Solver',
+    desc: 'Solve 2×2 and 3×3 systems of linear equations step by step with elimination and substitution.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="4" y1="9" x2="20" y2="9" /><line x1="4" y1="15" x2="20" y2="15" /><line x1="10" y1="3" x2="8" y2="21" /><line x1="16" y1="3" x2="14" y2="21" />
       </svg>
     ),
   },

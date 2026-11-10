@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/equations')({
   head: () => ({
     meta: [
-      { title: 'System of Equations Solver — Step-by-Step Solutions | TheCalcPro' },
-      { name: 'description', content: 'Free online equation solver. Solve systems of linear equations, simultaneous equations, and complex expressions step by step using substitution, elimination, and matrix methods.' },
-      { name: 'keywords', content: 'equation solver, system of equations, simultaneous equations, linear equations solver, substitution method, elimination method' },
+      { title: 'System of Equations Solver (Free) — Step-by-Step Solutions' },
+      {
+        name: 'description',
+        content:
+          'Free System of Equations Solver & Simultaneous Equations Calculator. Solve linear systems (2x2, 3x3) step by step using elimination, substitution, and matrix methods.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'system of equations solver, solving equations solver, equation solver, simultaneous equations calculator, linear equations solver, substitution method calculator, elimination method calculator',
+      },
+      { property: 'og:title', content: 'System of Equations Solver — Step-by-Step Solutions | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/equations' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: EquationsPage,
@@ -33,6 +44,26 @@ const FAQS = [
 ]
 
 function EquationsPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "System of Equations Solver",
+    "alternateName": [
+      "Solving Equations Solver",
+      "Simultaneous Equations Solver",
+      "Linear System of Equations Calculator",
+      "Equation Solver"
+    ],
+    "url": "https://thecalcpro.com/equations",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +81,19 @@ function EquationsPage() {
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Equation Solver</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          System of Equations Solver
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Solve for variables in various types of equations.
+          Free step-by-step system of equations solver for simultaneous linear equations.
         </p>
       </div>
       <EquationSolver />

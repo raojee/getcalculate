@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/calculator')({
   head: () => ({
     meta: [
-      { title: 'Free Online Calculator — Basic Arithmetic & PEMDAS | TheCalcPro' },
-      { name: 'description', content: 'Free online standard calculator for addition, subtraction, multiplication, and division. Supports order of operations (PEMDAS), keyboard input, and calculation history.' },
-      { name: 'keywords', content: 'online calculator, basic calculator, free calculator, arithmetic calculator, PEMDAS calculator, math calculator' },
+      { title: 'Basic Online Calculator (Free) — Standard Arithmetic & PEMDAS' },
+      {
+        name: 'description',
+        content:
+          'Free Basic Online Calculator & Standard Solver for addition, subtraction, multiplication, division, and PEMDAS order of operations with keyboard support.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'online calculator, basic calculator, standard calculator, standard solver, calc calculator, free calculator, arithmetic calculator, PEMDAS calculator, math calculator',
+      },
+      { property: 'og:title', content: 'Basic Online Calculator — Standard Arithmetic & PEMDAS | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/calculator' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: BasicPage,
@@ -33,6 +44,27 @@ const FAQS = [
 ]
 
 function BasicPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Basic Online Calculator & Standard Solver",
+    "alternateName": [
+      "Standard Calculator",
+      "Basic Calculator Online",
+      "Standard Solver",
+      "Calc Calculator",
+      "PEMDAS Calculator"
+    ],
+    "url": "https://thecalcpro.com/calculator",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +82,19 @@ function BasicPage() {
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Standard Calculator</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Standard Online Calculator
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Simple, fast, and responsive.
+          Fast, free basic arithmetic calculator and standard solver with keyboard shortcuts and history.
         </p>
       </div>
       <div className="flex justify-center">

@@ -5,9 +5,26 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/grapher')({
   head: () => ({
     meta: [
-      { title: 'Interactive Online Graphing Calculator — TheCalcPro' },
-      { name: 'description', content: 'Free interactive graphing calculator. Visualize mathematical functions, plot multiple equations simultaneously, detect asymptotes, and explore domain and range with a high-performance 2D renderer.' },
-      { name: 'keywords', content: 'graphing calculator, online plotter, function visualizer, plot math equations, interactive math graph, asymptote detector' },
+      { title: 'Graphing Calculator Online (Free) — Function Graph Plotter' },
+      {
+        name: 'description',
+        content:
+          'Free Graphing Calculator Online & Function Graph Plotter. Draw functions online, plot multiple equations simultaneously, detect asymptotes, and explore domain & range in 2D.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'graphing calculator, graphing calculator online, function graph plotter, graph plotter, graph drawer, draw function online, graph of function calculator, online graphing calculator, graphical calculator, graphing website, graph check',
+      },
+      { property: 'og:title', content: 'Graphing Calculator Online (Free) — Function Graph Plotter | TheCalcPro' },
+      {
+        property: 'og:description',
+        content:
+          'Free Graphing Calculator Online & Function Graph Plotter. Plot multiple equations, detect asymptotes, and zoom/pan in real time.',
+      },
+      { property: 'og:url', content: 'https://thecalcpro.com/grapher' },
+      { name: 'twitter:title', content: 'Graphing Calculator Online (Free) — Function Graph Plotter' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: GrapherPage,
@@ -36,12 +53,23 @@ function GrapherPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "TheCalcPro Graphing Visualizer",
+    "name": "Graphing Calculator Online & Function Graph Plotter",
+    "alternateName": [
+      "Graphing Calculator",
+      "Graphing Calculator Online",
+      "Function Graph Plotter",
+      "Graph Plotter",
+      "Graph Drawer",
+      "Draw Function Online",
+      "Graph of Function Calculator",
+      "Online Graphing Calculator",
+      "Graphical Calculator"
+    ],
     "operatingSystem": "All",
-    "applicationCategory": "MathApplication",
+    "applicationCategory": "EducationalApplication",
     "url": "https://thecalcpro.com/grapher",
-    "description": "High-performance interactive graphing tool for visualizing mathematical functions with asymptote detection and multi-equation support.",
-    "softwareVersion": "1.4.2",
+    "description": "Free online graphing calculator and function graph plotter for visualizing mathematical functions with asymptote detection and multi-equation support.",
+    "softwareVersion": "1.5.0",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -75,10 +103,10 @@ function GrapherPage() {
 
       <div className="mb-10 px-4 sm:px-0">
         <h1 className="text-4xl sm:text-5xl font-black mb-4 tracking-tight" style={{ color: 'var(--text-primary)' }}>
-          Function <span className="text-amber">Plotter</span>
+          Graphing Calculator Online &amp; <span className="text-amber">Function Plotter</span>
         </h1>
         <p className="text-sm sm:text-base max-w-2xl leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          A high-precision engine for exploring mathematical behaviors, intersections, and limits in real-time.
+          Free interactive online graphing calculator and function graph plotter — draw functions online, plot multiple equations, and explore intersections and asymptotes in real time.
         </p>
       </div>
 

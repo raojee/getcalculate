@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/percentage')({
   head: () => ({
     meta: [
-      { title: 'Percentage Calculator — Find %, Change & Difference | TheCalcPro' },
-      { name: 'description', content: 'Free online percentage calculator. Quickly find what percent one number is of another, calculate percentage change, percentage difference, and apply discounts or tax.' },
-      { name: 'keywords', content: 'percentage calculator, percent change calculator, percentage difference, discount calculator, tax calculator, what percent of' },
+      { title: 'Percentage Calculator Online (Free) — % Change & Difference' },
+      {
+        name: 'description',
+        content:
+          'Free Percentage Calculator Online. Instantly find what percent one number is of another, calculate percentage increase/decrease, percentage difference, and discounts.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'percentage calculator, percentage calculator online, percent change calculator, percentage difference calculator, discount calculator, tax calculator, what percent of calculator',
+      },
+      { property: 'og:title', content: 'Percentage Calculator Online (Free) — % Change & Difference | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/percentage' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: PercentagePage,
@@ -33,6 +44,26 @@ const FAQS = [
 ]
 
 function PercentagePage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Percentage Calculator Online",
+    "alternateName": [
+      "Percentage Calculator",
+      "Percent Change Calculator",
+      "Percentage Difference Calculator",
+      "Discount & Tax Calculator"
+    ],
+    "url": "https://thecalcpro.com/percentage",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +81,19 @@ function PercentagePage() {
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Percentage Calculator</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Percentage Calculator Online
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Quick tools for percentage of, change, and more.
+          Free online percentage calculator for finding % of a number, percentage change, and percentage difference.
         </p>
       </div>
       <PercentageCalculator />

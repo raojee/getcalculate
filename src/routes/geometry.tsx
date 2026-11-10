@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/geometry')({
   head: () => ({
     meta: [
-      { title: 'Interactive Geometry Solver & 3D Visualizer — TheCalcPro' },
-      { name: 'description', content: 'Free online geometry calculator. Calculate area, perimeter, volume, and surface area for circles, triangles, rectangles, cylinders, spheres, and cones with step-by-step KaTeX explanations and 3D models.' },
-      { name: 'keywords', content: 'geometry solver, area calculator, volume calculator, 3d shape visualizer, circle area, cylinder volume, surface area calculator' },
+      { title: 'Geometry & Volume Calculator (Free) — Sphere, Cylinder & 3D Solids' },
+      {
+        name: 'description',
+        content:
+          'Free Geometry & Volume Calculator: sphere volume calculator, cylinder volume, cone, area, perimeter & 3D geometric solids visualizer with step-by-step formulas.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'sphere volume calculator, volume of a sphere calculator, how to calculate sphere volume, cylinder volume calculator, geometric solids calculator, volumetric calculator, volume solver, geometry visualizer, geometry simulator, shape visualiser',
+      },
+      { property: 'og:title', content: 'Geometry & Volume Calculator — Sphere, Cylinder & 3D Solids | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/geometry' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: GeometryPage,
@@ -35,14 +46,24 @@ const FAQS = [
 function GeometryPage() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "AI Geometry Solver & Visualizer",
+    "@type": "SoftwareApplication",
+    "name": "Geometry & Volume Calculator (Sphere, Cylinder & 3D Solids)",
+    "alternateName": [
+      "Sphere Volume Calculator",
+      "Volume of a Sphere Calculator",
+      "Geometric Solids Calculator",
+      "Volumetric Calculator",
+      "Volume Solver",
+      "Geometry Visualizer",
+      "Geometry Simulator",
+      "Shape Visualiser"
+    ],
     "operatingSystem": "All",
     "applicationCategory": "EducationalApplication",
     "browserRequirements": "Requires JavaScript. Requires HTML5.",
     "url": "https://thecalcpro.com/geometry",
-    "description": "Calculate area, perimeter, volume, and surface area for standard shapes with step-by-step KaTeX explanations and responsive 3D visual models.",
-    "softwareVersion": "2.1.0",
+    "description": "Calculate sphere volume, cylinder volume, cone volume, area, perimeter, and surface area for 2D shapes and 3D geometric solids with step-by-step explanations.",
+    "softwareVersion": "2.2.0",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -76,10 +97,10 @@ function GeometryPage() {
       
       <div className="mb-10 px-4 sm:px-0">
         <h1 className="text-4xl sm:text-5xl font-black mb-4 tracking-tight" style={{ color: 'var(--text-primary)' }}>
-          Geometry <span className="text-amber">Visualizer</span>
+          Geometry &amp; <span className="text-amber">Volume Calculator</span>
         </h1>
         <p className="text-sm sm:text-base max-w-2xl leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          Analyze 2D and 3D primitives with real-time vector rendering and parametric recalculation.
+          Free sphere volume calculator, cylinder volume solver, and interactive 3D geometric solids visualizer with step-by-step formulas.
         </p>
       </div>
 
@@ -116,6 +137,15 @@ function GeometryPage() {
           In these formulas, <strong>r</strong> is the radius, <strong>h</strong> is the height, and
           <strong> π</strong> (pi) ≈ 3.14159. The solver handles all unit conversions internally, so you
           can enter measurements in centimeters, meters, inches, or feet.
+        </p>
+
+        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
+          How to Calculate Sphere Volume (Volume of a Sphere Formula)
+        </h3>
+        <p className="leading-relaxed">
+          To calculate the <strong>volume of a sphere</strong>, use the formula <strong>V = (4/3)πr³</strong>, where
+          <strong> r</strong> is the sphere&apos;s radius. For example, if a sphere has radius r = 3 cm, its volume is
+          V = (4/3) × π × 3³ = 36π ≈ <strong>113.10 cm³</strong>. Select <em>Sphere</em> in our volumetric calculator above to compute sphere volume and surface area (4πr²) instantly.
         </p>
 
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>

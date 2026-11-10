@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/trigonometry')({
   head: () => ({
     meta: [
-      { title: 'Trigonometry Solver — Sin, Cos, Tan & Unit Circle | TheCalcPro' },
-      { name: 'description', content: 'Free online trigonometry solver. Compute sine, cosine, tangent and their inverses in degrees or radians. Includes unit circle reference, SOH-CAH-TOA guide, and step-by-step trig calculations.' },
-      { name: 'keywords', content: 'trigonometry solver, sin cos tan calculator, unit circle calculator, inverse trig functions, SOH-CAH-TOA, radian to degree converter' },
+      { title: 'Trigonometry Calculator Online (Free) — Sin, Cos, Tan & Unit Circle' },
+      {
+        name: 'description',
+        content:
+          'Free Trigonometry Calculator Online. Compute sin, cos, tan, csc, sec, cot and inverse trig functions (arcsin, arccos, arctan) in degrees or radians with unit circle.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'trigonometry calculator, trigonometry solver, sin cos tan calculator, unit circle calculator, inverse trig calculator, SOH CAH TOA calculator, radian to degree converter',
+      },
+      { property: 'og:title', content: 'Trigonometry Calculator Online (Free) — Sin, Cos, Tan | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/trigonometry' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: TrigPage,
@@ -33,6 +44,26 @@ const FAQS = [
 ]
 
 function TrigPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Trigonometry Calculator Online (Sin, Cos, Tan & Unit Circle)",
+    "alternateName": [
+      "Trigonometry Calculator",
+      "Sin Cos Tan Calculator",
+      "Unit Circle Calculator",
+      "Trigonometry Solver"
+    ],
+    "url": "https://thecalcpro.com/trigonometry",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +81,19 @@ function TrigPage() {
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Trigonometry Solver</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Trigonometry Calculator Online — Sin, Cos, Tan &amp; Unit Circle
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Compute sine, cosine, tangent and their inverses with degrees or radians.
+          Free trigonometry calculator to compute sine, cosine, tangent, and inverse trig functions in degrees or radians.
         </p>
       </div>
       <TrigSolver />

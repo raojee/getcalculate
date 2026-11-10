@@ -5,9 +5,20 @@ import FAQSection from '@/components/ui/FAQSection'
 export const Route = createFileRoute('/probability')({
   head: () => ({
     meta: [
-      { title: 'Probability Calculator — Combinations (nCr) & Permutations (nPr) | TheCalcPro' },
-      { name: 'description', content: 'Free online probability calculator. Calculate combinations (nCr), permutations (nPr), and factorials with step-by-step formulas and real-world examples. Learn when order matters in counting problems.' },
-      { name: 'keywords', content: 'probability calculator, combinations calculator, permutations calculator, nCr calculator, nPr calculator, factorial calculator, counting principle' },
+      { title: 'Combinations (nCr) & Permutations (nPr) Calculator (Free)' },
+      {
+        name: 'description',
+        content:
+          'Free Probability, Combinations (nCr) & Permutations (nPr) Calculator. Compute combinations, permutations, and factorials with step-by-step formulas.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'probability calculator, combinations calculator, permutations calculator, nCr calculator, nPr calculator, factorial calculator, combinatorics calculator',
+      },
+      { property: 'og:title', content: 'Combinations (nCr) & Permutations (nPr) Calculator | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/probability' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: ProbabilityPage,
@@ -33,6 +44,27 @@ const FAQS = [
 ]
 
 function ProbabilityPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Combinations (nCr) & Permutations (nPr) Probability Calculator",
+    "alternateName": [
+      "Probability Calculator",
+      "Combinations Calculator",
+      "Permutations Calculator",
+      "nCr Calculator",
+      "nPr Calculator"
+    ],
+    "url": "https://thecalcpro.com/probability",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +82,19 @@ function ProbabilityPage() {
     <div className="max-w-4xl mx-auto px-4 py-10">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-4xl font-extrabold mb-2" style={{ color: 'var(--text-primary)' }}>Probability Solver</h1>
+        <h1 className="text-4xl font-extrabold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Probability, Combinations (nCr) &amp; Permutations (nPr) Calculator
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Calculate combinations and permutations instantly with professional formatting.
+          Free online probability calculator for combinations (nCr), permutations (nPr), and factorials.
         </p>
       </div>
       <ProbabilitySolver />

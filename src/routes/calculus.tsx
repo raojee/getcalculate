@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/calculus')({
   head: () => ({
     meta: [
-      { title: 'Derivative Calculator — Step-by-Step Differentiation | TheCalcPro' },
-      { name: 'description', content: 'Free online derivative calculator with step-by-step solutions. Differentiate functions using the power rule, product rule, quotient rule, and chain rule. Supports polynomials, trig, exponential, and log functions.' },
-      { name: 'keywords', content: 'derivative calculator, differentiation solver, calculus solver, power rule calculator, chain rule calculator, step by step derivative' },
+      { title: 'Derivative Calculator with Steps (Free) — Step-by-Step Differentiation' },
+      {
+        name: 'description',
+        content:
+          'Free Derivative Calculator with Steps & Differentiation Calculator with Steps. Differentiate functions using power, product, quotient, and chain rules step by step.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'derivative calculator with steps, step by step derivative calculator, differentiation calculator with steps, derivative calculator, differentiation solver, calculus solver, power rule calculator, chain rule calculator',
+      },
+      { property: 'og:title', content: 'Derivative Calculator with Steps — Step-by-Step Differentiation | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/calculus' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: CalculusPage,
@@ -33,6 +44,26 @@ const FAQS = [
 ]
 
 function CalculusPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Derivative Calculator with Steps",
+    "alternateName": [
+      "Step by Step Derivative Calculator",
+      "Differentiation Calculator with Steps",
+      "Derivative Calculator",
+      "Calculus Solver"
+    ],
+    "url": "https://thecalcpro.com/calculus",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +81,19 @@ function CalculusPage() {
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Calculus Solver</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Derivative Calculator with Steps
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Enter a function f(x) to find its derivative with respect to x.
+          Free step-by-step derivative calculator and differentiation solver — enter any function f(x) to compute its derivative with full rule breakdowns.
         </p>
       </div>
       <CalculusSolver />

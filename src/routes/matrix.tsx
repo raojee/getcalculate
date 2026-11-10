@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/matrix')({
   head: () => ({
     meta: [
-      { title: 'Matrix Calculator — Multiply, Determinant & Inverse | TheCalcPro' },
-      { name: 'description', content: 'Free online matrix calculator. Perform matrix addition, subtraction, multiplication, determinant calculation, and matrix inverse for 2×2 and 3×3 matrices with step-by-step solutions.' },
-      { name: 'keywords', content: 'matrix calculator, matrix multiplication, determinant calculator, matrix inverse, 2x2 matrix, 3x3 matrix, linear algebra calculator' },
+      { title: 'Matrix Calculator Online (Free) — Matrix Math & Matrices Solver' },
+      {
+        name: 'description',
+        content:
+          'Free Matrix Calculator Online & Matrix Math Calculator. Compute matrix multiplication, addition, subtraction, determinant, and inverse for 2×2 and 3×3 matrices step by step.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'matrix calculator, matrix math calculator, matrices calculator, matrix online calculator, matrix operation calculator, matrix finder, calculator for matrices, calculator matrix, matrix calculation, determinant calculator, matrix inverse',
+      },
+      { property: 'og:title', content: 'Matrix Calculator Online (Free) — Matrix Math & Matrices Solver | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/matrix' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: MatrixPage,
@@ -33,6 +44,29 @@ const FAQS = [
 ]
 
 function MatrixPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Matrix Calculator Online",
+    "alternateName": [
+      "Matrix Calculator",
+      "Matrix Math Calculator",
+      "Matrices Calculator",
+      "Matrix Online Calculator",
+      "Matrix Operation Calculator",
+      "Calculator for Matrices",
+      "Matrix Finder"
+    ],
+    "url": "https://thecalcpro.com/matrix",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +84,19 @@ function MatrixPage() {
     <div className="max-w-4xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Matrix Calculator</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Matrix Calculator Online — Matrix Math &amp; Matrices Solver
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Work with matrices up to 3x3 for various mathematical operations.
+          Free online matrix calculator for 2×2 and 3×3 matrices: multiplication, addition, subtraction, determinant, and inverse.
         </p>
       </div>
       <MatrixCalculator />

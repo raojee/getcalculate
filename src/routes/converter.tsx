@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/converter')({
   head: () => ({
     meta: [
-      { title: 'Unit Converter — Length, Weight, Temperature & More | TheCalcPro' },
-      { name: 'description', content: 'Free online unit converter. Instantly convert between units of length (meters, feet, inches), weight (kg, lbs), temperature (°C, °F, K), volume, speed, and more with precise conversion formulas.' },
-      { name: 'keywords', content: 'unit converter, length converter, weight converter, temperature converter, metric to imperial, kg to lbs, celsius to fahrenheit' },
+      { title: 'Unit Conversion Calculator Online (Free) — Metric & Imperial' },
+      {
+        name: 'description',
+        content:
+          'Free Online Unit Converter & Unit Conversion Calculator. Convert length (m, ft, in), weight (kg, lbs), temperature (°C, °F, K), volume, and speed instantly.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'unit converter, unit conversion, unit conversion calculator, metric to imperial converter, length converter, weight converter, temperature converter, kg to lbs, celsius to fahrenheit',
+      },
+      { property: 'og:title', content: 'Unit Conversion Calculator Online (Free) | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/converter' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: ConverterPage,
@@ -33,6 +44,25 @@ const FAQS = [
 ]
 
 function ConverterPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Unit Conversion Calculator Online",
+    "alternateName": [
+      "Unit Converter",
+      "Online Unit Conversion Tool",
+      "Metric to Imperial Unit Converter"
+    ],
+    "url": "https://thecalcpro.com/converter",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +80,19 @@ function ConverterPage() {
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Unit Converter</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Unit Converter &amp; Unit Conversion Calculator
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Convert values between various scientific and everyday units.
+          Instantly convert between metric, imperial, and scientific units of length, weight, temperature, and volume.
         </p>
       </div>
       <UnitConverter />

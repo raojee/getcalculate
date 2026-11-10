@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/statistics')({
   head: () => ({
     meta: [
-      { title: 'Advanced Statistics & Probability Calculator — TheCalcPro' },
-      { name: 'description', content: 'Free online statistics calculator. Instantly calculate mean, median, mode, standard deviation, variance, and distribution analysis. Supports bulk data pasting from Excel with automatic sanitization.' },
-      { name: 'keywords', content: 'statistics calculator, standard deviation calculator, mean median mode, data analysis tool, probability solver, variance calculator' },
+      { title: 'Mean, Median, Mode & Standard Deviation Calculator (Free)' },
+      {
+        name: 'description',
+        content:
+          'Free Mean, Median, Mode Calculator & Standard Deviation Calculator. Instantly compute mean, median, mode, sample/population variance, range, and frequency charts.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'mean median mode calculator, mean median mode finder, standard deviation calculator, statistics calculator, variance calculator, sample standard deviation calculator, population standard deviation',
+      },
+      { property: 'og:title', content: 'Mean, Median, Mode & Standard Deviation Calculator | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/statistics' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: StatisticsPage,
@@ -35,13 +46,20 @@ const FAQS = [
 function StatisticsPage() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "EducationalApplication",
-    "name": "TheCalcPro Statistics Engine",
+    "@type": "SoftwareApplication",
+    "name": "Mean, Median, Mode & Standard Deviation Calculator",
+    "alternateName": [
+      "Mean Median Mode Calculator",
+      "Mean Median Mode Finder",
+      "Standard Deviation Calculator",
+      "Statistics Calculator",
+      "Variance Calculator"
+    ],
     "operatingSystem": "All",
-    "applicationCategory": "StatisticsApplication",
+    "applicationCategory": "EducationalApplication",
     "url": "https://thecalcpro.com/statistics",
-    "description": "Professional-grade statistical analysis tool for processing datasets and visualizing frequency distributions.",
-    "softwareVersion": "1.0.5",
+    "description": "Free online mean, median, mode and standard deviation calculator with variance, range, and frequency distribution charts.",
+    "softwareVersion": "1.1.0",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -75,10 +93,10 @@ function StatisticsPage() {
 
       <div className="mb-10 px-4 sm:px-0">
         <h1 className="text-4xl sm:text-5xl font-black mb-4 tracking-tight" style={{ color: 'var(--text-primary)' }}>
-          Statistics <span className="text-amber">Engine</span>
+          Mean, Median, Mode &amp; <span className="text-amber">Standard Deviation Calculator</span>
         </h1>
         <p className="text-sm sm:text-base max-w-2xl leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          Robust dataset analysis for descriptive statistics, frequency distribution, and core variability metrics.
+          Free online mean, median, mode finder and statistics calculator — compute sample &amp; population standard deviation, variance, range, and frequency distribution.
         </p>
       </div>
 

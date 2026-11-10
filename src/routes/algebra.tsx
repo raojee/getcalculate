@@ -5,9 +5,20 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/algebra')({
   head: () => ({
     meta: [
-      { title: 'Algebra Solver with Steps — Linear & Quadratic Equations | TheCalcPro' },
-      { name: 'description', content: 'Free online algebra solver with step-by-step solutions for linear equations (ax + b = c) and quadratic equations (ax² + bx + c = 0). Includes factoring, the quadratic formula, and discriminant analysis.' },
-      { name: 'keywords', content: 'algebra solver, quadratic equation solver, linear equation solver, step by step algebra, factoring calculator, quadratic formula calculator' },
+      { title: 'Algebra & Quadratic Discriminant Calculator (Step-by-Step)' },
+      {
+        name: 'description',
+        content:
+          'Free Algebra Formula Solver & Quadratic Discriminant Calculator (D = b² − 4ac). Solve linear and quadratic equations step by step with discriminant analysis.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'algebra solver, algebra formula solver, quadratic equation solver, discriminant calculator, what is the discriminant of the quadratic equation, solving equations solver, linear equation solver, quadratic formula calculator',
+      },
+      { property: 'og:title', content: 'Algebra & Quadratic Discriminant Calculator (Step-by-Step) | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/algebra' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: AlgebraPage,
@@ -33,6 +44,27 @@ const FAQS = [
 ]
 
 function AlgebraPage() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Algebra & Quadratic Discriminant Calculator",
+    "alternateName": [
+      "Algebra Solver",
+      "Algebra Formula Solver",
+      "Quadratic Discriminant Calculator",
+      "Quadratic Equation Solver",
+      "Solving Equations Solver"
+    ],
+    "url": "https://thecalcpro.com/algebra",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,13 +82,19 @@ function AlgebraPage() {
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Algebra Solver</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+          Algebra Solver &amp; Quadratic Discriminant Calculator
+        </h1>
         <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Enter a linear or quadratic equation and get instant step-by-step solutions.
+          Free algebra formula solver for linear and quadratic equations with instant discriminant (D = b² − 4ac) and step-by-step solutions.
         </p>
       </div>
       <AlgebraSolver />
@@ -107,6 +145,24 @@ function AlgebraPage() {
           The solutions are x = 1 and x = −2.5. You can verify by substituting each value back into
           the original equation: 2(1)² + 3(1) − 5 = 2 + 3 − 5 = 0 ✓
         </p>
+
+        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
+          Worked Examples: Finding the Discriminant of a Quadratic Equation
+        </h3>
+        <ul className="list-disc pl-6 space-y-2 leading-relaxed">
+          <li>
+            <strong>What is the discriminant of −x² + x + 5 = 0?</strong> Here a = −1, b = 1, c = 5.
+            Using D = b² − 4ac: D = (1)² − 4(−1)(5) = 1 + 20 = <strong>21</strong>.
+          </li>
+          <li>
+            <strong>What is the discriminant of x² + 2x + 2 = 0?</strong> Here a = 1, b = 2, c = 2.
+            Using D = b² − 4ac: D = (2)² − 4(1)(2) = 4 − 8 = <strong>−4</strong> (two complex roots).
+          </li>
+          <li>
+            <strong>What is the discriminant of −x² + x − 3 = 0?</strong> Here a = −1, b = 1, c = −3.
+            Using D = b² − 4ac: D = (1)² − 4(−1)(−3) = 1 − 12 = <strong>−11</strong> (two complex roots).
+          </li>
+        </ul>
 
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
           Applications of Algebra

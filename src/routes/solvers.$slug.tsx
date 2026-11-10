@@ -28,9 +28,13 @@ export const Route = createFileRoute('/solvers/$slug')({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.title || 'Math Solver'} — Free Step-by-Step Solver` },
+      { title: `${loaderData?.title || 'Math Solver'} (Free) — Step-by-Step Calculator` },
       { name: 'description', content: loaderData?.description || '' },
       { name: 'keywords', content: loaderData?.keywords?.join(', ') || '' },
+      { property: 'og:title', content: `${loaderData?.title || 'Math Solver'} (Free) — Step-by-Step Calculator | TheCalcPro` },
+      { property: 'og:description', content: loaderData?.description || '' },
+      { property: 'og:url', content: `https://thecalcpro.com/solvers/${loaderData?.slug || ''}` },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: SolverPageComponent,
@@ -79,10 +83,11 @@ function SolverPageComponent() {
 
   const webAppSchema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
     "name": solver.schema.name,
+    "alternateName": solver.keywords || [],
     "operatingSystem": "All",
-    "applicationCategory": solver.schema.category,
+    "applicationCategory": "EducationalApplication",
     "url": `https://thecalcpro.com/solvers/${solver.slug}`,
     "description": solver.schema.description,
     "offers": {
