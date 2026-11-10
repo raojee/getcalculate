@@ -42,6 +42,7 @@ export const Route = createRootRoute({
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
       { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossOrigin: 'anonymous' },
+      { rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },
       { rel: 'dns-prefetch', href: 'https://pagead2.googlesyndication.com' },
       { rel: 'canonical', href: canonicalUrl },
       { rel: 'manifest', href: '/manifest.json' },
@@ -115,6 +116,22 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+
+        {/* Google Analytics (gtag.js) — G-ZQY8M8V2BM */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZQY8M8V2BM"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-ZQY8M8V2BM');
+            `,
+          }}
+        />
 
         {/* Ahrefs Web Analytics */}
         <script
