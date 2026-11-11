@@ -140,6 +140,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           async
         />
 
+        {/* Crazy Egg Tracking Script */}
+        <script
+          type="text/javascript"
+          src="//script.crazyegg.com/pages/scripts/0134/0893.js"
+          async
+        />
+
         {/* ── Non-blocking async font loading (eliminates render-block on 4G) ── */}
         <link
           rel="preload"
