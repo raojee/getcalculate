@@ -95,6 +95,24 @@ export default function LandingFooter() {
                 <Youtube size={16} stroke="currentColor" />
               </a>
             </div>
+
+            {/* Product Hunt Featured Badge */}
+            <div className="pt-2">
+              <a
+                href="https://www.producthunt.com/products/thecalcpro?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-thecalcpro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform duration-200 hover:scale-[1.02]"
+              >
+                <img
+                  alt="TheCalcPro - Free client-side math solver & graphing platform with steps | Product Hunt"
+                  width="250"
+                  height="54"
+                  loading="lazy"
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1318142&theme=dark&t=1794787735037"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Link Columns */}
