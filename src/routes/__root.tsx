@@ -73,7 +73,15 @@ export const Route = createRootRoute({
               '@type': 'WebSite',
               '@id': 'https://thecalcpro.com/#website',
               name: 'TheCalcPro',
-              alternateName: ['The Calc Pro', 'thecalcpro.com'],
+              alternateName: [
+                'The Calc Pro',
+                'thecalcpro.com',
+                'Calc Solver Pro',
+                'Solve Calc Pro',
+                'CalcPro',
+                'Calc Pro',
+                'Calculator Pro Online',
+              ],
               url: 'https://thecalcpro.com',
             },
             {

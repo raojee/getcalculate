@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/trigonometry')({
   head: () => ({
     meta: [
-      { title: 'Trigonometry Calculator Online (Free) — Sin, Cos, Tan & Unit Circle' },
+      { title: 'Trigonometry Calculator Online (Free) — Sin, Cos, Tan' },
       {
         name: 'description',
         content:

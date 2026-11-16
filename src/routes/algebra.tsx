@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/algebra')({
   head: () => ({
     meta: [
-      { title: 'Algebra & Quadratic Discriminant Calculator (Step-by-Step)' },
+      { title: 'Algebra & Discriminant Calculator (Free) — Step-by-Step' },
       {
         name: 'description',
         content:

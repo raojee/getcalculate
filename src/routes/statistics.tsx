@@ -5,18 +5,18 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/statistics')({
   head: () => ({
     meta: [
-      { title: 'Mean, Median, Mode & Standard Deviation Calculator (Free)' },
+      { title: 'Mean, Median, Mode & SD Calculator (Free)' },
       {
         name: 'description',
         content:
-          'Free Mean, Median, Mode Calculator & Standard Deviation Calculator. Instantly compute mean, median, mode, sample/population variance, range, and frequency charts.',
+          'Free Mean, Median, Mode Calculator, Median Finder & Standard Deviation Calculator. Compute central tendency, sample/population SD, RSD, and variance.',
       },
       {
         name: 'keywords',
         content:
-          'mean median mode calculator, mean median mode finder, standard deviation calculator, statistics calculator, variance calculator, sample standard deviation calculator, population standard deviation',
+          'mean median mode calculator, median calculator, mode calculator, find median calculator, mean and median calculator, average median mode calculator, central tendency calculator, standard deviation calculator, rsd calculator',
       },
-      { property: 'og:title', content: 'Mean, Median, Mode & Standard Deviation Calculator | TheCalcPro' },
+      { property: 'og:title', content: 'Mean, Median, Mode & SD Calculator (Free) | TheCalcPro' },
       { property: 'og:url', content: 'https://thecalcpro.com/statistics' },
       { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],

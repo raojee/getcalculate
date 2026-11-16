@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/equations')({
   head: () => ({
     meta: [
-      { title: 'System of Equations Solver (Free) — Step-by-Step Solutions' },
+      { title: 'System of Equations Solver (Free) — Step-by-Step' },
       {
         name: 'description',
         content:

@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/calculator')({
   head: () => ({
     meta: [
-      { title: 'Basic Online Calculator (Free) — Standard Arithmetic & PEMDAS' },
+      { title: 'Online Calculator (Free) — Basic Arithmetic & PEMDAS' },
       {
         name: 'description',
         content:

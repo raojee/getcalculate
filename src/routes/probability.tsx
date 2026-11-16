@@ -5,7 +5,7 @@ import FAQSection from '@/components/ui/FAQSection'
 export const Route = createFileRoute('/probability')({
   head: () => ({
     meta: [
-      { title: 'Combinations (nCr) & Permutations (nPr) Calculator (Free)' },
+      { title: 'Probability Calculator (Free) — nCr & nPr Solver' },
       {
         name: 'description',
         content:

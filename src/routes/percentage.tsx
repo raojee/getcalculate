@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/percentage')({
   head: () => ({
     meta: [
-      { title: 'Percentage Calculator Online (Free) — % Change & Difference' },
+      { title: 'Percentage Calculator Online (Free) — % Change & Diff' },
       {
         name: 'description',
         content:

@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/grapher')({
   head: () => ({
     meta: [
-      { title: 'Graphing Calculator Online (Free) — Function Graph Plotter' },
+      { title: 'Graphing Calculator Online (Free) — Function Plotter' },
       {
         name: 'description',
         content:

@@ -5,18 +5,18 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/geometry')({
   head: () => ({
     meta: [
-      { title: 'Geometry & Volume Calculator (Free) — Sphere, Cylinder & 3D Solids' },
+      { title: 'Volume & Geometry Calculator (Free) — 3D Solids & Area' },
       {
         name: 'description',
         content:
-          'Free Geometry & Volume Calculator: sphere volume calculator, cylinder volume, cone, area, perimeter & 3D geometric solids visualizer with step-by-step formulas.',
+          'Free Volume Calculator & Geometry Solver: calculate volume of a cylinder, sphere, tube/pipe, cone, ring, and irregular shapes with step-by-step formulas.',
       },
       {
         name: 'keywords',
         content:
-          'sphere volume calculator, volume of a sphere calculator, how to calculate sphere volume, cylinder volume calculator, geometric solids calculator, volumetric calculator, volume solver, geometry visualizer, geometry simulator, shape visualiser',
+          'volume calculator, volume of solid calculator, sphere volume calculator, cylinder volume calculator, volume of a tube, volume calculator tube, irregular shape volume calculator, capsule volume calculator, volume of a ring calculator, geometry simulator',
       },
-      { property: 'og:title', content: 'Geometry & Volume Calculator — Sphere, Cylinder & 3D Solids | TheCalcPro' },
+      { property: 'og:title', content: 'Volume & Geometry Calculator (Free) — 3D Solids & Area' },
       { property: 'og:url', content: 'https://thecalcpro.com/geometry' },
       { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
@@ -140,13 +140,25 @@ function GeometryPage() {
         </p>
 
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
-          How to Calculate Sphere Volume (Volume of a Sphere Formula)
+          How to Calculate Sphere, Tube (Pipe), Capsule &amp; Ring Volume
         </h3>
         <p className="leading-relaxed">
-          To calculate the <strong>volume of a sphere</strong>, use the formula <strong>V = (4/3)πr³</strong>, where
-          <strong> r</strong> is the sphere&apos;s radius. For example, if a sphere has radius r = 3 cm, its volume is
-          V = (4/3) × π × 3³ = 36π ≈ <strong>113.10 cm³</strong>. Select <em>Sphere</em> in our volumetric calculator above to compute sphere volume and surface area (4πr²) instantly.
+          Our <strong>volume calculator</strong> supports all standard and composite 3D geometric solids:
         </p>
+        <ul className="list-disc pl-6 space-y-2 leading-relaxed">
+          <li>
+            <strong>Sphere Volume:</strong> <code>V = (4/3)πr³</code> — For radius r = 3 cm, V = 36π ≈ <strong>113.10 cm³</strong>.
+          </li>
+          <li>
+            <strong>Tube / Pipe Volume (Hollow Cylinder):</strong> <code>V = π(R² − r²)h</code> — Subtract the inner radius squared (r²) from the outer radius squared (R²) and multiply by π and length h.
+          </li>
+          <li>
+            <strong>Capsule Volume:</strong> <code>V = πr²((4/3)r + a)</code> — Combines a cylinder of length <em>a</em> with two hemispherical ends of radius <em>r</em>.
+          </li>
+          <li>
+            <strong>Ring / Torus Volume:</strong> <code>V = 2π²Rr²</code> — Where <em>R</em> is the major radius (center of ring to center of tube) and <em>r</em> is the tube&apos;s cross-sectional radius.
+          </li>
+        </ul>
 
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
           Step-by-Step Example: Volume of a Cylinder

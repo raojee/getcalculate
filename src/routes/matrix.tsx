@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/matrix')({
   head: () => ({
     meta: [
-      { title: 'Matrix Calculator Online (Free) — Matrix Math & Matrices Solver' },
+      { title: 'Matrix Calculator Online (Free) — 2×2 & 3×3 Matrices' },
       {
         name: 'description',
         content:

@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/calculus')({
   head: () => ({
     meta: [
-      { title: 'Derivative Calculator with Steps (Free) — Step-by-Step Differentiation' },
+      { title: 'Derivative Calculator with Steps (Free) — d/dx Solver' },
       {
         name: 'description',
         content:

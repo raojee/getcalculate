@@ -5,7 +5,7 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/converter')({
   head: () => ({
     meta: [
-      { title: 'Unit Conversion Calculator Online (Free) — Metric & Imperial' },
+      { title: 'Unit Converter Online (Free) — Metric & Imperial' },
       {
         name: 'description',
         content:

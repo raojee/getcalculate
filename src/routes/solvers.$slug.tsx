@@ -27,17 +27,24 @@ export const Route = createFileRoute('/solvers/$slug')({
     if (!data) throw notFound()
     return data
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.title || 'Math Solver'} (Free) — Step-by-Step Calculator` },
-      { name: 'description', content: loaderData?.description || '' },
-      { name: 'keywords', content: loaderData?.keywords?.join(', ') || '' },
-      { property: 'og:title', content: `${loaderData?.title || 'Math Solver'} (Free) — Step-by-Step Calculator | TheCalcPro` },
-      { property: 'og:description', content: loaderData?.description || '' },
-      { property: 'og:url', content: `https://thecalcpro.com/solvers/${loaderData?.slug || ''}` },
-      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const baseTitle = loaderData?.title || 'Math Solver'
+    // Keep <title> concise (<= 60 chars) so Google never truncates it
+    const fullTitle = baseTitle.length <= 36
+      ? `${baseTitle} (Free) — Step-by-Step`
+      : `${baseTitle} (Free Online)`
+    return {
+      meta: [
+        { title: fullTitle },
+        { name: 'description', content: loaderData?.description || '' },
+        { name: 'keywords', content: loaderData?.keywords?.join(', ') || '' },
+        { property: 'og:title', content: `${baseTitle} | TheCalcPro` },
+        { property: 'og:description', content: loaderData?.description || '' },
+        { property: 'og:url', content: `https://thecalcpro.com/solvers/${loaderData?.slug || ''}` },
+        { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
+      ],
+    }
+  },
   component: SolverPageComponent,
 })
 
