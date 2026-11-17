@@ -1,6 +1,7 @@
 import { useTheme } from '@/context/ThemeContext'
 import { Link, useRouterState } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
+import { HeaderTelemetryPill } from '../ui/UserTelemetry'
 
 const SunIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -97,6 +98,8 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
       </div>
 
       <div className="flex items-center gap-3">
+        <HeaderTelemetryPill />
+
         {deferredPrompt && (
           <button
             onClick={handleInstallClick}

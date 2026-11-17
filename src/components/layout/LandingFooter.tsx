@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { Github, Facebook, Youtube } from 'lucide-react'
+import { FooterTelemetryStrip } from '../ui/UserTelemetry'
 
 const FOOTER_LINKS = {
   Tools: [
@@ -138,6 +139,9 @@ export default function LandingFooter() {
             </div>
           ))}
         </div>
+
+        {/* Live Environment & Client Telemetry Strip */}
+        <FooterTelemetryStrip />
 
         {/* Bottom Bar */}
         <div className="h-px w-full mb-8" style={{ background: 'var(--border)' }} />

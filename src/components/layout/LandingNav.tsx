@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { useTheme } from '@/context/ThemeContext'
 import SmartSearchBar from '../ui/SmartSearchBar'
+import { HeaderTelemetryPill } from '../ui/UserTelemetry'
 
 const SunIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -86,6 +87,8 @@ export default function LandingNav() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-3">
+          <HeaderTelemetryPill />
+
           <button
             onClick={toggleTheme}
             className="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95"

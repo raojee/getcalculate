@@ -4,6 +4,7 @@ import { Outlet, useLocation } from '@tanstack/react-router'
 import Sidebar from './Sidebar'
 import TopBar from './TopBar'
 import AdSlot from '../ui/AdSlot'
+import { FooterTelemetryStrip } from '../ui/UserTelemetry'
 
 export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -35,6 +36,9 @@ export default function AppLayout() {
            {/* Content */}
            <div className="relative z-10 p-4 md:p-8 flex-1">
              <Outlet />
+             <div className="max-w-5xl mx-auto mt-12">
+               <FooterTelemetryStrip />
+             </div>
            </div>
 
            {/* Workspace Bottom Ad Slot (Sticky) */}
