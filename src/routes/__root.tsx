@@ -99,6 +99,8 @@ export const Route = createRootRoute({
                 'https://github.com/raojee',
                 'https://www.facebook.com/profile.php?id=61590309694532',
                 'https://www.youtube.com/@Thecalcpro',
+                'https://thecalcpro.blogspot.com',
+                'https://www.producthunt.com/products/thecalcpro',
               ],
             },
             {
