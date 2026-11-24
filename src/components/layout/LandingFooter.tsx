@@ -95,6 +95,21 @@ export default function LandingFooter() {
               >
                 <Youtube size={16} stroke="currentColor" />
               </a>
+              <a
+                href="https://thecalcpro.blogspot.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TheCalcPro Official Blog on Blogger"
+                title="TheCalcPro Blog"
+                className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ background: 'var(--bg-surface-2)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#FF5722'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,87,34,0.35)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-secondary)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border)' }}
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19.5 10h-.75a.75.75 0 0 1-.75-.75V8.5A5.5 5.5 0 0 0 12.5 3h-4A5.5 5.5 0 0 0 3 8.5v7A5.5 5.5 0 0 0 8.5 21h7a5.5 5.5 0 0 0 5.5-5.5v-4A1.5 1.5 0 0 0 19.5 10Zm-11-2h4a1.25 1.25 0 0 1 0 2.5h-4a1.25 1.25 0 0 1 0-2.5Zm6.5 8h-6.5a1.25 1.25 0 0 1 0-2.5H15a1.25 1.25 0 0 1 0 2.5Z" />
+                </svg>
+              </a>
             </div>
 
             {/* Product Hunt Featured Badge */}
