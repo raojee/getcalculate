@@ -6,7 +6,10 @@ export const Route = createFileRoute('/privacy-policy')({
   head: () => ({
     meta: [
       { title: 'Privacy Policy | TheCalcPro' },
-      { name: 'description', content: 'Privacy Policy for TheCalcPro.' },
+      { name: 'description', content: 'Privacy Policy for TheCalcPro — 100% client-side calculation processing with zero personal equation data stored.' },
+      { property: 'og:title', content: 'Privacy Policy | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/privacy-policy' },
+      { name: 'robots', content: 'index, follow' },
     ],
   }),
   component: PrivacyPolicyPage,

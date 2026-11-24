@@ -7,7 +7,10 @@ export const Route = createFileRoute('/contact')({
   head: () => ({
     meta: [
       { title: 'Contact TheCalcPro — Get in Touch' },
-      { name: 'description', content: 'Have a question or feedback for TheCalcPro? Send us a message.' },
+      { name: 'description', content: 'Have a question, calculator request, or feedback for TheCalcPro? Contact our support and engineering team.' },
+      { property: 'og:title', content: 'Contact TheCalcPro — Support & Inquiries' },
+      { property: 'og:url', content: 'https://thecalcpro.com/contact' },
+      { name: 'robots', content: 'index, follow' },
     ],
   }),
   component: ContactPage,

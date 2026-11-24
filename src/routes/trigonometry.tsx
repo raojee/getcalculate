@@ -77,8 +77,21 @@ function TrigPage() {
     })),
   }
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thecalcpro.com" },
+      { "@type": "ListItem", "position": 2, "name": "Trigonometry Calculator Online", "item": "https://thecalcpro.com/trigonometry" }
+    ]
+  }
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 animate-fade-in">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}

@@ -4,6 +4,7 @@ import LandingNav from '../components/layout/LandingNav'
 import LandingFooter from '../components/layout/LandingFooter'
 import FAQSection from '../components/ui/FAQSection'
 import AdSlot from '../components/ui/AdSlot'
+import { solversData } from '../config/solversData'
 
 export const Route = createFileRoute('/')({
   head: () => ({
@@ -374,6 +375,40 @@ function HomePage() {
                   <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
                 </svg>
               </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Complete Specialized Solvers Directory (All 46 Programmatic Routes) ── */}
+      <section aria-label="All Specialized Calculators Directory" className="max-w-6xl mx-auto px-6 pt-16 pb-8">
+        <div className="text-center mb-10 space-y-2">
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber">Full Math &amp; Engineering Directory</span>
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            Specialized Step-by-Step Solvers
+          </h2>
+          <p className="max-w-xl mx-auto text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            Direct access to all {solversData.length} formula-verified calculators across Algebra, Calculus, Geometry, Statistics, Matrix, Finance, and Engineering.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {solversData.map(s => (
+            <Link
+              key={s.slug}
+              to="/solvers/$slug"
+              params={{ slug: s.slug }}
+              className="px-4 py-3 rounded-xl border transition-all hover:border-amber/40 flex items-center justify-between gap-2 group"
+              style={{ background: 'var(--bg-surface)', borderColor: 'var(--border)' }}
+            >
+              <div className="min-w-0">
+                <div className="text-xs font-bold truncate group-hover:text-amber transition-colors" style={{ color: 'var(--text-primary)' }}>
+                  {s.title}
+                </div>
+                <div className="text-[10px] truncate" style={{ color: 'var(--text-muted)' }}>
+                  {s.category}{s.formula ? ` • ${s.formula}` : ''}
+                </div>
+              </div>
+              <span className="text-amber text-xs opacity-60 group-hover:opacity-100 shrink-0">→</span>
             </Link>
           ))}
         </div>

@@ -5,14 +5,17 @@ export const Route = createFileRoute('/about')({
   head: () => ({
     meta: [
       { title: 'About TheCalcPro — Our Mission & Team' },
-      { name: 'description', content: 'Learn about TheCalcPro — the free, privacy-first math platform built for students, engineers, and professionals worldwide. No sign-up, no data collection.' },
+      { name: 'description', content: 'Learn about TheCalcPro (Calc Solver Pro) — the free, 100% client-side math and engineering platform built for students, teachers, and engineers worldwide.' },
+      { property: 'og:title', content: 'About TheCalcPro — Free Client-Side Math Platform' },
+      { property: 'og:url', content: 'https://thecalcpro.com/about' },
+      { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
   }),
   component: AboutPage,
 })
 
 const STATS = [
-  { value: '15+', label: 'Math Tools' },
+  { value: '60+', label: 'Math & Eng Tools' },
   { value: '100%', label: 'Free Forever' },
   { value: '0', label: 'Data Collected' },
   { value: '∞', label: 'Calculations' },
@@ -50,8 +53,23 @@ const TOOLS_HIGHLIGHT = [
 export default AboutPage
 
 function AboutPage() {
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': 'https://thecalcpro.com/about#webpage',
+    url: 'https://thecalcpro.com/about',
+    name: 'About TheCalcPro — Free Online Math & Calc Solver Pro Platform',
+    description: 'Learn about TheCalcPro, a free 100% client-side math and engineering platform with 60+ interactive calculators and step-by-step solvers.',
+    isPartOf: { '@id': 'https://thecalcpro.com/#website' },
+    about: { '@id': 'https://thecalcpro.com/#organization' },
+  }
+
   return (
     <div className="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
 
       {/* Hero */}
       <div className="text-center mb-20">

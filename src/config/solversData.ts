@@ -398,6 +398,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'triangle-area-calculator',
+    formula: 'A = ½ × b × h  |  Heron: A = √(s(s−a)(s−b)(s−c))',
     title: 'Triangle Area Calculator',
     subtitle: 'Compute triangle area from base, height, or all three sides',
     description: 'Calculate the area of any triangle using base-height, Heron\'s formula, or trigonometric methods with full step-by-step working.',
@@ -463,6 +464,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'sector-area-calculator',
+    formula: 'A = (θ/360°) × πr²  |  A = ½r²θ (rad)',
     title: 'Sector Area Calculator',
     subtitle: 'Area and arc length of any circle sector',
     description: 'Compute the area of a sector and its arc length from radius and central angle in degrees or radians.',
@@ -506,6 +508,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'confidence-interval-calculator',
+    formula: 'CI = x̄ ± z × (s / √n)',
     title: 'Confidence Interval Calculator',
     subtitle: 'Compute 90%, 95%, or 99% confidence intervals',
     description: 'Enter sample mean, standard deviation, and sample size to get the confidence interval for any significance level.',
@@ -571,6 +574,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'definite-integral-calculator',
+    formula: '∫[a,b] f(x) dx = F(b) − F(a)',
     title: 'Definite Integral Calculator',
     subtitle: 'Evaluate definite integrals with bounds',
     description: 'Compute the definite integral of a function over a closed interval [a, b] using the Fundamental Theorem of Calculus.',
@@ -592,6 +596,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'percentage-difference-calculator',
+    formula: '% Diff = |A − B| / ((A + B) / 2) × 100%',
     title: 'Percentage Difference Calculator',
     subtitle: 'Find the % difference between two values',
     description: 'Calculate the absolute percentage difference between two numbers and distinguish it from percentage change.',
@@ -635,6 +640,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'rectangular-prism-volume-calculator',
+    formula: 'V = l × w × h  |  SA = 2(lw + lh + wh)',
     title: 'Rectangular Prism Volume Calculator',
     subtitle: 'Volume and surface area of any box or cuboid',
     description: 'Enter length, width, and height to compute volume, total surface area, and diagonal of a rectangular prism.',
@@ -656,6 +662,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'pyramid-volume-calculator',
+    formula: 'V = (1/3) × B × h',
     title: 'Pyramid Volume Calculator',
     subtitle: 'Volume and surface area of square and rectangular pyramids',
     description: 'Compute pyramid volume using V = ⅓Bh and lateral surface area for any square or rectangular base pyramid.',
@@ -699,6 +706,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'system-of-equations-solver',
+    formula: 'a₁x + b₁y = c₁, a₂x + b₂y = c₂  (x = Dₓ/D, y = Dᵧ/D)',
     title: 'System of Linear Equations Solver',
     subtitle: 'Solve 2×2 and 3×3 linear systems',
     description: 'Solve systems of 2 or 3 linear equations using substitution, elimination, or Cramer\'s Rule with step-by-step output.',
@@ -720,6 +728,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'logarithm-calculator',
+    formula: 'log_b(x) = y  ⇔  bʸ = x  |  log_b(x) = ln(x) / ln(b)',
     title: 'Logarithm Calculator',
     subtitle: 'Evaluate log, ln, and log base n of any number',
     description: 'Calculate common log (base 10), natural log (base e), and custom base logarithms with change-of-base working shown.',
@@ -741,6 +750,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'limit-calculator',
+    formula: 'lim(x→c) f(x) = L',
     title: 'Limit Calculator',
     subtitle: 'Evaluate limits as x approaches any value or infinity',
     description: 'Compute one-sided and two-sided limits, detect indeterminate forms, and apply L\'Hôpital\'s rule automatically.',
@@ -762,6 +772,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'percentage-change-calculator',
+    formula: '% Change = ((New − Old) / |Old|) × 100%',
     title: 'Percentage Change Calculator',
     subtitle: 'Calculate % increase or decrease between two values',
     description: 'Find the percentage increase or decrease from an original value to a new value, with reverse calculation support.',
@@ -805,6 +816,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'exponent-calculator',
+    formula: 'xⁿ  |  x⁻ⁿ = 1/xⁿ  |  x^(p/q) = ᵍ√(xᵖ)',
     title: 'Exponent Calculator',
     subtitle: 'Evaluate powers, roots, and scientific notation',
     description: 'Calculate any base raised to any exponent — including negative, fractional, and decimal exponents — with law-of-exponents working.',
@@ -826,6 +838,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'polynomial-factoring-calculator',
+    formula: 'a² − b² = (a − b)(a + b)  |  ax² + bx + c = a(x − r₁)(x − r₂)',
     title: 'Polynomial Factoring Calculator',
     subtitle: 'Factor polynomials step-by-step',
     description: 'Find the greatest common factor (GCF), factor trinomials, and use difference of squares to fully factor any polynomial.',
@@ -913,6 +926,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'partial-derivative-calculator',
+    formula: '∂f/∂x = lim(h→0) [f(x+h, y) − f(x, y)] / h',
     title: 'Partial Derivative Calculator',
     subtitle: 'Compute partial derivatives of multivariable functions',
     description: 'Find the first and second-order partial derivatives of functions with two or more variables, treating other variables as constants.',
@@ -934,6 +948,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'inflection-points-calculator',
+    formula: 'd²f/dx² = 0 with concavity sign change',
     title: 'Inflection Points Calculator',
     subtitle: 'Find points where the concavity changes',
     description: 'Determine the inflection points of a curve by finding where the second derivative equals zero or is undefined.',
@@ -955,6 +970,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'surface-area-triangular-prism',
+    formula: 'SA = b×h + (s₁ + s₂ + s₃)×L',
     title: 'Triangular Prism Surface Area Calculator',
     subtitle: 'Calculate total area of a prism with triangular bases',
     description: 'Compute the total surface area and volume of a triangular prism using base lengths, heights, and prism length.',
@@ -976,6 +992,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'volume-oblique-cylinder',
+    formula: 'V = πr²h (Cavalieri Principle)',
     title: 'Oblique Cylinder Volume Calculator',
     subtitle: 'Calculate volume and area of slanted cylinders',
     description: 'Compute the volume and surface area of an oblique (slanted) cylinder given radius, perpendicular height, and slant angle.',
@@ -997,6 +1014,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'matrix-inverse-calculator',
+    formula: 'A⁻¹ = (1 / det(A)) × adj(A)',
     title: 'Matrix Inverse Calculator',
     subtitle: 'Find the inverse of 2x2, 3x3, and larger matrices',
     description: 'Calculate the inverse of a square matrix using the adjugate method or Gaussian elimination with step-by-step matrix row operations.',
@@ -1018,6 +1036,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'eigenvalue-calculator',
+    formula: 'det(A − λI) = 0',
     title: 'Eigenvalue Calculator',
     subtitle: 'Find eigenvalues and eigenvectors for matrices',
     description: 'Compute the characteristic polynomial, eigenvalues, and eigenvectors of square matrices for linear algebra analysis.',
@@ -1039,6 +1058,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'probability-distribution-calculator',
+    formula: 'Binomial: P(X=k) = C(n,k)pᵏ(1−p)ⁿ⁻ᵏ  |  Poisson: P(X=k) = (λᵏe⁻λ)/k!',
     title: 'Probability Distribution Calculator',
     subtitle: 'Normal, Binomial, and Poisson probability metrics',
     description: 'Calculate probabilities, expected values, and variances for standard discrete and continuous probability distributions.',
@@ -1060,6 +1080,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'rational-equation-solver',
+    formula: 'P(x) / Q(x) = R(x) / S(x),  Q(x), S(x) ≠ 0',
     title: 'Rational Equation Solver',
     subtitle: 'Solve equations containing fractions with variables',
     description: 'Solve rational equations by finding the least common denominator, eliminating fractions, and checking for extraneous solutions.',
@@ -1081,6 +1102,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'absolute-value-equation-solver',
+    formula: '|ax + b| = c  ⇒  ax + b = c  or  ax + b = −c',
     title: 'Absolute Value Equation Solver',
     subtitle: 'Solve equations involving absolute values',
     description: 'Solve equations of the form |ax + b| = c by breaking them into two separate equations and finding all possible solutions.',
@@ -1102,6 +1124,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'simpsons-rule-calculator',
+    formula: '∫[a,b] f(x)dx ≈ (Δx/3)[f(x₀) + 4f(x₁) + 2f(x₂) + … + f(xₙ)]',
     title: 'Simpson\'s Rule Calculator',
     subtitle: 'Approximate definite integrals numerically',
     description: 'Use Simpson\'s 1/3 Rule or the Trapezoidal Rule to approximate the area under a curve using numerical integration techniques.',
@@ -1123,6 +1146,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'critical-points-calculator',
+    formula: 'df/dx = 0 or undefined',
     title: 'Critical Points Calculator',
     subtitle: 'Find local maxima, minima, and saddle points',
     description: 'Determine the critical points of a function by finding where the first derivative is zero or undefined, and classify them using the first derivative test.',
@@ -1144,6 +1168,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'solar-panel-calculator',
+    formula: 'System kW = Daily kWh / (Peak Sun Hours × 0.80)',
     title: 'Solar Panel Calculator',
     subtitle: 'Estimate system size, savings, and payback period',
     description: 'Calculate solar panel system size (kW), annual kWh production, 25-year lifecycle savings, and payback period using real irradiance and efficiency coefficients.',
@@ -1221,6 +1246,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'electric-load-calculator',
+    formula: 'Total Amps = NEC Demand VA / Voltage (240V)',
     title: 'Electric Load Calculator',
     subtitle: 'NEC demand-factor electrical load analysis',
     description: 'Calculate total electrical load in watts and amperes using NEC Article 220 demand factors for general lighting, HVAC, small appliances, and large loads.',
@@ -1300,6 +1326,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'concrete-slab-calculator',
+    formula: 'Cubic Yards = (L × W × Thickness_ft) / 27 × 1.10',
     title: 'Concrete Slab Calculator',
     subtitle: 'Cubic yards, bags, and cost for any concrete pour',
     description: 'Calculate concrete volume in cubic yards and cubic feet, number of 60 lb or 80 lb bags required, and total material cost for slabs, footings, and columns.',
@@ -1374,6 +1401,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'cash-on-cash-calculator',
+    formula: 'CoC Return = (Annual Pre-Tax Cash Flow / Total Cash Invested) × 100%',
     title: 'Cash-on-Cash Return Calculator',
     subtitle: 'Analyze rental property investment yield',
     description: 'Calculate cash-on-cash return, net operating income (NOI), cap rate, and annual cash flow for rental properties using actual cash invested and pre-tax income.',
@@ -1453,6 +1481,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'tdee-calculator',
+    formula: 'TDEE = BMR × Activity Multiplier  (Mifflin-St Jeor)',
     title: 'TDEE Calculator',
     subtitle: 'Total Daily Energy Expenditure with Mifflin-St Jeor',
     description: 'Calculate BMR using the Mifflin-St Jeor equation and multiply by your NEAT activity multiplier to get TDEE — your total daily calorie burn for weight management.',
@@ -1534,6 +1563,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'sleep-calculator',
+    formula: 'Wake Time = Bedtime + 15 min + (90 min × N cycles)',
     title: 'Sleep Time Calculator',
     subtitle: 'Optimal Sleep Cycle Finder',
     description: 'Calculate the perfect time to go to bed or wake up. Optimize your 90-minute sleep cycles to wake up feeling refreshed and eliminate morning grogginess.',
@@ -1569,6 +1599,7 @@ export const solversData: SolverConfig[] = [
   },
   {
     slug: 'fire-calculator',
+    formula: 'FIRE Number = Annual Expenses × 25  (4% Safe Withdrawal Rate)',
     title: 'FIRE Calculator',
     subtitle: 'Compound Interest & Early Retirement Planner',
     description: 'Plan your early retirement with our free FIRE calculator. Project compound interest, calculate your 4% safe withdrawal rate, and find your financial independence number.',

@@ -106,7 +106,10 @@ function SolverPageComponent() {
     }))
   }
 
-  // Map solver types to lazy-loaded components
+  // Related calculators in the same category or solver type for internal PageRank & GEO discovery
+  const relatedSolvers = solversData
+    .filter(s => s.slug !== solver.slug && (s.category === solver.category || s.type === solver.type))
+    .slice(0, 8)
   const renderSolver = () => {
     return (() => {
       switch (solver.type) {
@@ -247,6 +250,33 @@ function SolverPageComponent() {
          <AdSlot format="rectangle" />
       </div>
 
+      {/* Core Mathematical Formula Box (GEO & Featured Snippet Magnet) */}
+      {solver.formula && (
+        <section aria-label="Core Formula" className="mb-12 p-6 rounded-3xl border" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border)' }}>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-amber block mb-1">
+                Core Mathematical Formula
+              </span>
+              <h2 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
+                {solver.title} Equation
+              </h2>
+            </div>
+            <code
+              className="px-4 py-2.5 rounded-2xl font-mono text-sm sm:text-base font-bold text-amber"
+              style={{ background: 'var(--bg-surface-2)', border: '1px solid rgba(255,157,46,0.25)' }}
+            >
+              {solver.formula}
+            </code>
+          </div>
+          {solver.overview && (
+            <p className="mt-4 text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              {solver.overview}
+            </p>
+          )}
+        </section>
+      )}
+
       {/* pSEO Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
@@ -296,6 +326,38 @@ function SolverPageComponent() {
            </div>
         </div>
       </div>
+
+      {/* Related Solvers Directory — Eliminates Orphan Pages & Passes Internal PageRank */}
+      {relatedSolvers.length > 0 && (
+        <section aria-label="Related Calculators" className="mt-16 pt-12 border-t" style={{ borderColor: 'var(--border)' }}>
+          <div className="mb-6">
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-amber">
+              Explore More in {solver.category}
+            </span>
+            <h2 className="text-xl font-black uppercase tracking-tight mt-1" style={{ color: 'var(--text-primary)' }}>
+              Related {solver.category} Calculators &amp; Solvers
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {relatedSolvers.map(rel => (
+              <Link
+                key={rel.slug}
+                to="/solvers/$slug"
+                params={{ slug: rel.slug }}
+                className="p-4 rounded-2xl border transition-all hover:border-amber/40 group"
+                style={{ background: 'var(--bg-surface)', borderColor: 'var(--border)' }}
+              >
+                <h3 className="text-xs font-bold mb-1 group-hover:text-amber transition-colors" style={{ color: 'var(--text-primary)' }}>
+                  {rel.title}
+                </h3>
+                <p className="text-[11px] line-clamp-2 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  {rel.subtitle}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* CLS-Stable Ad Slot Placeholder */}
       <div className="mt-20 flex justify-center">

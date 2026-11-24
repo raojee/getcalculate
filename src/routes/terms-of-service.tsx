@@ -6,7 +6,10 @@ export const Route = createFileRoute('/terms-of-service')({
   head: () => ({
     meta: [
       { title: 'Terms of Service | TheCalcPro' },
-      { name: 'description', content: 'Terms of Service for TheCalcPro.' },
+      { name: 'description', content: 'Terms of Service and educational use disclaimers for TheCalcPro online math and engineering calculators.' },
+      { property: 'og:title', content: 'Terms of Service | TheCalcPro' },
+      { property: 'og:url', content: 'https://thecalcpro.com/terms-of-service' },
+      { name: 'robots', content: 'index, follow' },
     ],
   }),
   component: TermsOfServicePage,
