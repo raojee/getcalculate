@@ -5,18 +5,18 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/calculator')({
   head: () => ({
     meta: [
-      { title: 'Online Calculator (Free) — Basic Arithmetic & PEMDAS' },
+      { title: 'Online Calculator & Math Solver (Free) — PEMDAS & History' },
       {
         name: 'description',
         content:
-          'Free Basic Online Calculator & Standard Solver for addition, subtraction, multiplication, division, and PEMDAS order of operations with keyboard support.',
+          'Free Online Calculator & Calc Solver Pro for fast arithmetic, PEMDAS order of operations, percentages, and calculation history tape with keyboard shortcuts.',
       },
       {
         name: 'keywords',
         content:
-          'online calculator, basic calculator, standard calculator, standard solver, calc calculator, free calculator, arithmetic calculator, PEMDAS calculator, math calculator',
+          'online calculator, calc solver pro, solve calc pro, basic calculator, standard calculator, pemdas calculator, calc calculator, free calculator, math solver',
       },
-      { property: 'og:title', content: 'Basic Online Calculator — Standard Arithmetic & PEMDAS | TheCalcPro' },
+      { property: 'og:title', content: 'Online Calculator & Math Solver (Free) — PEMDAS & History | TheCalcPro' },
       { property: 'og:url', content: 'https://thecalcpro.com/calculator' },
       { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],
@@ -89,13 +89,27 @@ function BasicPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="mb-8 text-center">
+      <div className="mb-6 text-center">
         <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
-          Standard Online Calculator
+          Standard Online Calculator &amp; PEMDAS Solver
         </h1>
-        <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-          Fast, free basic arithmetic calculator and standard solver with keyboard shortcuts and history.
+        <p className="text-sm mb-4" style={{ color: 'var(--text-secondary)' }}>
+          Fast, free online calculator and math solver with PEMDAS order of operations, keyboard shortcuts, and history.
         </p>
+        <nav aria-label="Quick tool switcher" className="flex flex-wrap justify-center gap-2 text-xs">
+          <a href="/scientific" className="px-3 py-1 rounded-full glass hover:border-amber/40 transition-colors" style={{ color: 'var(--text-secondary)' }}>
+            Scientific Calculator →
+          </a>
+          <a href="/algebra" className="px-3 py-1 rounded-full glass hover:border-amber/40 transition-colors" style={{ color: 'var(--text-secondary)' }}>
+            Algebra Solver →
+          </a>
+          <a href="/calculus" className="px-3 py-1 rounded-full glass hover:border-amber/40 transition-colors" style={{ color: 'var(--text-secondary)' }}>
+            Calculus Solver →
+          </a>
+          <a href="/grapher" className="px-3 py-1 rounded-full glass hover:border-amber/40 transition-colors" style={{ color: 'var(--text-secondary)' }}>
+            Graphing Calculator →
+          </a>
+        </nav>
       </div>
       <div className="flex justify-center">
         <StandardCalculator />

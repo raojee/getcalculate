@@ -8,8 +8,8 @@ import AdSlot from '../components/ui/AdSlot'
 export const Route = createFileRoute('/')({
   head: () => ({
     meta: [
-      { title: 'TheCalcPro — Free Online Math Platform' },
-      { name: 'description', content: 'Free all-in-one math solving platform with step-by-step solutions, interactive graphing, and precision tools — 100% client-side, no sign-up required.' },
+      { title: 'TheCalcPro — Free Online Math & Calc Solver Pro Platform' },
+      { name: 'description', content: 'TheCalcPro (Calc Solver Pro) is a free all-in-one online math solver platform with step-by-step Calculus Solver, Algebra Solver, Scientific Calculator, and interactive graphing — 100% client-side.' },
     ],
   }),
   component: HomePage,

@@ -5,18 +5,18 @@ import FAQSection from '../components/ui/FAQSection'
 export const Route = createFileRoute('/algebra')({
   head: () => ({
     meta: [
-      { title: 'Algebra & Discriminant Calculator (Free) — Step-by-Step' },
+      { title: 'Algebra Solver & Quadratic Calculator (Free Step-by-Step)' },
       {
         name: 'description',
         content:
-          'Free Algebra Formula Solver & Quadratic Discriminant Calculator (D = b² − 4ac). Solve linear and quadratic equations step by step with discriminant analysis.',
+          'Free Algebra Solver & Quadratic Equation Calculator with Steps. Solve linear equations, quadratic formula roots, and discriminant (D = b² − 4ac) step by step.',
       },
       {
         name: 'keywords',
         content:
-          'algebra solver, algebra formula solver, quadratic equation solver, discriminant calculator, what is the discriminant of the quadratic equation, solving equations solver, linear equation solver, quadratic formula calculator',
+          'algebra solver, algebra calculator, algebra formula solver, quadratic equation solver, discriminant calculator, quadratic solution finder, solving equations solver, linear equation solver',
       },
-      { property: 'og:title', content: 'Algebra & Quadratic Discriminant Calculator (Step-by-Step) | TheCalcPro' },
+      { property: 'og:title', content: 'Algebra Solver & Quadratic Calculator (Free Step-by-Step) | TheCalcPro' },
       { property: 'og:url', content: 'https://thecalcpro.com/algebra' },
       { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     ],

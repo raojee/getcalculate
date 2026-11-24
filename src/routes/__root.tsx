@@ -19,14 +19,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'TheCalcPro — Free Online Math Platform' },
+      { title: 'TheCalcPro — Free Online Math & Calc Solver Pro Platform' },
       {
         name: 'description',
         content:
-          'TheCalcPro is a free all-in-one math platform with Algebra Solver, Trigonometry, Calculus, Equation Solver, Graph Plotter, Matrix Calculator and more. Step-by-step solutions.',
+          'TheCalcPro (Calc Solver Pro) is a free all-in-one online math solver and calculator platform with Calculus Solver, Algebra Solver, Scientific Calculator, Graphing, Matrix & step-by-step solutions.',
       },
-      { name: 'keywords', content: 'calculator, algebra solver, calculus, trigonometry, equation solver, graph plotter, matrix calculator, math solver, online calculator' },
-      { property: 'og:title', content: 'TheCalcPro — Free Online Math Platform' },
+      { name: 'keywords', content: 'calc solver pro, solve calc pro, thecalcpro, calculus solver, algebra solver, scientific calculator online, graphing calculator, matrix calculator, math solver, online calculator' },
+      { property: 'og:title', content: 'TheCalcPro — Free Online Math & Calc Solver Pro Platform' },
       { property: 'og:site_name', content: 'TheCalcPro' },
       { property: 'og:description', content: 'Free all-in-one math platform. Algebra, Calculus, Trigonometry, Graphing, Matrix and more with step-by-step solutions.' },
       { property: 'og:type', content: 'website' },
